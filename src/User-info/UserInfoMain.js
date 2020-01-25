@@ -16,7 +16,6 @@ export default class UserInfo extends Component {
                 <PastWorkouts />
                 <TotalPizzaEarned />
                 <UserStats />
-                test
             </div>
         )
         }

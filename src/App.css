@@ -1,26 +1,29 @@
-@import url('https://fonts.googleapis.com/css?family=Bangers&display=swap');
+@import url("https://fonts.googleapis.com/css?family=Bangers&display=swap");
 
-@import url('https://fonts.googleapis.com/css?family=Neuton&display=swap');
+@import url("https://fonts.googleapis.com/css?family=Neuton&display=swap");
 
 * {
   box-sizing: border-box;
 }
 
 body {
-  font-family: 'Neuton', serif;
+  font-family: "Neuton", serif;
   font-size: 25px;
   color: #444;
   text-align: center;
   line-height: 1.5;
 }
 
-h1, h2 {
-  font-family: 'Bangers', cursive;
+h1,
+h2,
+h3,
+h4 {
+  font-family: "Bangers", cursive;
 }
 
 nav,
 footer {
-  font-family: 'Bangers', cursive;
+  font-family: "Bangers", cursive;
   padding: 1% 0;
   background-color: #aaa;
 }
@@ -39,7 +42,7 @@ nav {
 }
 
 #subtag {
-  font-family: 'Neuton', serif;
+  font-family: "Neuton", serif;
   font-size: small;
   margin-top: -3%;
 }
