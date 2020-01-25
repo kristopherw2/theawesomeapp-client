@@ -2,22 +2,24 @@ import React from 'react';
 import { Component } from 'react';
 import Nav from '../Components/Nav/Nav';
 import CompareWorkouts from './ComapreWorkouts';
-import PastWorkouts from './PastWorkouts';
+import PastWorkouts from '../PastWorkouts/PastWorkouts';
 import TotalPizzaEarned from './TotalPizzaEarned'
-import UserStats from './UserStats'
+import UserStats from './UserStats/UserStats'
 
 
-export default class UserInfo extends Component {
+class UserInfo extends Component {
     render() {
         return (
             <div>
                 <Nav />
                 <CompareWorkouts />
-                <PastWorkouts />
                 <TotalPizzaEarned />
                 <UserStats />
+                <PastWorkouts />
                 test
             </div>
         )
         }
 }
+
+export default UserInfo
