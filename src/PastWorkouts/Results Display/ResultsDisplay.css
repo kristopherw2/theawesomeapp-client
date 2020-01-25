@@ -8,9 +8,16 @@
 	vertical-align: baseline;
 }
 
+
+
 .resultsList {
     border: 1px solid black;
     width: 33%;
     margin: 3px 0 0 10px;
     text-align: left;
+    padding-left: 3px;
+}
+
+ul:first{
+    margin-top: 1.5rem;
 }
