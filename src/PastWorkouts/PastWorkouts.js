@@ -2,8 +2,8 @@ import React from "react";
 import "../App.css";
 import {Component} from "react";
 import ResultsDisplay from "./ResultsDisplay";
-import Nav from "../Nav/Nav";
-import Footer from "../Footer/Footer";
+import Nav from "../Components/Nav/Nav";
+import Footer from "../Components/Footer/Footer";
 
 class PastWorkouts extends Component {
   render() {
