@@ -27,6 +27,7 @@ body {
   padding-bottom: 30px;
   padding-left: 450px;
   padding-right: 450px;
+  border-bottom: 1px solid red;
 }
 
 .btn {
