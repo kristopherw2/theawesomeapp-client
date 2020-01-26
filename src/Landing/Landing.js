@@ -1,18 +1,18 @@
 import React from "react";
 import "./Landing.css";
-import '../App.css'
+import "../App.css";
 import Nav from "../Components/Nav/Nav";
 import Footer from "../Components/Footer/Footer";
 import {Component} from "react";
 import {Link} from "react-router-dom";
 
 class Landing extends Component {
-
   render() {
     return (
       <div className='Landing'>
         <Nav />
-        <section>
+
+        <section className='body'>
           <p>
             Since the dawn of time pizza and fitness have been at odds. Pizza
             with its heavy amounts of grease, bread, cheese, and fat. While
@@ -25,9 +25,7 @@ class Landing extends Component {
             understandable, result:
           </p>
 
-          <p>
-            <b>Slices of delicious pizza</b>.
-          </p>
+          <p id='cowabunga'>Slices of delicious pizza</p>
 
           <p>
             Ok, not actually real pizza, but it will tell you, based off your
@@ -40,13 +38,19 @@ class Landing extends Component {
             Because, c’mon, isn’t that really all you want to know from a
             fitness tracker?
           </p>
+        </section>
 
+        <section className='btn-ctn'>
           <Link to={"/login"}>
-            <button>Login</button>
+            <button className='btn' id='login'>
+              Login
+            </button>
           </Link>
-
+          
           <Link to={"/createuser"}>
-            <button>Create User</button>
+            <button className='btn' id='createuser'>
+              Create User
+            </button>
           </Link>
         </section>
 
