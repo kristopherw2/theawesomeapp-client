@@ -1,8 +1,9 @@
 import React from "react";
 import "./App.css";
 import {Component} from "react";
-//import PastWorkouts from "./PastWorkouts/PastWorkouts";
-import UserInfo from './User-info/UserInfoMain'
+import UserInfo from "./User-info/UserInfoMain";
+
+
 
 class App extends Component {
   render() {
