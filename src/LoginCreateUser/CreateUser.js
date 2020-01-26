@@ -7,7 +7,7 @@ class CreateUser extends Component {
     return (
       <div>
         <h3>Create User</h3>
-        <form className='create_user' onSubmit={}>
+        <form className='create_user'>
           <p>Username:</p>
           <input type='text' />
           <p>Password:</p>

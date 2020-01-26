@@ -41,10 +41,10 @@ nav {
   z-index: 10;
 }
 
-#subtag {
+.subtag {
   font-family: "Neuton", serif;
   font-size: small;
-  margin-top: -3%;
+  margin-top: -4%;
 }
 
 header {
