@@ -36,8 +36,12 @@ function Landing() {
           tracker?
         </p>
 
+<<<<<<< HEAD
         <button type='submit'>Login</button>
         <button type='submit'>Create User</button>
+=======
+        <button type='submit'>Earn some slices?</button>
+>>>>>>> static_version
       </section>
 
       <Footer />
