@@ -6,9 +6,6 @@ import {Component} from "react";
 import {Link} from "react-router-dom";
 
 class Landing extends Component {
-  handleClick = () => {
-    console.log("this is:", this);
-  };
 
   render() {
     return (
@@ -44,11 +41,11 @@ class Landing extends Component {
           </p>
 
           <Link to={"/login"}>
-            <button onClick={e => this.handleClick(e)}>Login</button>
+            <button>Login</button>
           </Link>
 
           <Link to={"/createuser"}>
-            <button onClick={e => this.handleClick(e)}>Create User</button>
+            <button>Create User</button>
           </Link>
         </section>
 

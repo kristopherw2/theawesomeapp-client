@@ -1,6 +1,7 @@
-import React from 'react'
-import '../App.css'
-import { Component } from 'react';
+import React from "react";
+import "../App.css";
+import {Component} from "react";
+import {Link} from "react-router-dom";
 
 class Login extends Component {
   render() {
@@ -8,12 +9,14 @@ class Login extends Component {
       <div>
         <h3>Login</h3>
         <p>Username:</p>
-        <input type="text"/>
+        <input type='text' />
         <p>Password:</p>
-        <input type="text"/>
-        <button type="submit">Login</button>
+        <input type='text' />
+        <Link to={"/homepage"}>
+          <button>Login</button>
+        </Link>
       </div>
-    )
+    );
   }
 }
 

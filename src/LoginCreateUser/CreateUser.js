@@ -1,6 +1,7 @@
 import React from "react";
 import "../App.css";
 import {Component} from "react";
+import {Link} from "react-router-dom";
 
 class CreateUser extends Component {
   render() {
@@ -12,7 +13,10 @@ class CreateUser extends Component {
           <input type='text' />
           <p>Password:</p>
           <input type='text' />
-          <button type='submit'>Let's go!</button>
+
+          <Link to={"/homepage"}>
+            <button>Let's go!</button>
+          </Link>
         </form>
       </div>
     );
