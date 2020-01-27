@@ -1,0 +1,12 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.pizza_dudes_got_30_seconds {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid black;
+}
