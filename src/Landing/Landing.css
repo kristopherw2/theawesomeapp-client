@@ -6,14 +6,13 @@
 }
 
 body {
-  font-family: "Neuton", serif;
   font-size: 25px;
-  
   text-align: center;
   line-height: 1.5;
 }
 
 .body {
+  font-family: "Neuton", serif;
   padding-top: 25px;
   padding-bottom: 40px;
   padding-left: 175px;

@@ -1,6 +1,5 @@
 import React from "react";
 import "./Landing.css";
-import "../App.css";
 import {Component} from "react";
 import {Link} from "react-router-dom";
 
@@ -10,7 +9,7 @@ class Landing extends Component {
       <div className='Landing'>
         <section className='body'>
           <p>
-            Since the dawn of time pizza and fitness have been at odds. Pizza
+            Since the dawn of time pizza and fitness have been at odds. Pizza,
             with its heavy amounts of grease, bread, cheese, and fat. While
             fitness on the other hand...well honestly if we have to explain it’s
             benefits then it may be time to go back to grade school gym class.

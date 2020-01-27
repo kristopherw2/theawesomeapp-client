@@ -9,38 +9,32 @@
   padding-top: 20px;
   padding-bottom: 200px;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+  border-bottom: 1px solid red;
+  margin-bottom: 1.5px;
 }
 
-.login > .title {
-  order: 1;
+.title {
+  font-size: 75px;
 }
 
-h3 {
-  height: 30px;
-  width: 50px;
-}
-
-p {
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
   font-family: "Bangers", cursive;
-  font-size: medium;
+  font-size: 30px;
+}
+
+button {
+  margin-top: 10px;
+  padding: 5px;
+  border: 1px solid black;
 }
 
 input {
   border: 1px solid black;
 }
-
-
-
-
-
-.container > .top {
-  order: 1;
-}
-
-.container > .bottom {
-  order: 2;
-}
-
