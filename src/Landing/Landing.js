@@ -1,8 +1,6 @@
 import React from "react";
 import "./Landing.css";
 import "../App.css";
-import Nav from "../Components/Nav/Nav";
-import Footer from "../Components/Footer/Footer";
 import {Component} from "react";
 import {Link} from "react-router-dom";
 
@@ -10,8 +8,6 @@ class Landing extends Component {
   render() {
     return (
       <div className='Landing'>
-        <Nav />
-
         <section className='body'>
           <p>
             Since the dawn of time pizza and fitness have been at odds. Pizza
@@ -46,7 +42,7 @@ class Landing extends Component {
               Login
             </button>
           </Link>
-          
+
           <Link to={"/createuser"}>
             <button className='btn' id='createuser'>
               Create User
@@ -54,7 +50,7 @@ class Landing extends Component {
           </Link>
         </section>
 
-        <Footer />
+        {/* <Footer /> */}
       </div>
     );
   }

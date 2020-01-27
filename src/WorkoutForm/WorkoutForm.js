@@ -1,12 +1,10 @@
 import React from "react";
 import "../App.css";
-import Nav from "../Components/Nav/Nav";
 import {Link} from "react-router-dom";
 
 function WorkoutForm() {
   return (
     <div>
-      <Nav />
       <h3>Enter Workout Info</h3>
       <form>
         <p>Exercise</p>

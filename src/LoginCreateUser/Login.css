@@ -1,0 +1,46 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.login {
+  padding-top: 20px;
+  padding-bottom: 200px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.login > .title {
+  order: 1;
+}
+
+h3 {
+  height: 30px;
+  width: 50px;
+}
+
+p {
+  font-family: "Bangers", cursive;
+  font-size: medium;
+}
+
+input {
+  border: 1px solid black;
+}
+
+
+
+
+
+.container > .top {
+  order: 1;
+}
+
+.container > .bottom {
+  order: 2;
+}
+
