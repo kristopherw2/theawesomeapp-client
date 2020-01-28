@@ -10,7 +10,7 @@ class Landing extends Component {
         <section className='body'>
           <p>
             Since the dawn of time pizza and fitness have been at odds. Pizza,
-            with its heavy amounts of grease, bread, cheese, and fat. While
+            with its heavy amount of grease, bread, cheese, and fat. While
             fitness on the other hand...well honestly if we have to explain it’s
             benefits then it may be time to go back to grade school gym class.
             No matter your education level Fitness Pizza aims to join these now
@@ -48,8 +48,6 @@ class Landing extends Component {
             </button>
           </Link>
         </section>
-
-        {/* <Footer /> */}
       </div>
     );
   }

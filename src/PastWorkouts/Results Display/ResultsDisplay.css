@@ -3,15 +3,22 @@
   margin: 0;
   padding: 0;
   border: 0;
-  font-size: 100%;
-  font: inherit;
-  vertical-align: baseline;
 }
 
 .resultsList {
   border: 1px solid black;
-  width: 33%;
-  margin: 3px 0 0 10px;
   text-align: left;
-  padding-left: 3px;
+  padding-left: 5px;
+  overflow: hidden;
+  font-size: 75%;
+  /* width: 150%; */
+}
+
+.results-container {
+  display: grid;
+  grid-template-columns: 175px 175px;
+  justify-content: center;
+  gap: 15% 20%;
+  margin-top: 2.5%;
+  margin-bottom: 5%;
 }

@@ -6,9 +6,9 @@ function ResultsDisplay(props) {
   const newDisplay = props.newWorkout;
   //console.log(newDisplay);
   const thisNewVariable = newDisplay.map((item, index) => {
-    console.log(item.date);
+    /* console.log(item.date); */
     return (
-      <ul className='resultsList'>
+      <ul className={`resultsList resultsList-${index}`}>
         <li key={index}>Date: {item.date}</li>
         <li key={index + 1}>Name: {item.name}</li>
         <li key={index + 2}>Sets: {item.sets}</li>
@@ -19,6 +19,13 @@ function ResultsDisplay(props) {
     );
   });
 
-  return <div>{thisNewVariable}</div>;
+  return (
+    <div className='results-container'>
+      {thisNewVariable}
+    </div>
+  );
 }
 export default ResultsDisplay;
+
+
+/* className={`results results=${index}`} */

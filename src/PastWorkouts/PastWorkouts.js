@@ -1,6 +1,7 @@
 import React from "react";
 import {Component} from "react";
 import ResultsDisplay from "./Results Display/ResultsDisplay";
+import './PastWorkouts.css'
 
 class PastWorkouts extends Component {
   constructor(props){
@@ -30,7 +31,15 @@ class PastWorkouts extends Component {
         reps: 10,
         time: "3:00",
         calories: 300
-      }
+      },
+      {
+        date: "1-26-20",
+        name: "Legs",
+        sets: 3,
+        reps: 10,
+        time: "4:00",
+        calories: 9000
+      },
     ]
     }
 
@@ -40,7 +49,9 @@ class PastWorkouts extends Component {
   render() {
     return (
       <div>
-        <ResultsDisplay newWorkout={this.state.workouts} />
+        <ResultsDisplay 
+        newWorkout={this.state.workouts} 
+        />
       </div>
     );
   }
