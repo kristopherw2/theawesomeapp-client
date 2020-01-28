@@ -4,7 +4,7 @@ import PastWorkouts from "../PastWorkouts/PastWorkouts";
 import TotalPizzaEarned from "./TotalPizzaEarned";
 import UserStats from "./UserStats/UserStats";
 import {Link} from "react-router-dom";
-import './UserInfoMain.css'
+import "./UserInfoMain.css";
 
 export default class UserInfo extends Component {
   render() {

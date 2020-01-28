@@ -1,8 +1,7 @@
 import React from "react";
-import './WorkoutForm.css'
+import "./WorkoutForm.css";
 import {Component} from "react";
 import {Link} from "react-router-dom";
-
 
 class WorkoutForm extends Component {
   render() {
