@@ -46,6 +46,7 @@ class PastWorkouts extends Component {
   render() {
     return (
       <div>
+        <h2>Previous Workouts</h2>
         <ResultsDisplay newWorkout={this.state.workouts} />
       </div>
     );
