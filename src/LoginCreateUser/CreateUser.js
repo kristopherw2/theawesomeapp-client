@@ -8,14 +8,8 @@ class CreateUser extends Component {
     super(props);
 
     this.state = {
-      username: {
-        value: "",
-        touched: false,
-      },
-      password: {
-        value: "",
-        touched: false,
-      },
+      username: "",
+      password: "",
       age: "",
       height: "",
       weight: "",
@@ -23,13 +17,11 @@ class CreateUser extends Component {
   }
 
   updateUsername(username) {
-    this.setState({username: {value: username, touched: true}});
+    this.setState({username: username});
   }
 
   updatePassword(password) {
-    this.setState({
-      password: {value: password, touched: true},
-    });
+    this.setState({password: password});
   }
 
   updateAge(age) {
@@ -47,32 +39,39 @@ class CreateUser extends Component {
   handleSubmit(event) {
     event.preventDefault();
     const {username, password, age, height, weight} = this.state;
-    console.log("Username: ", username);
-    console.log("Password: ", password);
-    console.log("Age:", age);
-    console.log("Height:", height);
-    console.log("Weight:", weight);
-  }
+    const newUser = {username, password, age, height, weight};
+    //TODO: Will need to change url to live server
+    const url = "http://localhost:8000/api/users/registration";
+    const options = {
+      method: "POST",
+      body: JSON.stringify(newUser),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    };
 
-  /*   validateUsername() {
-    const username = this.state.username.value.trim();
-    if (username.length === 0) {
-      return "Username is required";
-    } else if (username.length < 6 || username.length > 20) {
-      return "Username must be between 6 and 20 characters";
-    }
+    fetch(url, options)
+      .then(res => {
+        if (!res.ok) {
+          throw new Error("Something went wrong");
+        }
+        return res.json();
+      })
+      .then(data => {
+        this.setState({
+          username: this.updateUsername(username),
+          password: this.updatePassword(password),
+          age: this.updateAge(age),
+          height: this.updateHeight(height),
+          weight: this.updateWeight(weight),
+        });
+      })
+      .catch(err => {
+        this.setState({
+          error: err.message,
+        });
+      });
   }
-
-  validatePassword() {
-    const password = this.state.password.value.trim();
-    if (password.length === 0) {
-      return "Password is required";
-    } else if (password.length < 8 || password.length > 36) {
-      return "Password must be between 8 and 36 characters long";
-    } else if (!password.match(/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/)) {
-      return "Password must contain at least one number";
-    }
-  } */
 
   render() {
     return (
