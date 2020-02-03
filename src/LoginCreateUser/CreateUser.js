@@ -134,9 +134,12 @@ class CreateUser extends Component {
           </div>
 
           <div className='create_user_button_group'>
-            <button type='reset' className='create_user_button'>
-              Cancel Order
-            </button>
+            <Link to={"/"}>
+              <button type='reset' className='create_user_button'>
+                Cancel Order
+              </button>
+            </Link>
+
             <button type='submit' className='create_user_button'>
               Toss in the Oven
             </button>
