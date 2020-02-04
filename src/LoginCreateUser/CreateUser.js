@@ -13,6 +13,7 @@ class CreateUser extends Component {
       age: "",
       height: "",
       weight: "",
+      error: null,
     };
   }
 
@@ -52,10 +53,20 @@ class CreateUser extends Component {
 
     fetch(url, options)
       .then(res => {
-        if (!res.ok) {
-          throw new Error("Something went wrong");
+        if (res.status === 400) {
+          /* res.json().then(object => console.log(object.error.message)) */
+          /* res.json().then(object => object.error.message); */
+          /* res.json().then(text => {
+            console.log(typeof text);
+            console.log(text);
+            Object.keys(text).map(function(key, index) {
+              console.log(text[key]);
+              return text[key];
+            });
+          }); */
         }
-        return res.json();
+        /* return res; */
+        console.log(res);
       })
       .then(data => {
         this.setState({
@@ -64,21 +75,31 @@ class CreateUser extends Component {
           age: this.updateAge(age),
           height: this.updateHeight(height),
           weight: this.updateWeight(weight),
+          error: null,
         });
       })
       .catch(err => {
+        console.log("Handling the error below");
         this.setState({
           error: err.message,
         });
+        /* console.log(this.state); */
       });
   }
 
   render() {
+    const errorMessage = this.state.error ? (
+      <div className='create_user__error'>{this.state.error}</div>
+    ) : (
+      ""
+    );
+
     return (
       <div className='create_user'>
         <h3 className='title'>Create Profile</h3>
         <form className='create_form' onSubmit={e => this.handleSubmit(e)}>
           <div className='form-group'>
+            {errorMessage}
             <label htmlFor='username'>Username:</label>
             <input
               type='text'
