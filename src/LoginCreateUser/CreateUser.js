@@ -2,14 +2,21 @@ import React from "react";
 import "./CreateUser.css";
 import {Component} from "react";
 import {Link} from "react-router-dom";
+import ValidationError from "../ValidationError";
 
 class CreateUser extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      username: "",
-      password: "",
+      username: {
+        value: "",
+        touched: false,
+      },
+      password: {
+        value: "",
+        touched: false,
+      },
       age: "",
       height: "",
       weight: "",
@@ -18,11 +25,11 @@ class CreateUser extends Component {
   }
 
   updateUsername(username) {
-    this.setState({username: username});
+    this.setState({username: {value: username, touched: true}});
   }
 
   updatePassword(password) {
-    this.setState({password: password});
+    this.setState({password: {value: password, touched: true}});
   }
 
   updateAge(age) {
@@ -55,7 +62,7 @@ class CreateUser extends Component {
     fetch(url, options)
       .then(res => {
         if (res.status === 400) {
-          throw new Error('Something went wrong')
+          throw new Error("Something went wrong");
         }
         return res;
       })
@@ -69,6 +76,7 @@ class CreateUser extends Component {
           weight: this.updateWeight(weight),
           error: null,
         });
+        console.log(this.state);
       })
       .catch(err => {
         this.setState({
@@ -77,7 +85,38 @@ class CreateUser extends Component {
       });
   }
 
+  validateUsername() {
+    /* console.log(this.state.username); */
+    const username = this.state.username.value; /* .trim(); */
+    /* console.log(username); */
+    if (username.length === 0) {
+      return "Username is required";
+    } else if (username.length < 6 || username.length > 36) {
+      return "Username must be between 6 and 36 characters";
+    }
+  }
+
+  validatePassword() {
+    /* console.log(this.state.password); */
+    const password = this.state.password.value; /* .trim(); */
+    /* console.log(password); */
+    if (password.length === 0) {
+      return "Password is required";
+    } else if (password.length < 8 || password.length > 36) {
+      return "Password must be between 8 and 36 characters";
+    } else if (!password.match(/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/)) {
+      return "Password must be contain at least one digit";
+    } else if (password.startsWith(" ") || password.endsWith(" ")) {
+      return "Password must not start with spaces";
+    }
+  }
+
+
   render() {
+    const nameError = this.validateUsername();
+    const passwordError = this.validateUsername();
+    console.log(nameError);
+    console.log(passwordError);
     const serverErrorMessage = this.state.error ? (
       <div className='create_user__error'>{this.state.error}</div>
     ) : (
@@ -98,6 +137,9 @@ class CreateUser extends Component {
               id='username'
               onChange={e => this.updateUsername(e.target.value)}
             />
+            {this.state.username.touched && (
+              <ValidationError message={nameError} />
+            )}
           </div>
 
           <div className='form-group'>
@@ -109,6 +151,9 @@ class CreateUser extends Component {
               id='password'
               onChange={e => this.updatePassword(e.target.value)}
             />
+            {this.state.password.touched && (
+              <ValidationError message={passwordError} />
+            )}
           </div>
 
           <div className='form-group'>
@@ -151,7 +196,11 @@ class CreateUser extends Component {
               </button>
             </Link>
 
-            <button type='submit' className='create_user_button'>
+            <button
+              type='submit'
+              className='create_user_button'
+              disabled={this.validateUsername() || this.validatePassword()}
+            >
               Toss in the Oven
             </button>
           </div>
