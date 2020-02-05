@@ -41,6 +41,7 @@ class CreateUser extends Component {
     event.preventDefault();
     const {username, password, age, height, weight} = this.state;
     const newUser = {username, password, age, height, weight};
+
     //TODO: Will need to change url to live server
     const url = "http://localhost:8000/api/users/registration";
     const options = {
@@ -54,20 +55,11 @@ class CreateUser extends Component {
     fetch(url, options)
       .then(res => {
         if (res.status === 400) {
-          /* res.json().then(object => console.log(object.error.message)) */
-          /* res.json().then(object => object.error.message); */
-          /* res.json().then(text => {
-            console.log(typeof text);
-            console.log(text);
-            Object.keys(text).map(function(key, index) {
-              console.log(text[key]);
-              return text[key];
-            });
-          }); */
+          throw new Error('Something went wrong')
         }
-        /* return res; */
-        console.log(res);
+        return res;
       })
+      .then(res => res.json())
       .then(data => {
         this.setState({
           username: this.updateUsername(username),
@@ -79,16 +71,14 @@ class CreateUser extends Component {
         });
       })
       .catch(err => {
-        console.log("Handling the error below");
         this.setState({
           error: err.message,
         });
-        /* console.log(this.state); */
       });
   }
 
   render() {
-    const errorMessage = this.state.error ? (
+    const serverErrorMessage = this.state.error ? (
       <div className='create_user__error'>{this.state.error}</div>
     ) : (
       ""
@@ -99,7 +89,7 @@ class CreateUser extends Component {
         <h3 className='title'>Create Profile</h3>
         <form className='create_form' onSubmit={e => this.handleSubmit(e)}>
           <div className='form-group'>
-            {errorMessage}
+            {serverErrorMessage}
             <label htmlFor='username'>Username:</label>
             <input
               type='text'
