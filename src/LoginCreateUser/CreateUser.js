@@ -10,14 +10,14 @@ class CreateUser extends Component {
 
     this.state = {
       username: "",
-      password:"",
+      password: "",
       age: null,
       height: null,
       weight: null,
       error: null,
-      usernameValidationMessage:"",
+      usernameValidationMessage: "",
       passwordValidationMessage: "",
-      generalValidationMessage:"",
+      generalValidationMessage: "",
       idValid: true,
       passwordValid: true,
       generalValid: true,
@@ -50,61 +50,77 @@ class CreateUser extends Component {
       this.setState({
         usernameValidationMessage: "Username can not be blank",
         idValid: false,
-      })
-    } else if (this.state.username.length< 6 || this.state.username.length > 20) {
+      });
+    } else if (
+      this.state.username.length < 6 ||
+      this.state.username.length > 20
+    ) {
       this.setState({
-        usernameValidationMessage: "Username must be longer than 6 characters and less than 36",
+        usernameValidationMessage:
+          "Username must be longer than 6 characters and less than 36",
         idValid: false,
-      })
-    } else if(this.state.password === "") {
+      });
+    } else if (this.state.password === "") {
       this.setState({
         passwordValidationMessage: "Password is required",
         passwordValid: false,
-      })
-    } else if( this.state.password.length < 8 || this.state.password.length > 36) {
+      });
+    } else if (
+      this.state.password.length < 8 ||
+      this.state.password.length > 36
+    ) {
       this.setState({
-        passwordValidationMessage: "Password must be between 8 and 36 characters",
+        passwordValidationMessage:
+          "Password must be between 8 and 36 characters",
         passwordValid: false,
-      })
-    } else if( this.state.password.startsWith(' ') || this.state.password.endsWith(' ')) {
+      });
+    } else if (
+      this.state.password.startsWith(" ") ||
+      this.state.password.endsWith(" ")
+    ) {
       this.setState({
         passwordValidationMessage: "Password Must not start or end with spaces",
         passwordValid: false,
-      })
-    } else if( !this.state.password.match(/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/)) {
+      });
+    } else if (
+      !this.state.password.match(/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/)
+    ) {
       this.setState({
-        passwordValidationMessage: "Password must contain letters and at least one digit",
+        passwordValidationMessage:
+          "Password must contain letters and at least one digit",
         passwordValid: false,
-      })
-    } else if(this.state.age == null){
+      });
+    } else if (this.state.age == null) {
       this.setState({
         generalValidationMessage: "Age is required",
-        generalValid: false
-      })
-    } else if(this.state.height == null ) {
+        generalValid: false,
+      });
+    } else if (this.state.height == null) {
       this.setState({
         generalValidationMessage: "Height is required",
-        generalValid: false
-      })
-    } else if(this.state.weight == null) {
+        generalValid: false,
+      });
+    } else if (this.state.weight == null) {
       this.setState({
         generalValidationMessage: "Weight is required",
         generalValid: false,
-      })
+      });
     } else {
-        this.setState({
-          usernameValidationMessage:"",
+      this.setState(
+        {
+          usernameValidationMessage: "",
           passwordValidationMessage: "",
-          generalValidationMessage:"",
+          generalValidationMessage: "",
           idValid: true,
           passwordValid: true,
           generalValid: true,
         },
         () => {
           this.handleSubmit();
-        })
+        }
+      );
     }
-  } 
+  };
 
   handleSubmit() {
     const {username, password, age, height, weight} = this.state;
@@ -137,59 +153,57 @@ class CreateUser extends Component {
           weight: this.updateWeight(weight),
           error: null,
         });
-        
       })
       .catch(err => {
         this.setState({
           error: err.message,
         });
       });
-  };
+  }
 
   usernameChange = letter => {
-    this.setState({username: letter})
+    this.setState({username: letter});
   };
 
   passwordChange = letter => {
-    this.setState({password: letter})
+    this.setState({password: letter});
   };
 
   ageChange = letter => {
-    this.setState({age: letter})
+    this.setState({age: letter});
   };
 
   heightChange = letter => {
-    this.setState({height: letter})
-  }
+    this.setState({height: letter});
+  };
 
   weightChange = letter => {
     this.setState({
-      weight: letter
-    })
-  }
-
-  
-
-
-
+      weight: letter,
+    });
+  };
 
   render() {
     //const nameError = this.validateUsername();
     //const passwordError = this.validateUsername();
     // console.log(nameError);
     // console.log(passwordError);
-    // const serverErrorMessage = this.state.error ? (
-    //   <div className='create_user__error'>{this.state.error}</div>
-    // ) : (
-    //   ""
-    // );
+    const serverErrorMessage = this.state.error ? (
+      <div className='create_user__error'>{this.state.error}</div>
+    ) : (
+      ""
+    );
 
-    console.log(this.state.username)
+    console.log(this.state.username);
 
     return (
       <div className='create_user'>
         <h3 className='title'>Create Profile</h3>
-        <form className='create_form' onSubmit={event => this.validateLogin(event)}>
+        {serverErrorMessage}
+        <form
+          className='create_form'
+          onSubmit={event => this.validateLogin(event)}
+        >
           <div className='form-group'>
             <label htmlFor='username'>Username:</label>
             <input
@@ -201,9 +215,9 @@ class CreateUser extends Component {
             />
             {!this.state.idValid ? (
               <div>
-              <p>{this.state.usernameValidationMessage}</p>
+                <p>{this.state.usernameValidationMessage}</p>
               </div>
-            ): null}
+            ) : null}
           </div>
 
           <div className='form-group'>
@@ -267,10 +281,7 @@ class CreateUser extends Component {
               </button>
             </Link>
 
-            <button
-              type='submit'
-              className='create_user_button'
-            >
+            <button type='submit' className='create_user_button'>
               Toss in the Oven
             </button>
           </div>
