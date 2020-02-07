@@ -2,34 +2,34 @@ import React from "react";
 import "./CreateUser.css";
 import {Component} from "react";
 import {Link} from "react-router-dom";
-import ValidationError from "../ValidationError";
+//import ValidationError from "../ValidationError";
 
 class CreateUser extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      username: {
-        value: "",
-        touched: false,
-      },
-      password: {
-        value: "",
-        touched: false,
-      },
-      age: "",
-      height: "",
-      weight: "",
+      username: "",
+      password:"",
+      age: null,
+      height: null,
+      weight: null,
       error: null,
+      usernameValidationMessage:"",
+      passwordValidationMessage: "",
+      generalValidationMessage:"",
+      idValid: true,
+      passwordValid: true,
+      generalValid: true,
     };
   }
 
   updateUsername(username) {
-    this.setState({username: {value: username, touched: true}});
+    this.setState({username: username});
   }
 
   updatePassword(password) {
-    this.setState({password: {value: password, touched: true}});
+    this.setState({password: password});
   }
 
   updateAge(age) {
@@ -44,8 +44,69 @@ class CreateUser extends Component {
     this.setState({weight: weight});
   }
 
-  handleSubmit(event) {
+  validateLogin = event => {
     event.preventDefault();
+    if (this.state.username === "") {
+      this.setState({
+        usernameValidationMessage: "Username can not be blank",
+        idValid: false,
+      })
+    } else if (this.state.username.length< 6 || this.state.username.length > 20) {
+      this.setState({
+        usernameValidationMessage: "Username must be longer than 6 characters and less than 36",
+        idValid: false,
+      })
+    } else if(this.state.password === "") {
+      this.setState({
+        passwordValidationMessage: "Password is required",
+        passwordValid: false,
+      })
+    } else if( this.state.password.length < 8 || this.state.password.length > 36) {
+      this.setState({
+        passwordValidationMessage: "Password must be between 8 and 36 characters",
+        passwordValid: false,
+      })
+    } else if( this.state.password.startsWith(' ') || this.state.password.endsWith(' ')) {
+      this.setState({
+        passwordValidationMessage: "Password Must not start or end with spaces",
+        passwordValid: false,
+      })
+    } else if( !this.state.password.match(/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/)) {
+      this.setState({
+        passwordValidationMessage: "Password must contain letters and at least one digit",
+        passwordValid: false,
+      })
+    } else if(this.state.age == null){
+      this.setState({
+        generalValidationMessage: "Age is required",
+        generalValid: false
+      })
+    } else if(this.state.height == null ) {
+      this.setState({
+        generalValidationMessage: "Height is required",
+        generalValid: false
+      })
+    } else if(this.state.weight == null) {
+      this.setState({
+        generalValidationMessage: "Weight is required",
+        generalValid: false,
+      })
+    } else {
+        this.setState({
+          usernameValidationMessage:"",
+          passwordValidationMessage: "",
+          generalValidationMessage:"",
+          idValid: true,
+          passwordValid: true,
+          generalValid: true,
+        },
+        () => {
+          this.handleSubmit();
+        })
+    }
+  } 
+
+  handleSubmit() {
     const {username, password, age, height, weight} = this.state;
     const newUser = {username, password, age, height, weight};
 
@@ -76,59 +137,60 @@ class CreateUser extends Component {
           weight: this.updateWeight(weight),
           error: null,
         });
-        console.log(this.state);
+        
       })
       .catch(err => {
         this.setState({
           error: err.message,
         });
       });
+  };
+
+  usernameChange = letter => {
+    this.setState({username: letter})
+  };
+
+  passwordChange = letter => {
+    this.setState({password: letter})
+  };
+
+  ageChange = letter => {
+    this.setState({age: letter})
+  };
+
+  heightChange = letter => {
+    this.setState({height: letter})
   }
 
-  validateUsername() {
-    /* console.log(this.state.username); */
-    const username = this.state.username.value; /* .trim(); */
-    /* console.log(username); */
-    if (username.length === 0) {
-      return "Username is required";
-    } else if (username.length < 6 || username.length > 36) {
-      return "Username must be between 6 and 36 characters";
-    }
+  weightChange = letter => {
+    this.setState({
+      weight: letter
+    })
   }
 
-  validatePassword() {
-    /* console.log(this.state.password); */
-    const password = this.state.password.value; /* .trim(); */
-    /* console.log(password); */
-    if (password.length === 0) {
-      return "Password is required";
-    } else if (password.length < 8 || password.length > 36) {
-      return "Password must be between 8 and 36 characters";
-    } else if (!password.match(/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/)) {
-      return "Password must be contain at least one digit";
-    } else if (password.startsWith(" ") || password.endsWith(" ")) {
-      return "Password must not start with spaces";
-    }
-  }
+  
+
+
 
 
   render() {
-    const nameError = this.validateUsername();
-    const passwordError = this.validateUsername();
-    console.log(nameError);
-    console.log(passwordError);
-    const serverErrorMessage = this.state.error ? (
-      <div className='create_user__error'>{this.state.error}</div>
-    ) : (
-      ""
-    );
+    //const nameError = this.validateUsername();
+    //const passwordError = this.validateUsername();
+    // console.log(nameError);
+    // console.log(passwordError);
+    // const serverErrorMessage = this.state.error ? (
+    //   <div className='create_user__error'>{this.state.error}</div>
+    // ) : (
+    //   ""
+    // );
+
+    console.log(this.state.username)
 
     return (
       <div className='create_user'>
         <h3 className='title'>Create Profile</h3>
-        <form className='create_form' onSubmit={e => this.handleSubmit(e)}>
+        <form className='create_form' onSubmit={event => this.validateLogin(event)}>
           <div className='form-group'>
-            {serverErrorMessage}
             <label htmlFor='username'>Username:</label>
             <input
               type='text'
@@ -137,9 +199,11 @@ class CreateUser extends Component {
               id='username'
               onChange={e => this.updateUsername(e.target.value)}
             />
-            {this.state.username.touched && (
-              <ValidationError message={nameError} />
-            )}
+            {!this.state.idValid ? (
+              <div>
+              <p>{this.state.usernameValidationMessage}</p>
+              </div>
+            ): null}
           </div>
 
           <div className='form-group'>
@@ -151,9 +215,11 @@ class CreateUser extends Component {
               id='password'
               onChange={e => this.updatePassword(e.target.value)}
             />
-            {this.state.password.touched && (
-              <ValidationError message={passwordError} />
-            )}
+            {!this.state.passwordValid ? (
+              <div>
+                <p>{this.state.passwordValidationMessage}</p>
+              </div>
+            ) : null}
           </div>
 
           <div className='form-group'>
@@ -188,6 +254,11 @@ class CreateUser extends Component {
               onChange={e => this.updateWeight(e.target.value)}
             />
           </div>
+          {!this.state.generalValid ? (
+            <div>
+              <p>{this.state.generalValidationMessage}</p>
+            </div>
+          ) : null}
 
           <div className='create_user_button_group'>
             <Link to={"/"}>
@@ -199,7 +270,6 @@ class CreateUser extends Component {
             <button
               type='submit'
               className='create_user_button'
-              disabled={this.validateUsername() || this.validatePassword()}
             >
               Toss in the Oven
             </button>
