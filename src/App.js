@@ -25,7 +25,7 @@ class App extends Component {
 
   render() {
     return (
-      <UserContext.provider
+      <UserContext.Provider
         value={{
           username: this.state.username,
           age: this.state.age,
@@ -44,7 +44,7 @@ class App extends Component {
           </Switch>
           <Footer />
         </div>
-      </UserContext.provider>
+      </UserContext.Provider>
     );
   }
 }
