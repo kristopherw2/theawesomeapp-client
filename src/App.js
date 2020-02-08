@@ -10,6 +10,7 @@ import Login from "./LoginCreateUser/Login";
 import CreateUser from "./LoginCreateUser/CreateUser";
 import {Route} from "react-router-dom";
 import UserContext from "./UserContext";
+import ExercisesList from "./PastWorkouts/ExercisesList/ExercisesList";
 
 class App extends Component {
   constructor(props) {
@@ -53,6 +54,7 @@ class App extends Component {
             <Route path='/createuser' component={CreateUser} />
             <Route path='/homepage' component={UserInfo} />
             <Route path='/workoutform' component={WorkoutForm} />
+            <Route path='/excerciselist' component={ExercisesList} />
             <Footer />
           </main>
         </div>

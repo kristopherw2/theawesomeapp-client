@@ -1,49 +1,43 @@
 import React from "react";
 import {Component} from "react";
 import ResultsDisplay from "./Results Display/ResultsDisplay";
+import UserContext from "../UserContext";
 
 class PastWorkouts extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      workouts: [
-        {
-          date: "1-19-20",
-          name: "Upper Body",
-          sets: 3,
-          reps: 10,
-          time: "1:00",
-          calories: 100,
-        },
-        {
-          date: "1-25-20",
-          name: "Lower Body",
-          sets: 3,
-          reps: 10,
-          time: "2:00",
-          calories: 200,
-        },
-        {
-          date: "1-25-20",
-          name: "All The Body",
-          sets: 3,
-          reps: 10,
-          time: "3:00",
-          calories: 300,
-        },
-        {
-          date: "1-26-20",
-          name: "Legs",
-          sets: 3,
-          reps: 10,
-          time: "4:00",
-          calories: 9000,
-        },
-      ],
+      workouts: [],
     };
   }
 
+  static contextType = UserContext;
+
+  componentDidMount() {
+    const url = `http://localhost:8000/api/workouts/user/4`;
+
+    fetch(url)
+      .then(res => {
+        if (!res.ok) {
+          throw new Error("Oh, Mamma Mia! There seems to be a problem.");
+        }
+        return res;
+      })
+      .then(res => res.json())
+      .then(data => {
+        this.setState({
+          workouts: data,
+        });
+      })
+      .catch(err => {
+        this.setState({
+          error: err.message,
+        });
+      });
+  }
+
   render() {
+    /* console.log(this.state); */
     return (
       <div>
         <h2>Previous Workouts</h2>
