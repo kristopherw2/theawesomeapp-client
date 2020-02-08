@@ -1,11 +1,15 @@
 import React from "react";
 import "./UserStats.css";
-import UserStatsOrderedList from "./UserStatsOrderedList";
 
 function UserStats(props) {
   return (
     <div className='userStats'>
-      <UserStatsOrderedList />
+      <ul>
+        <li>Username:</li>
+        <li>Age:</li>
+        <li>Height:</li>
+        <li>Weight:</li>
+      </ul>
     </div>
   );
 }

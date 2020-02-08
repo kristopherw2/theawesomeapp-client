@@ -11,10 +11,7 @@ export default class UserInfo extends Component {
   static contextType = UserContext;
 
   render() {
-    /* console.log(contextType); */
-    /* this.context.handleUserLogin(data); */
-    console.log(`Render-username:${this.context.username}`)
-    console.log(`Render-username:${this.context.id}`);
+    
     return (
       
       <div className='user-info'>
@@ -24,7 +21,6 @@ export default class UserInfo extends Component {
         <Link to={"/workoutform"}>
           <button>Add New Workout</button>
         </Link>
-
         {/* To be removed after static aproval */}
         <Link to={"/"}>
           <button id='delete-this-button'>Back to landing(Remove)</button>
