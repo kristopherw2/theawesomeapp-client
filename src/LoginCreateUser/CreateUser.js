@@ -2,7 +2,9 @@ import React from "react";
 import "./CreateUser.css";
 import {Component} from "react";
 import {Link} from "react-router-dom";
-//import ValidationError from "../ValidationError";
+import {Redirect} from "react-router-dom";
+
+/* import {withRouter} from "react-router-dom"; */
 
 class CreateUser extends Component {
   constructor(props) {
@@ -21,6 +23,7 @@ class CreateUser extends Component {
       idValid: true,
       passwordValid: true,
       generalValid: true,
+      redirect: null,
     };
   }
 
@@ -122,6 +125,10 @@ class CreateUser extends Component {
     }
   };
 
+  /* if (this.state.redirect) {
+      return <Redirect to={this.state.redirect} />;
+    } */
+
   handleSubmit() {
     const {username, password, age, height, weight} = this.state;
     const newUser = {username, password, age, height, weight};
@@ -152,6 +159,7 @@ class CreateUser extends Component {
           height: this.updateHeight(height),
           weight: this.updateWeight(weight),
           error: null,
+          redirect: "/homepage",
         });
       })
       .catch(err => {
@@ -183,18 +191,22 @@ class CreateUser extends Component {
     });
   };
 
+  /* handleRedirect() {
+    if (this.state.redirect) {
+      return <Redirect to={this.state.redirect} />;
+    }
+  } */
+
   render() {
-    //const nameError = this.validateUsername();
-    //const passwordError = this.validateUsername();
-    // console.log(nameError);
-    // console.log(passwordError);
+    if (this.state.redirect) {
+      return <Redirect to={this.state.redirect} />;
+    }
+
     const serverErrorMessage = this.state.error ? (
       <div className='create_user__error'>{this.state.error}</div>
     ) : (
       ""
     );
-
-    console.log(this.state.username);
 
     return (
       <div className='create_user'>
@@ -295,4 +307,4 @@ class CreateUser extends Component {
   }
 }
 
-export default CreateUser;
+export default /* withRouter(CreateUser) */ CreateUser;
