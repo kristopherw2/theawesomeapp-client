@@ -191,12 +191,6 @@ class CreateUser extends Component {
     });
   };
 
-  /* handleRedirect() {
-    if (this.state.redirect) {
-      return <Redirect to={this.state.redirect} />;
-    }
-  } */
-
   render() {
     if (this.state.redirect) {
       return <Redirect to={this.state.redirect} />;
