@@ -28,6 +28,7 @@ class Login extends Component {
   }
 
   validateLogin = event => {
+    console.log(event)
     event.preventDefault();
     if (this.state.username === "") {
       this.setState({
@@ -93,13 +94,16 @@ class Login extends Component {
     };
 
     fetch(url, options)
-      .then(res => res.json())
-      .then(data => {
-        if (data.error) {
-          //TODO: CHANGE ERROR WORDAGE
-          throw new Error("Oh, Mamma Mia! That username seems to be taken!");
+      .then(res => {
+        if (!res.ok) {
+        throw new Error("Oh, Mamma Mia! There seems to be a problem.");
         }
-
+          return res.json()
+      })
+      .then(data => {
+        if(data.error) {
+          throw new Error (`${data.error.message}`)
+        }
         this.setState({
           username: this.updateUsername(username),
           password: this.updatePassword(password),
