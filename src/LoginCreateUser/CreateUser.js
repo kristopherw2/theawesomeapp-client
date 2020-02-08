@@ -144,14 +144,12 @@ class CreateUser extends Component {
     };
 
     fetch(url, options)
-      .then(res => {
-        if (res.status === 400) {
-          throw new Error("Oh, Mamma Mia there was a problem.");
-        }
-        return res;
-      })
       .then(res => res.json())
       .then(data => {
+        if (data.error) {
+          throw new Error("Oh, Mamma Mia! That username seems to be taken!")
+        }
+
         this.setState({
           username: this.updateUsername(username),
           password: this.updatePassword(password),
