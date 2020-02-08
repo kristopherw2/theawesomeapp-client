@@ -24,10 +24,10 @@ class App extends Component {
     };
   }
 
-  handleUserLogin = user => {
+  handleUserLogin = username => {
     this.setState({
-      id: user.id,
-      username: user.username,
+      id: username.id,
+      username: username.username,
     });
   };
 
@@ -37,10 +37,12 @@ class App extends Component {
     return (
       <UserContext.Provider
         value={{
+          id: this.state.id,
           username: this.state.username,
           age: this.state.age,
           height: this.state.height,
           weight: this.state.weight,
+          handleUserLogin: this.handleUserLogin,
         }}
       >
         <div className='app'>

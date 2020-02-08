@@ -109,7 +109,7 @@ class Login extends Component {
         if (data.error) {
           throw new Error(`${data.error.message}`);
         }
-        this.context.handleUserLogin()
+        this.context.handleUserLogin(data)
         /* {this.context.handleUserLogin(data)} */
         this.setState({
           username: this.updateUsername(username),
