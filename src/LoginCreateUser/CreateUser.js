@@ -125,10 +125,6 @@ class CreateUser extends Component {
     }
   };
 
-  /* if (this.state.redirect) {
-      return <Redirect to={this.state.redirect} />;
-    } */
-
   handleSubmit() {
     const {username, password, age, height, weight} = this.state;
     const newUser = {username, password, age, height, weight};
@@ -144,10 +140,15 @@ class CreateUser extends Component {
     };
 
     fetch(url, options)
-      .then(res => res.json())
+      .then(res => {
+        if (!res.ok) {
+          throw new Error("Oh, Mamma Mia! There seems to be a problem.");
+        }
+        return res.json();
+      })
       .then(data => {
         if (data.error) {
-          throw new Error("Oh, Mamma Mia! That username seems to be taken!")
+          throw new Error("Oh, Mamma Mia! That username seems to be taken!");
         }
 
         this.setState({
@@ -157,7 +158,7 @@ class CreateUser extends Component {
           height: this.updateHeight(height),
           weight: this.updateWeight(weight),
           error: null,
-          redirect: "/homepage",
+          redirect: "/login",
         });
       })
       .catch(err => {
@@ -289,10 +290,6 @@ class CreateUser extends Component {
               Toss in the Oven
             </button>
           </div>
-
-          <Link to={"/homepage"} id='btn'>
-            <button>Let's go!</button>
-          </Link>
         </form>
       </div>
     );

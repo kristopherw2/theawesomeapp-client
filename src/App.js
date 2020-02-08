@@ -8,7 +8,7 @@ import UserInfo from "./User-info/UserInfoMain";
 import WorkoutForm from "./WorkoutForm/WorkoutForm";
 import Login from "./LoginCreateUser/Login";
 import CreateUser from "./LoginCreateUser/CreateUser";
-import {Route, Switch} from "react-router-dom";
+import {Route} from "react-router-dom";
 import UserContext from "./UserContext";
 
 class App extends Component {
@@ -23,6 +23,20 @@ class App extends Component {
     };
   }
 
+  /* renderRoutes() {
+    return (
+      <>
+        <Nav />
+        <Route exact path='/' component={Landing} />
+        <Route path='/login' component={Login} />
+        <Route path='/createuser' component={CreateUser} />
+        <Route path='/homepage' component={UserInfo} />
+        <Route path='/workoutform' component={WorkoutForm} />
+        <Footer />
+      </>
+    );
+  } */
+
   render() {
     return (
       <UserContext.Provider
@@ -34,15 +48,15 @@ class App extends Component {
         }}
       >
         <div className='app'>
-          <Nav />
-          <Switch>
-            {/* <Route exact path='/' component={Landing} />
+          <main>
+            <Nav />
+            <Route exact path='/' component={Landing} />
             <Route path='/login' component={Login} />
             <Route path='/createuser' component={CreateUser} />
             <Route path='/homepage' component={UserInfo} />
-            <Route path='/workoutform' component={WorkoutForm} /> */}
-          </Switch>
-          <Footer />
+            <Route path='/workoutform' component={WorkoutForm} />
+            <Footer />
+          </main>
         </div>
       </UserContext.Provider>
     );
