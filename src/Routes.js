@@ -11,14 +11,7 @@ class Routes extends Component {
   render() {
     return (
       <div>
-        <Switch>
-          <Route exact path='/' component={Landing} />
-          <Route path='/login' component={Login} />
-          <Route path='/createuser' component={CreateUser} />
-          <Route path='/homepage' component={UserInfo} />
-          <Route path='/workoutform' component={WorkoutForm} />
-          {/*TODO: ADD NOT FOUND ROUTE */}
-        </Switch>
+          
       </div>
     );
   }
