@@ -23,7 +23,6 @@ class ResultsDisplay extends Component {
   handleDelete() {
     const {workoutid} = this.state;
     const deleteWorkout = {workoutid};
-    /* e.preventDefault(); */
     const url = `http://localhost:8000/api/workouts/5`;
     const options = {
       method: "DELETE",
@@ -61,7 +60,7 @@ class ResultsDisplay extends Component {
         <div className={`resultsList`}>
           <span onClick={this.handleRedirect}>{item.workoutname}</span>
 
-          <button onClick={()=>this.handleDelete()}>Delete</button>
+          {/* <button onClick={()=>this.handleDelete()}>Delete</button> */}
 
           {/* {item.workoutname} */}
         </div>
