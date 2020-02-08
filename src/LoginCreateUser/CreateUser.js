@@ -146,7 +146,7 @@ class CreateUser extends Component {
     fetch(url, options)
       .then(res => {
         if (res.status === 400) {
-          throw new Error("Something went wrong");
+          throw new Error("Oh, Mamma Mia there was a problem.");
         }
         return res;
       })
