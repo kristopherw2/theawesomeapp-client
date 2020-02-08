@@ -8,6 +8,7 @@ class ResultsDisplay extends Component {
     super(props);
     this.state = {
       redirect: null,
+      workoutid: "5",
     };
   }
 
@@ -19,6 +20,37 @@ class ResultsDisplay extends Component {
     });
   };
 
+  handleDelete() {
+    const {workoutid} = this.state;
+    const deleteWorkout = {workoutid};
+    /* e.preventDefault(); */
+    const url = `http://localhost:8000/api/workouts/5`;
+    const options = {
+      method: "DELETE",
+      body: JSON.stringify(deleteWorkout),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    };
+
+    fetch(url, options)
+      .then(res => {
+        if (!res.ok) {
+          throw new Error("Oh, Mamma Mia! There seems to be a problem.");
+        }
+        return res;
+      })
+      .then(res => res.json())
+      .then(data => {
+        /* console.log(data); */
+      })
+      .catch(err => {
+        this.setState({
+          error: err.message,
+        });
+      });
+  }
+
   render() {
     if (this.state.redirect) {
       return <Redirect to={this.state.redirect} />;
@@ -29,6 +61,8 @@ class ResultsDisplay extends Component {
         <div className={`resultsList`}>
           <span onClick={this.handleRedirect}>{item.workoutname}</span>
 
+          <button onClick={()=>this.handleDelete()}>Delete</button>
+
           {/* {item.workoutname} */}
         </div>
       );
@@ -38,5 +72,3 @@ class ResultsDisplay extends Component {
   }
 }
 export default ResultsDisplay;
-
-//  /excerciselist
