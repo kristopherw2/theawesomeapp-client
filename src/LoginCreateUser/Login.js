@@ -3,6 +3,8 @@ import "./Login.css";
 import {Component} from "react";
 import {Link} from "react-router-dom";
 import {Redirect} from "react-router-dom";
+import UserContext from "../UserContext";
+
 
 class Login extends Component {
   constructor(props) {
@@ -19,6 +21,10 @@ class Login extends Component {
     };
   }
 
+  static contextType = UserContext;
+
+  
+
   updateUsername(username) {
     this.setState({username: username});
   }
@@ -28,7 +34,6 @@ class Login extends Component {
   }
 
   validateLogin = event => {
-    console.log(event)
     event.preventDefault();
     if (this.state.username === "") {
       this.setState({
@@ -96,20 +101,26 @@ class Login extends Component {
     fetch(url, options)
       .then(res => {
         if (!res.ok) {
-        throw new Error("Oh, Mamma Mia! There seems to be a problem.");
+          throw new Error("Oh, Mamma Mia! There seems to be a problem.");
         }
-          return res.json()
+        return res.json();
       })
       .then(data => {
-        if(data.error) {
-          throw new Error (`${data.error.message}`)
+        if (data.error) {
+          throw new Error(`${data.error.message}`);
         }
+        this.context.handleUserLogin()
+        /* {this.context.handleUserLogin(data)} */
         this.setState({
           username: this.updateUsername(username),
           password: this.updatePassword(password),
           error: null,
           redirect: "/homepage",
+          
         });
+        /* console.log(data); */
+        /* this.context.handleUserLogin(data) */
+        
       })
       .catch(err => {
         this.setState({

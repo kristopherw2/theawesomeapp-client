@@ -5,10 +5,18 @@ import TotalPizzaEarned from "./TotalPizzaEarned";
 import UserStats from "./UserStats/UserStats";
 import {Link} from "react-router-dom";
 import "./UserInfoMain.css";
+import UserContext from "../UserContext";
 
 export default class UserInfo extends Component {
+  static contextType = UserContext;
+
   render() {
+    /* console.log(contextType); */
+    /* this.context.handleUserLogin(data); */
+    console.log(`Render-username:${this.context.username}`)
+    console.log(`Render-username:${this.context.id}`);
     return (
+      
       <div className='user-info'>
         <TotalPizzaEarned />
         <UserStats />

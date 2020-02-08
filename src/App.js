@@ -16,6 +16,7 @@ class App extends Component {
     super(props);
 
     this.state = {
+      id: "",
       username: "",
       age: "",
       height: "",
@@ -23,19 +24,14 @@ class App extends Component {
     };
   }
 
-  /* renderRoutes() {
-    return (
-      <>
-        <Nav />
-        <Route exact path='/' component={Landing} />
-        <Route path='/login' component={Login} />
-        <Route path='/createuser' component={CreateUser} />
-        <Route path='/homepage' component={UserInfo} />
-        <Route path='/workoutform' component={WorkoutForm} />
-        <Footer />
-      </>
-    );
-  } */
+  handleUserLogin = user => {
+    this.setState({
+      id: user.id,
+      username: user.username,
+    });
+  };
+
+  /* console.log(`APP MOTHER FUCKING JS ${user}`); */
 
   render() {
     return (
