@@ -79,8 +79,7 @@ class Login extends Component {
     }
   };
 
-  handleSubmit(event) {
-    event.preventDefault();
+  handleSubmit() {
     const {username, password} = this.state;
     const newUser = {username, password};
     //TODO: Will need to change url to live server
