@@ -2,15 +2,18 @@ import React from "react";
 import "./ResultsDisplay.css";
 import {Redirect} from "react-router-dom";
 import {Component} from "react";
+import UserContext from "../../UserContext";
 
 class ResultsDisplay extends Component {
   constructor(props) {
     super(props);
     this.state = {
       redirect: null,
-      workoutid: "5",
+      workoutid: "",
     };
   }
+
+  static contextType = UserContext;
 
   newDisplay = () => this.props.newWorkout;
 
@@ -20,13 +23,13 @@ class ResultsDisplay extends Component {
     });
   };
 
-  handleDelete() {
-    const {workoutid} = this.state;
-    const deleteWorkout = {workoutid};
-    const url = `http://localhost:8000/api/workouts/5`;
+  handleDelete = () => {
+    const url = `http://localhost:8000/api/workouts/${this.context.workoutid}`;
     const options = {
       method: "DELETE",
-      body: JSON.stringify(deleteWorkout),
+      body: JSON.stringify({
+        workoutid: this.context.workoutid,
+      }),
       headers: {
         "Content-Type": "application/json",
       },
@@ -41,16 +44,19 @@ class ResultsDisplay extends Component {
       })
       .then(res => res.json())
       .then(data => {
-        /* console.log(data); */
+        this.setState({
+          workoutid: data,
+        });
       })
       .catch(err => {
         this.setState({
           error: err.message,
         });
       });
-  }
+  };
 
   render() {
+    console.log(this.state);
     if (this.state.redirect) {
       return <Redirect to={this.state.redirect} />;
     }
@@ -60,7 +66,7 @@ class ResultsDisplay extends Component {
         <div className={`resultsList`}>
           <span onClick={this.handleRedirect}>{item.workoutname}</span>
 
-          {/* <button onClick={()=>this.handleDelete()}>Delete</button> */}
+          <button onClick={() => this.handleDelete()}>Delete</button>
 
           {/* {item.workoutname} */}
         </div>
