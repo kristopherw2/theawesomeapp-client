@@ -10,8 +10,8 @@ const slices = (
 function TotalPizzaEarned() {
   return (
     <div className='pizza_dudes_got_30_seconds'>
-      <h3>Lifetime Slices Earned:</h3>
-      <p id='grab_some'># {slices}'s</p>
+      <span>Lifetime Slices Earned:</span>
+      <p className='grab_some'># {slices}'s</p>
     </div>
   );
 }

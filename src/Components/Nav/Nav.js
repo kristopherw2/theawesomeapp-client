@@ -14,7 +14,7 @@ class Nav extends Component {
     return (
       <div className='nav'>
         <h1 id='title'>Fitness {slices}Pizza</h1>
-        <h2 className='subtag'>(in your mouth)</h2>
+        <span className='subtag'>(in your mouth)</span>
       </div>
     );
   }

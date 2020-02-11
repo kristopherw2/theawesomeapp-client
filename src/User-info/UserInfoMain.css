@@ -8,6 +8,11 @@
 .user-info {
   border-bottom: 1px solid red;
 }
+h2{
+  width: 30%;
+  margin-left:5%;
+  margin-right: 5%;
+}
 
 button {
   margin-bottom: 5px;
@@ -16,4 +21,8 @@ button {
 #delete-this-button {
   float: right;
   clear: right;
+}
+
+.row {
+  display: flex;
 }
