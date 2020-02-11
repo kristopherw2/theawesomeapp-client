@@ -26,6 +26,9 @@ class PastWorkouts extends Component {
       .then(res => res.json())
       .then(data => {
         this.context.handleWorkoutsArrayUpdate(data)
+        this.setState({
+          workouts: data
+        })
       })
       .catch(err => {
         this.setState({
@@ -35,12 +38,11 @@ class PastWorkouts extends Component {
   }
 
   render() {
-    /* console.log(this.context); */
-    console.log(this.state);
+    console.log(`this is firing from pastworkouts.js ${this.state.workouts}`)
     return (
       <div>
         <h2>Previous Workouts</h2>
-        <ResultsDisplay newWorkout={this.state.workouts} />
+        <ResultsDisplay />
       </div>
     );
   }

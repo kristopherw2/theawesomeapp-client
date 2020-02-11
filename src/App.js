@@ -77,7 +77,7 @@ class App extends Component {
           handleUserStatsUpdate: this.handUserStatsUpdate,
           handleCreateWorkout: this.handleCreateWorkout,
           showWorkoutForm: this.state.showWorkoutForm,
-          workoutsArray: [],
+          workoutsArray: this.state.workoutsArray,
           handleWorkoutsArrayUpdate: this.handleWorkoutsArrayUpdate,
         }}
       >

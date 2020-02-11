@@ -59,6 +59,7 @@ class ResultsDisplay extends Component {
       return <Redirect to={this.state.redirect} />;
     }
     const newDisplay = this.context.workoutsArray;
+    console.log(`this is firing from results display ${newDisplay}`)
 
     
 
