@@ -4,7 +4,7 @@ import {Component} from "react";
 import {Link} from "react-router-dom";
 import WorkoutName from "./FormComponents/WorkoutName";
 import UserContext from '../UserContext';
-/* import ExcerciseForm from "./FormComponents/ExerciseForm"; */
+import ExcerciseForm from "./FormComponents/ExerciseForm";
 
 class WorkoutForm extends Component {
   constructor(props) {
@@ -20,7 +20,7 @@ class WorkoutForm extends Component {
   static contextType = UserContext;
 
   render() {
-    const renderForms = this.context.showWorkoutForm ? <WorkoutName /> : "";
+    const renderForms = this.context.showWorkoutForm ? <WorkoutName /> : <ExcerciseForm />;
 
     console.log(this.context.showWorkoutForm);
 
