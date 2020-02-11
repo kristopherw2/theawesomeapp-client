@@ -1,7 +1,6 @@
 import React from "react";
 import {Component} from "react";
 import UserContext from "../../UserContext";
-import WorkoutContext from "../../WorkoutContext";
 
 class WorkoutName extends Component {
   constructor(props) {
@@ -13,7 +12,6 @@ class WorkoutName extends Component {
   }
 
   static contextType = UserContext;
-  static contextType = WorkoutContext;
 
   workoutnameChange = letter => {
     this.setState({workoutname: letter});

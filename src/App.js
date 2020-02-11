@@ -22,6 +22,8 @@ class App extends Component {
       age: "",
       height: "",
       weight: "",
+      workoutid: "",
+      workoutname: "",
     };
   }
 

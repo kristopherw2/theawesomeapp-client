@@ -4,7 +4,6 @@ import {Component} from "react";
 import {Link} from "react-router-dom";
 import WorkoutName from "./FormComponents/WorkoutName";
 /* import ExcerciseForm from "./FormComponents/ExerciseForm"; */
-import WorkoutContext from "../WorkoutContext";
 
 class WorkoutForm extends Component {
   constructor(props) {
@@ -18,7 +17,6 @@ class WorkoutForm extends Component {
     };
   }
 
-  static contextType = WorkoutContext;
 
   handleCreateWorkout = workout => {
     this.setState({
@@ -39,14 +37,6 @@ class WorkoutForm extends Component {
 
 
     return (
-      <WorkoutContext.Provider
-        value={{
-          workoutid: this.state.workoutid,
-          userid: this.state.userid,
-          workoutname: this.state.workoutname,
-          showWorkoutForm: this.state.showWorkoutForm,
-        }}
-      >
         <div className='workout_info'>
           <h3 className='title'>Enter Workout Info</h3>
           {renderForms}
@@ -59,7 +49,6 @@ class WorkoutForm extends Component {
             </Link>
           </form>
         </div>
-      </WorkoutContext.Provider>
     );
   }
 }
