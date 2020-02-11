@@ -1,16 +1,15 @@
 import React from "react";
 import {Component} from "react";
 import {Link} from "react-router-dom";
-import UserContext from '../../UserContext'
 
 class ExcerciseForm extends Component {
-  constructor(props) {
+  /* constructor(props) {
     super(props);
 
-    /* this.state = {
+    this.state = {
 
-    } */
-  }
+    }
+  } */
 
   handlePostToExercise(e) {
     e.preventDefault();
@@ -26,7 +25,7 @@ class ExcerciseForm extends Component {
       },
     };
 
-    /* fetch(url, options)
+    fetch(url, options)
       .then(res => {
         if (!res.ok) {
           throw new Error("Oh, Mamma Mia! There seems to be a problem.");
@@ -41,7 +40,7 @@ class ExcerciseForm extends Component {
         this.setState({
           error: err.message,
         });
-      }); */
+      });
   }
 
   render() {

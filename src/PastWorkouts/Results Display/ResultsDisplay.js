@@ -9,7 +9,7 @@ class ResultsDisplay extends Component {
     super(props);
     this.state = {
       redirect: null,
-      workoutid: "",
+      workoutid: "17",
     };
   }
 
@@ -24,15 +24,9 @@ class ResultsDisplay extends Component {
   };
 
   handleDelete = () => {
-    const url = `http://localhost:8000/api/workouts/${this.context.workoutid}`;
+    const url = `http://localhost:8000/api/workouts/17`;
     const options = {
       method: "DELETE",
-      body: JSON.stringify({
-        workoutid: this.context.workoutid,
-      }),
-      headers: {
-        "Content-Type": "application/json",
-      },
     };
 
     fetch(url, options)
@@ -42,12 +36,7 @@ class ResultsDisplay extends Component {
         }
         return res;
       })
-      .then(res => res.json())
-      .then(data => {
-        this.setState({
-          workoutid: data,
-        });
-      })
+      /* .then(res => res.json()) */
       .catch(err => {
         this.setState({
           error: err.message,
