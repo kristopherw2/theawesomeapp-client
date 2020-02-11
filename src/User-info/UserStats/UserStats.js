@@ -29,8 +29,13 @@ class UserStats extends Component {
       })
       .then(res => res.json())
       .then(data => {
-        console.log(` This is in the .then of userStats.js ${data.age}`)
-        /* this.context.handleUserLogin(data); */
+        this.setState({
+          id: data.id,
+          username: data.username,
+          age: data.age,
+          height: data.height,
+          weight: data.weight
+        })
         this.context.handleUserStats(data)
       })
       .catch(err => {
@@ -41,16 +46,15 @@ class UserStats extends Component {
   }
 
   render() {
-    console.log(this.context.age)
     /* console.log(`Loook it worked !!! ${this.context.id}`);
     console.log(`Loook it worked !!! ${this.context.username}`); */
     return (
       <div className='userStats'>
         <ul>
-          <li>Username: {this.context.username}</li>
-          <li>Age: {this.context.age}</li>
-          <li>Height: {this.context.height}</li>
-          <li>Weight: {this.context.weight}</li>
+          <li>Username: {this.state.username}</li>
+          <li>Age: {this.state.age}</li>
+          <li>Height: {this.state.height}</li>
+          <li>Weight: {this.state.weight}</li>
         </ul>
       </div>
     );
