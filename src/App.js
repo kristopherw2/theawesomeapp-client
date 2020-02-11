@@ -38,6 +38,9 @@ class App extends Component {
     })
   }
 
+    };
+  }
+
   handleUserLogin = username => {
     this.setState({
       id: username.id,
