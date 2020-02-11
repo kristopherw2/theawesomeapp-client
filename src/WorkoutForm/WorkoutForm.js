@@ -2,10 +2,9 @@ import React from "react";
 import "./WorkoutForm.css";
 import {Component} from "react";
 import {Link} from "react-router-dom";
-import UserContext from "../UserContext";
 import WorkoutName from "./FormComponents/WorkoutName";
-import ExcerciseForm from "./FormComponents/ExerciseForm";
-
+/* import ExcerciseForm from "./FormComponents/ExerciseForm"; */
+import WorkoutContext from "../WorkoutContext";
 
 class WorkoutForm extends Component {
   constructor(props) {
@@ -15,66 +14,52 @@ class WorkoutForm extends Component {
       userid: null,
       workoutname: "",
       workoutid: "",
+      showWorkoutForm: true,
     };
   }
-  static contextType = UserContext;
 
-  workoutnameChange = letter => {
-    this.setState({workoutname: letter});
+  static contextType = WorkoutContext;
+
+  handleCreateWorkout = workout => {
+    this.setState({
+      workoutid: workout.workoutid,
+      workoutname: workout.workoutname,
+      showWorkoutForm: false,
+    });
   };
 
-  handleCreateWorkout(e) {
-    e.preventDefault();
-    const url = `http://localhost:8000/api/workouts`;
-    const options = {
-      method: "POST",
-      body: JSON.stringify({
-        workoutname: this.state.workoutname,
-        userid: this.context.id,
-      }),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    };
-
-    fetch(url, options)
-      .then(res => {
-        if (!res.ok) {
-          throw new Error("Oh, Mamma Mia! There seems to be a problem.");
-        }
-        return res.json();
-      })
-      .then(data => {
-        if (!data.ok) {
-          throw new Error(`${data.error.message}`);
-        }
-        this.setState({
-          workoutname: data.workoutname,
-          workoutid: data.workoutid,
-          userid: this.context.id,
-        });
-        console.log(`FROM FETCH: ${this.state.userid}`);
-      })
-      .catch(err => {
-        this.setState({
-          error: err.message,
-        });
-      });
-  }
-
   render() {
-    return (
-      <div className='workout_info'>
-        <h3 className='title'>Enter Workout Info</h3>
-        <WorkoutName />
-        <ExcerciseForm />
 
-        <form>
-          <Link to={"/homepage"} id='btn'>
-            <button>Go home, you're drunk!</button>
-          </Link>
-        </form>
-      </div>
+
+    const renderForms = this.state.showWorkoutForm ? (
+      <WorkoutName />
+    ) : (
+      ""
+    );
+
+
+    return (
+      <WorkoutContext.Provider
+        value={{
+          workoutid: this.state.workoutid,
+          userid: this.state.userid,
+          workoutname: this.state.workoutname,
+          showWorkoutForm: this.state.showWorkoutForm,
+        }}
+      >
+        <div className='workout_info'>
+          <h3 className='title'>Enter Workout Info</h3>
+          {renderForms}
+          {/* <WorkoutName /> */}
+          {/* <ExcerciseForm /> */}
+
+          <form>
+            <Link to={"/homepage"} id='btn'>
+              <button>Go home, you're drunk!</button>
+            </Link>
+          </form>
+        </div>
+      </WorkoutContext.Provider>
     );
   }
 }
