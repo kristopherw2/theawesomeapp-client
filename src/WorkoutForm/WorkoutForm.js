@@ -3,6 +3,9 @@ import "./WorkoutForm.css";
 import {Component} from "react";
 import {Link} from "react-router-dom";
 import UserContext from "../UserContext";
+import WorkoutName from "./FormComponents/WorkoutName";
+import ExcerciseForm from "./FormComponents/ExerciseForm";
+
 
 class WorkoutForm extends Component {
   constructor(props) {
@@ -15,12 +18,6 @@ class WorkoutForm extends Component {
     };
   }
   static contextType = UserContext;
-
-  /* updateUserId (){
-    this.setState({
-      userid: 
-    })
-  } */
 
   workoutnameChange = letter => {
     this.setState({workoutname: letter});
@@ -65,47 +62,14 @@ class WorkoutForm extends Component {
       });
   }
 
-  /* componentDidMount() {
-    this.setState({
-      userid: this.context.id,
-    });
-  } */
-
   render() {
     return (
       <div className='workout_info'>
         <h3 className='title'>Enter Workout Info</h3>
-        <>
-          <form
-            className='workout_form name'
-            onSubmit={e => this.handleCreateWorkout(e)}
-          >
-            <label htmlFor='username'>Workout Name:</label>
-            <input
-              type='text'
-              id='workout_form_input name'
-              onChange={e => this.workoutnameChange(e.target.value)}
-            />
-            <button type='submit'>Submit</button>
-          </form>
-        </>
+        <WorkoutName />
+        <ExcerciseForm />
 
-        <form className='workout_form xercise'>
-          <p>Exercise:</p>
-          <input type='text' />
-          <p>Sets:</p>
-          <input type='text' />
-          <p>Reps:</p>
-          <input type='text' />
-          <p>Weight:</p>
-          <input type='text' />
-          <p>Time:</p>
-          <input type='text' />
-
-          <Link to={"/homepage"} id='btn'>
-            <button>Submit</button>
-          </Link>
-
+        <form>
           <Link to={"/homepage"} id='btn'>
             <button>Go home, you're drunk!</button>
           </Link>
