@@ -25,6 +25,17 @@ class App extends Component {
     };
   }
 
+  handUserStatsUpdate = userstats => {
+    console.log(`userstats in app js ${userstats}`)
+    this.setState( {
+      id: userstats.id,
+      username: userstats.username,
+      age: userstats.age,
+      height: userstats.height,
+      weight: userstats.weight
+    })
+  }
+
   handleUserLogin = username => {
     this.setState({
       id: username.id,
@@ -44,6 +55,7 @@ class App extends Component {
           height: this.state.height,
           weight: this.state.weight,
           handleUserLogin: this.handleUserLogin,
+          handleUserStatsUpdate: this.handUserStatsUpdate
         }}
       >
         <div className='app'>

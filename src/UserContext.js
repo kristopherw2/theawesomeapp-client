@@ -7,6 +7,7 @@ const UserContext = React.createContext({
   height: "",
   weight: "",
   handleUserLogin: () => {},
+  handleUserStatsUpdate: () => {}
 });
 
 export default UserContext;
