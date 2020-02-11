@@ -9,13 +9,22 @@ class ResultsDisplay extends Component {
     super(props);
     this.state = {
       redirect: null,
-      workoutid: "17",
+      /* workouts: , */
     };
   }
 
   static contextType = UserContext;
 
-  newDisplay = () => this.props.newWorkout;
+
+
+  /* handleGetWorkoutId() {
+    const getWorkoutObject = this.props.newWorkout;
+    const getWorkoutId = getWorkoutObject.map(item => {
+      return item.workoutid, item.workoutname;
+    });
+    const obj = getWorkoutId;
+    console.log(obj);
+  } */
 
   handleRedirect = () => {
     this.setState({
@@ -23,8 +32,9 @@ class ResultsDisplay extends Component {
     });
   };
 
-  handleDelete = () => {
-    const url = `http://localhost:8000/api/workouts/17`;
+  handleDelete = workoutid => {
+    /* const getWorkoutId = workoutid; */
+    const url = `http://localhost:8000/api/workouts/`;
     const options = {
       method: "DELETE",
     };
@@ -36,7 +46,6 @@ class ResultsDisplay extends Component {
         }
         return res;
       })
-      /* .then(res => res.json()) */
       .catch(err => {
         this.setState({
           error: err.message,
@@ -45,17 +54,22 @@ class ResultsDisplay extends Component {
   };
 
   render() {
-    console.log(this.state);
+
     if (this.state.redirect) {
       return <Redirect to={this.state.redirect} />;
     }
-    const newDisplay = this.props.newWorkout;
+    const newDisplay = this.context.workoutsArray;
+
+    
+
     const thisNewVariable = newDisplay.map(item => {
       return (
-        <div className={`resultsList`}>
+        <div className={`resultsList ${item.workoutid}`}>
           <span onClick={this.handleRedirect}>{item.workoutname}</span>
 
-          <button onClick={() => this.handleDelete()}>Delete</button>
+          <button onClick={() => this.handleDelete(item.workoutid)}>
+            Delete{item.workoutid}
+          </button>
 
           {/* {item.workoutname} */}
         </div>

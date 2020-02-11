@@ -25,6 +25,7 @@ class App extends Component {
       workoutid: "",
       workoutname: "",
       showWorkoutForm: true,
+      workoutsArray: [],
     };
   }
 
@@ -54,6 +55,12 @@ class App extends Component {
     });
   };
 
+  handleWorkoutsArrayUpdate = workout => {
+    this.setState({
+      workoutsArray: [...workout],
+    });
+  };
+
   /* console.log(`APP MOTHER FUCKING JS ${user}`); */
 
   render() {
@@ -65,10 +72,13 @@ class App extends Component {
           age: this.state.age,
           height: this.state.height,
           weight: this.state.weight,
+          workoutid: this.state.workoutid,
           handleUserLogin: this.handleUserLogin,
           handleUserStatsUpdate: this.handUserStatsUpdate,
           handleCreateWorkout: this.handleCreateWorkout,
           showWorkoutForm: this.state.showWorkoutForm,
+          workoutsArray: [],
+          handleWorkoutsArrayUpdate: this.handleWorkoutsArrayUpdate,
         }}
       >
         <div className='app'>
