@@ -17,6 +17,8 @@ class WorkoutName extends Component {
     this.setState({workoutname: letter});
   };
 
+
+
   handlePostToWorkout(e) {
     e.preventDefault();
     const url = `http://localhost:8000/api/workouts`;
@@ -39,16 +41,8 @@ class WorkoutName extends Component {
         return res.json();
       })
       .then(data => {
-        if (!data.ok) {
-          throw new Error(`${data.error.message}`);
-        }
+        console.log(data.workoutname);
         this.context.handleCreateWorkout(data);
-        /* this.setState({
-          workoutname: data.workoutname,
-          workoutid: data.workoutid,
-          userid: this.context.id,
-        }); */
-        /* console.log(`FROM FETCH: ${this.state.userid}`); */
       })
       .catch(err => {
         this.setState({
@@ -58,8 +52,9 @@ class WorkoutName extends Component {
   }
 
   render() {
-    console.log(`USER ID: ${this.context.id}`);
-    console.log(`STAAAAATE: ${this.state}`);
+    console.log(this.state);
+    /* console.log(`USER ID: ${this.context.id}`); */
+    /* console.log(`STAAAAATE: ${this.state}`); */
     return (
       <div>
         <form

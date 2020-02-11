@@ -24,24 +24,33 @@ class App extends Component {
       weight: "",
       workoutid: "",
       workoutname: "",
+      showWorkoutForm: true,
     };
   }
 
   handUserStatsUpdate = userstats => {
-    console.log(`userstats in app js ${userstats}`)
-    this.setState( {
+    console.log(`userstats in app js ${userstats}`);
+    this.setState({
       id: userstats.id,
       username: userstats.username,
       age: userstats.age,
       height: userstats.height,
-      weight: userstats.weight
-    })
-  }
+      weight: userstats.weight,
+    });
+  };
 
   handleUserLogin = username => {
     this.setState({
       id: username.id,
       username: username.username,
+    });
+  };
+
+  handleCreateWorkout = workout => {
+    this.setState({
+      workoutid: workout.workoutid,
+      workoutname: workout.workoutname,
+      showWorkoutForm: false,
     });
   };
 
@@ -57,7 +66,9 @@ class App extends Component {
           height: this.state.height,
           weight: this.state.weight,
           handleUserLogin: this.handleUserLogin,
-          handleUserStatsUpdate: this.handUserStatsUpdate
+          handleUserStatsUpdate: this.handUserStatsUpdate,
+          handleCreateWorkout: this.handleCreateWorkout,
+          showWorkoutForm: this.state.showWorkoutForm,
         }}
       >
         <div className='app'>

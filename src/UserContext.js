@@ -12,7 +12,7 @@ const UserContext = React.createContext({
   userid: "",
   workoutname: "",
   handleCreateWorkout: () => {},
+  showWorkoutForm: "",
 });
 
 export default UserContext;
-

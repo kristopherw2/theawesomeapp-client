@@ -3,6 +3,7 @@ import "./WorkoutForm.css";
 import {Component} from "react";
 import {Link} from "react-router-dom";
 import WorkoutName from "./FormComponents/WorkoutName";
+import UserContext from '../UserContext';
 /* import ExcerciseForm from "./FormComponents/ExerciseForm"; */
 
 class WorkoutForm extends Component {
@@ -16,39 +17,26 @@ class WorkoutForm extends Component {
       showWorkoutForm: true,
     };
   }
-
-
-  handleCreateWorkout = workout => {
-    this.setState({
-      workoutid: workout.workoutid,
-      workoutname: workout.workoutname,
-      showWorkoutForm: false,
-    });
-  };
+  static contextType = UserContext;
 
   render() {
+    const renderForms = this.context.showWorkoutForm ? <WorkoutName /> : "";
 
-
-    const renderForms = this.state.showWorkoutForm ? (
-      <WorkoutName />
-    ) : (
-      ""
-    );
-
+    console.log(this.context.showWorkoutForm);
 
     return (
-        <div className='workout_info'>
-          <h3 className='title'>Enter Workout Info</h3>
-          {renderForms}
-          {/* <WorkoutName /> */}
-          {/* <ExcerciseForm /> */}
+      <div className='workout_info'>
+        <h3 className='title'>Enter Workout Info</h3>
+        {renderForms}
+        {/* <WorkoutName /> */}
+        {/* <ExcerciseForm /> */}
 
-          <form>
-            <Link to={"/homepage"} id='btn'>
-              <button>Go home, you're drunk!</button>
-            </Link>
-          </form>
-        </div>
+        <form>
+          <Link to={"/homepage"} id='btn'>
+            <button>Go home, you're drunk!</button>
+          </Link>
+        </form>
+      </div>
     );
   }
 }
