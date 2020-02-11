@@ -8,7 +8,7 @@ class ResultsDisplay extends Component {
     super(props);
     this.state = {
       redirect: null,
-      workoutid: "5",
+      workoutid: "",
     };
   }
 
