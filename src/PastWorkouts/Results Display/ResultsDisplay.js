@@ -45,7 +45,7 @@ class ResultsDisplay extends Component {
         return res;
       })
       .then(data => {
-        console.log(newWorkoutsArray)
+        /* console.log(newWorkoutsArray) */
         this.context.handleWorkoutsArrayUpdate(newWorkoutsArray)
       })
       .catch(err => {
