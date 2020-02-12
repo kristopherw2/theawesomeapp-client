@@ -9,7 +9,7 @@ class ResultsDisplay extends Component {
     super(props);
     this.state = {
       redirect: null,
-      /* workouts: , */
+      workoutsArray: [],
     };
   }
 
@@ -22,14 +22,17 @@ class ResultsDisplay extends Component {
   };
 
   handleDelete = workoutid => {
+    let newWorkoutsArray = [];
     const getWorkoutsArray = this.context.workoutsArray;
     const getWorkoutId = getWorkoutsArray.filter(item => {
-      return item.workoutid === workoutid ? console.log(item.workoutid) : null;
+      return item.workoutid !== workoutid ? newWorkoutsArray.push(item) : null;
     });
 
-    /* console.log(getWorkoutId); */
+    /* console.log(`getWorkoutId:${getWorkoutId}`);
+    console.log(`newWorkoutsArray:${newWorkoutsArray}`); */
 
     const url = `http://localhost:8000/api/workouts/${workoutid}`;
+    /* const url = `http://localhost:8000/api/workouts/`; */
     const options = {
       method: "DELETE",
     };
@@ -50,6 +53,7 @@ class ResultsDisplay extends Component {
 
   render() {
     /* console.log(this.context.workoutsArray); */
+    console.log(this.state);
     if (this.state.redirect) {
       return <Redirect to={this.state.redirect} />;
     }
