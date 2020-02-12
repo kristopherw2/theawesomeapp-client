@@ -30,7 +30,6 @@ class App extends Component {
   }
 
   handUserStatsUpdate = userstats => {
-    console.log(`userstats in app js ${userstats}`);
     this.setState({
       id: userstats.id,
       username: userstats.username,
@@ -60,8 +59,6 @@ class App extends Component {
       workoutsArray: [...workout],
     });
   };
-
-  /* console.log(`APP MOTHER FUCKING JS ${user}`); */
 
   render() {
     return (

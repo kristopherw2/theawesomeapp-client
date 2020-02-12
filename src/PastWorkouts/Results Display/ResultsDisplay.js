@@ -15,25 +15,16 @@ class ResultsDisplay extends Component {
 
   static contextType = UserContext;
 
-
-
-  /* handleGetWorkoutId() {
-    const getWorkoutObject = this.props.newWorkout;
-    const getWorkoutId = getWorkoutObject.map(item => {
-      return item.workoutid, item.workoutname;
-    });
-    const obj = getWorkoutId;
-    console.log(obj);
-  } */
-
   handleRedirect = () => {
     this.setState({
       redirect: "/excerciselist",
     });
   };
 
-  handleDelete = workoutid => {
-    /* const getWorkoutId = workoutid; */
+  handleDelete = () => {
+    const getWorkoutsArray = this.context.workoutsArray;
+    
+
     const url = `http://localhost:8000/api/workouts/`;
     const options = {
       method: "DELETE",
@@ -54,21 +45,20 @@ class ResultsDisplay extends Component {
   };
 
   render() {
-
+    
+    /* console.log(this.context.workoutsArray); */
     if (this.state.redirect) {
       return <Redirect to={this.state.redirect} />;
     }
-    const newDisplay = this.context.workoutsArray;
-    console.log(`this is firing from results display ${newDisplay}`)
 
-    
+    const newDisplay = this.context.workoutsArray;
 
     const thisNewVariable = newDisplay.map(item => {
       return (
         <div className={`resultsList ${item.workoutid}`}>
           <span onClick={this.handleRedirect}>{item.workoutname}</span>
 
-          <button onClick={() => this.handleDelete(item.workoutid)}>
+          <button onClick={() => this.handleDelete()}>
             Delete{item.workoutid}
           </button>
 

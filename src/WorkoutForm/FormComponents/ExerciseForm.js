@@ -33,7 +33,6 @@ class ExcerciseForm extends Component {
         return res.json();
       })
       .then(data => {
-        console.log(data.workoutname);
         this.context.handleCreateWorkout(data);
       })
       .catch(err => {

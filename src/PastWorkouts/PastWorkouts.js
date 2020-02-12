@@ -38,7 +38,6 @@ class PastWorkouts extends Component {
   }
 
   render() {
-    console.log(`this is firing from pastworkouts.js ${this.state.workouts}`)
     return (
       <div>
         <h2>Previous Workouts</h2>
