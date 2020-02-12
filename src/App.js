@@ -53,6 +53,7 @@ class App extends Component {
   };
 
   handleCreateWorkout = workout => {
+    console.log(workout.workoutid)
     this.setState({
       workoutid: workout.workoutid,
       workoutname: workout.workoutname,

@@ -11,10 +11,10 @@ class ExcerciseForm extends Component {
       exercisename: '',
       sets: '',
       repetitions: '',
-      weight: '',
+      exerciseweight: '',
       time: '', 
       caloriesburned: '',
-      workoutid: '',
+      workoutid:"",
       metValue: 5,
       kgValue: .453592
     }
@@ -45,14 +45,30 @@ class ExcerciseForm extends Component {
     })
   }
 
+  updateExerciseWeight = letter => {
+    console.log(letter)
+    this.setState({
+      exerciseweight: letter
+    })
+  }
+
+  updateTime = letter => {
+    console.log(letter)
+    this.setState({
+      time: letter
+    })
+  }
+
   convertMETCaloriesBurned = (e) => {
     e.preventDefault()
-    let convertUserWeight = Math.floor(parseInt(this.state.weight, 10)/this.state.kgValue)
+    let convertUserWeight = Math.floor(parseInt(this.state.exerciseweight, 10)/this.state.kgValue)
     let convertSecondsToMinutes = (parseInt(this.state.time, 10)/60)
     let calculatedValueForCalories = Math.floor(convertSecondsToMinutes * (this.state.metValue * 3.5 * convertUserWeight)/200)
+    console.log(calculatedValueForCalories)
     this.setState(
       {
-      caloriesburned: calculatedValueForCalories
+      caloriesburned: calculatedValueForCalories,
+      workoutid: this.context.workoutid
     },
     () => {
       this.handlePostToExercise()
@@ -61,8 +77,8 @@ class ExcerciseForm extends Component {
   }
 
   handlePostToExercise() {
-    const { exercisename, sets, repetitions, weight, time, caloriesburned, workoutid } = this.state
-    const newExercise = { exercisename, sets, repetitions, weight, time, caloriesburned, workoutid }
+    const { exercisename, sets, repetitions, exerciseweight, time, caloriesburned, workoutid} = this.state
+    const newExercise = { exercisename, sets, repetitions, exerciseweight, time, caloriesburned, workoutid}
     const url = `http://localhost:8000/api/exercises/create`;
     const options = {
       method: "POST",
@@ -90,25 +106,26 @@ class ExcerciseForm extends Component {
   }
 
   render() {
-    console.log(this.context)
     return (
       <div>
-        <form className='workout_form xercise'>
+        <form className='workout_form xercise' onSubmit={e => this.convertMETCaloriesBurned(e)}>
           <label htmlFor='exercisename'>Exercise Name:</label>
-          <input type='text' id='exercisename' />
+          <input type='text' id='exercisename' onChange={(e) => this.updateExerciseName(e.target.value)}/>
           <label htmlFor='sets'>Sets:</label>
-          <input type='text' id='sets' />
+          <input type='text' id='sets' onChange={(e) => this.updateSets(e.target.value)}/>
           <label htmlFor='reps'>Reps:</label>
-          <input type='text' id='reps'/>
+          <input type='text' id='reps' onChange={(e) => this.updateRepetitions(e.target.value)} />
           <label htmlFor='weight'>Weight lbs:</label>
-          <input type='number' id='weight' />
+          <input type='number' id='weight' onChange={(e) => this.updateExerciseWeight(e.target.value)}/>
           <label htmlFor='time'>TimeSeconds:</label>
-          <input type='number' />
+          <input type='number' onChange={(e) => this.updateTime(e.target.value)} />
+          <button >Submit</button>
 
-          <Link to={"/homepage"} id='btn'>
-            <button>Submit</button>
-          </Link>
+        
         </form>
+        <Link to={"/homepage"} id='btn'>
+            <button>Go back</button>
+          </Link>
       </div>
     );
   }

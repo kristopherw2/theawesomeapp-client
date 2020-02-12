@@ -41,7 +41,8 @@ class WorkoutName extends Component {
         return res.json();
       })
       .then(data => {
-        this.context.handleCreateWorkout(data);
+        console.log(data)
+        this.context.handleCreateWorkout(data[0]);
       })
       .catch(err => {
         this.setState({
