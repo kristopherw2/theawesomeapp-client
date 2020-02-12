@@ -21,11 +21,15 @@ class ResultsDisplay extends Component {
     });
   };
 
-  handleDelete = () => {
+  handleDelete = workoutid => {
     const getWorkoutsArray = this.context.workoutsArray;
-    
+    const getWorkoutId = getWorkoutsArray.filter(item => {
+      return item.workoutid === workoutid ? console.log(item.workoutid) : null;
+    });
 
-    const url = `http://localhost:8000/api/workouts/`;
+    /* console.log(getWorkoutId); */
+
+    const url = `http://localhost:8000/api/workouts/${workoutid}`;
     const options = {
       method: "DELETE",
     };
@@ -45,7 +49,6 @@ class ResultsDisplay extends Component {
   };
 
   render() {
-    
     /* console.log(this.context.workoutsArray); */
     if (this.state.redirect) {
       return <Redirect to={this.state.redirect} />;
@@ -58,7 +61,7 @@ class ResultsDisplay extends Component {
         <div className={`resultsList ${item.workoutid}`}>
           <span onClick={this.handleRedirect}>{item.workoutname}</span>
 
-          <button onClick={() => this.handleDelete()}>
+          <button onClick={() => this.handleDelete(item.workoutid)}>
             Delete{item.workoutid}
           </button>
 
