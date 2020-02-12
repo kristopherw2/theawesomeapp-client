@@ -41,7 +41,6 @@ class WorkoutName extends Component {
         return res.json();
       })
       .then(data => {
-        console.log(data.workoutname);
         this.context.handleCreateWorkout(data);
       })
       .catch(err => {
@@ -52,9 +51,6 @@ class WorkoutName extends Component {
   }
 
   render() {
-    console.log(this.state);
-    /* console.log(`USER ID: ${this.context.id}`); */
-    /* console.log(`STAAAAATE: ${this.state}`); */
     return (
       <div>
         <form

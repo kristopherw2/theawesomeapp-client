@@ -46,8 +46,7 @@ class UserStats extends Component {
   }
 
   render() {
-    /* console.log(`Loook it worked !!! ${this.context.id}`);
-    console.log(`Loook it worked !!! ${this.context.username}`); */
+    
     return (
       <div className='userStats'>
         <ul>

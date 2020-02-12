@@ -22,7 +22,6 @@ class WorkoutForm extends Component {
   render() {
     const renderForms = this.context.showWorkoutForm ? <WorkoutName /> : <ExcerciseForm />;
 
-    console.log(this.context.showWorkoutForm);
 
     return (
       <div className='workout_info'>

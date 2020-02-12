@@ -118,8 +118,6 @@ class Login extends Component {
           redirect: "/homepage",
           
         });
-        /* console.log(data); */
-        /* this.context.handleUserLogin(data) */
         
       })
       .catch(err => {
