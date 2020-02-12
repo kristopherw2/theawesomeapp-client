@@ -44,6 +44,10 @@ class ResultsDisplay extends Component {
         }
         return res;
       })
+      .then(data => {
+        console.log(newWorkoutsArray)
+        this.context.handleWorkoutsArrayUpdate(newWorkoutsArray)
+      })
       .catch(err => {
         this.setState({
           error: err.message,
@@ -53,7 +57,6 @@ class ResultsDisplay extends Component {
 
   render() {
     /* console.log(this.context.workoutsArray); */
-    console.log(this.state);
     if (this.state.redirect) {
       return <Redirect to={this.state.redirect} />;
     }
