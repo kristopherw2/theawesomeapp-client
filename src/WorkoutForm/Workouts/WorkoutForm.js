@@ -2,9 +2,9 @@ import React from "react";
 import "./WorkoutForm.css";
 import {Component} from "react";
 import {Link} from "react-router-dom";
-import WorkoutName from "./FormComponents/WorkoutName";
-import UserContext from '../UserContext';
-import ExcerciseForm from "./FormComponents/ExerciseForm";
+import WorkoutName from "./WorkoutName";
+import UserContext from '../../UserContext';
+import ExcerciseForm from "../Exercises/ExerciseForm";
 
 class WorkoutForm extends Component {
   constructor(props) {

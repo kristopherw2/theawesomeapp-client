@@ -5,12 +5,12 @@ import Nav from "./Components/Nav/Nav";
 import Footer from "./Components/Footer/Footer";
 import Landing from "./Landing/Landing";
 import UserInfo from "./User-info/UserInfoMain";
-import WorkoutForm from "./WorkoutForm/WorkoutForm";
+import WorkoutForm from "./WorkoutForm/Workouts/WorkoutForm";
 import Login from "./LoginCreateUser/Login";
 import CreateUser from "./LoginCreateUser/CreateUser";
 import {Route} from "react-router-dom";
 import UserContext from "./UserContext";
-import ExercisesList from "./PastWorkouts/ExercisesList/ExercisesList";
+import ExercisesList from "./PastWorkouts/PastExercisesList/ExercisesList";
 
 class App extends Component {
   constructor(props) {
@@ -21,7 +21,7 @@ class App extends Component {
       username: "",
       age: "",
       height: "",
-      weight: "",
+      userweight: "",
       workoutid: "",
       workoutname: "",
       showWorkoutForm: true,
@@ -29,7 +29,7 @@ class App extends Component {
       exercisename: '',
       sets: '',
       repetitions: '',
-      weight: '',
+      exerciseweight: '',
       time: '', 
       caloriesburned: '',
     };
@@ -74,7 +74,7 @@ class App extends Component {
           username: this.state.username,
           age: this.state.age,
           height: this.state.height,
-          weight: this.state.weight,
+          userweight: this.state.userweight,
           workoutid: this.state.workoutid,
           handleUserLogin: this.handleUserLogin,
           handleUserStatsUpdate: this.handUserStatsUpdate,
@@ -85,7 +85,7 @@ class App extends Component {
           exercisename: this.state.exercisename,
           sets: this.state.sets,
           repetitions: this.state.repetitions,
-          weight: this.state.weight,
+          exerciseweight: this.state.exerciseweight,
           time: this.state.time, 
           caloriesburned: this.state.caloriesburned,
         }}

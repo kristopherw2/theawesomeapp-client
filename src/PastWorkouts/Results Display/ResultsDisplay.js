@@ -23,11 +23,11 @@ class ResultsDisplay extends Component {
 
   handleDelete = workoutid => {
     let newWorkoutsArray = [];
-    const getWorkoutsArray = this.context.workoutsArray;
-    const getWorkoutId = getWorkoutsArray.filter(item => {
+    this.context.workoutsArray.filter(item => {
       return item.workoutid !== workoutid ? newWorkoutsArray.push(item) : null;
     });
-
+;
+    //const getWorkoutId = getWorkoutsArray
     /* console.log(`getWorkoutId:${getWorkoutId}`);
     console.log(`newWorkoutsArray:${newWorkoutsArray}`); */
 
@@ -63,9 +63,9 @@ class ResultsDisplay extends Component {
 
     const newDisplay = this.context.workoutsArray;
 
-    const thisNewVariable = newDisplay.map(item => {
+    const thisNewVariable = newDisplay.map((item, index) => {
       return (
-        <div className={`resultsList ${item.workoutid}`}>
+        <div key={index} className={`resultsList ${item.workoutid}`}>
           <span onClick={this.handleRedirect}>{item.workoutname}</span>
 
           <button onClick={() => this.handleDelete(item.workoutid)}>

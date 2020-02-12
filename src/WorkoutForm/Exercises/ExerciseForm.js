@@ -25,19 +25,21 @@ class ExcerciseForm extends Component {
   //kgValue =0.453592
 
   updateExerciseName = letter => {
+    console.log(letter)
     this.setState({
       exercisename: letter
     })
   };
 
   updateSets = letter => {
-    console.log(typeof letter)
+    console.log(letter)
     this.setState({
       sets: letter
     })
   };
 
   updateRepetitions = letter => {
+    console.log(letter)
     this.setState({
       repetitions: letter
     })
@@ -88,6 +90,7 @@ class ExcerciseForm extends Component {
   }
 
   render() {
+    console.log(this.context)
     return (
       <div>
         <form className='workout_form xercise'>
