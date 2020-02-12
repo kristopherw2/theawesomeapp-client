@@ -1,6 +1,7 @@
 import React from "react";
 import {Component} from "react";
 import {Link} from "react-router-dom";
+import UserContext from '../../UserContext'
 
 class ExcerciseForm extends Component {
   constructor(props) {
