@@ -26,6 +26,12 @@ class App extends Component {
       workoutname: "",
       showWorkoutForm: true,
       workoutsArray: [],
+      exercisename: '',
+      sets: '',
+      repetitions: '',
+      weight: '',
+      time: '', 
+      caloriesburned: '',
     };
   }
 
@@ -76,6 +82,12 @@ class App extends Component {
           showWorkoutForm: this.state.showWorkoutForm,
           workoutsArray: this.state.workoutsArray,
           handleWorkoutsArrayUpdate: this.handleWorkoutsArrayUpdate,
+          exercisename: this.state.exercisename,
+          sets: this.state.sets,
+          repetitions: this.state.repetitions,
+          weight: this.state.weight,
+          time: this.state.time, 
+          caloriesburned: this.state.caloriesburned,
         }}
       >
         <div className='app'>
