@@ -9,7 +9,7 @@ class ExercisesList extends Component {
       exercisename: "",
       sets: "",
       repetitions: "",
-      weight: "",
+      exerciseweight: "",
       time: "",
       caloriesburned: "",
     };
@@ -17,35 +17,7 @@ class ExercisesList extends Component {
 
   static contextType = UserContext;
 
-  /* updateExerciseName(exercisename) {
-    this.setState({exercisename: exercisename});
-  }
-
-  updateSets(sets) {
-    this.setState({sets: sets});
-  }
-
-  updateRepetitions(repetitions) {
-    this.setState({repetitions: repetitions});
-  }
-
-  updateWeight(weight) {
-    this.setState({weight: weight});
-  }
-
-  updateTime(time) {
-    this.setState({time: time});
-  }
-
-  updateCaloriesBurned(caloriesburned) {
-    this.setState({caloriesburned: caloriesburned});
-  } */
-
   componentDidMount() {
-    /* const url = `http://localhost:8000/api/exercises/4`; */
-    /* const {exercisename, sets, repetitions, weight, time, caloriesburned} =this.state
-    const displayData = {caloriesburned, time, weight, repetitions, sets, exercisename} */
-
     fetch(`http://localhost:8000/api/exercises/4`)
       .then(res => {
         if (!res.ok) {
@@ -58,9 +30,18 @@ class ExercisesList extends Component {
         if (data.error) {
           throw new Error("Oh, Mamma Mia! That username seems to be taken!");
         }
-        
+        /* console.log(data); */
+        return data.map(item => {
+          return this.setState({
+            exercisename: item.exercisename,
+            sets: item.sets,
+            repetitions: item.repetitions,
+            exerciseweight: item.exerciseweight,
+            time: item.time,
+            caloriesburned: item.caloriesburned,
+          });
+        });
       })
-      
       .catch(err => {
         this.setState({
           error: err.message,
@@ -69,24 +50,37 @@ class ExercisesList extends Component {
   }
 
   render() {
-    /* console.log(data); */
-    console.log(this.state);
+    /* console.log(this.context); */
+    /* console.log(`MOTHERFUCKINSTATE: ${this.state}`); */
+    const displayExercises = this.state;
+    console.log(displayExercises);
+
     return (
       <div>
         <h3>Exercise Info</h3>
-        <ul>
-          <li>Exercise Name</li>
-          <li>Sets</li>
-          <li>Reps</li>
-          <li>weight</li>
-          <li>time</li>
-          <li>cal burned</li>
-        </ul>
+
+        
+
+        {/* <ul>
+          <li>Exercise Name:</li>
+          <li>{this.state.exercisename}</li>
+          <li>Sets:</li>
+          <li>{this.state.sets}</li>
+          <li>Reps:</li>
+          <li>{this.state.repetitions}</li>
+          <li>weight:</li>
+          <li>{this.state.weight}</li>
+          <li>time:</li>
+          <li>{this.state.time}</li>
+          <li>cal burned:</li>
+          <li>{this.state.caloriesburned}</li>
+        </ul> */}
 
         <form>
           <Link to={"/login"} id='btn'>
             <button>Go home, you're drunk!</button>
           </Link>
+
         </form>
       </div>
     );

@@ -18,7 +18,7 @@ class ResultsDisplay extends Component {
   handleRedirect = () => {
     this.setState({
       redirect: "/excerciselist",
-    });
+    })
   };
 
   handleDelete = workoutid => {
@@ -46,7 +46,7 @@ class ResultsDisplay extends Component {
       })
       .then(data => {
         /* console.log(newWorkoutsArray) */
-        this.context.handleWorkoutsArrayUpdate(newWorkoutsArray)
+        this.context.handleWorkoutsArrayUpdate(newWorkoutsArray);
       })
       .catch(err => {
         this.setState({
@@ -66,7 +66,7 @@ class ResultsDisplay extends Component {
     const thisNewVariable = newDisplay.map(item => {
       return (
         <div className={`resultsList ${item.workoutid}`}>
-          <span onClick={this.handleRedirect}>{item.workoutname}</span>
+          <span onClick={this.handleRedirect}> {item.workoutname} </span>
 
           <button onClick={() => this.handleDelete(item.workoutid)}>
             Delete{item.workoutid}

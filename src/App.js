@@ -21,7 +21,7 @@ class App extends Component {
       username: "",
       age: "",
       height: "",
-      weight: "",
+      userweight: "",
       workoutid: "",
       workoutname: "",
       showWorkoutForm: true,
@@ -29,7 +29,7 @@ class App extends Component {
       exercisename: '',
       sets: '',
       repetitions: '',
-      weight: '',
+      exerciseweight: '',
       time: '', 
       caloriesburned: '',
     };
@@ -42,7 +42,7 @@ class App extends Component {
       username: userstats.username,
       age: userstats.age,
       height: userstats.height,
-      weight: userstats.weight,
+      userweight: userstats.userweight,
     });
   };
 
@@ -75,7 +75,7 @@ class App extends Component {
           username: this.state.username,
           age: this.state.age,
           height: this.state.height,
-          weight: this.state.weight,
+          userweight: this.state.userweight,
           workoutid: this.state.workoutid,
           handleUserLogin: this.handleUserLogin,
           handleUserStatsUpdate: this.handUserStatsUpdate,
@@ -86,7 +86,7 @@ class App extends Component {
           exercisename: this.state.exercisename,
           sets: this.state.sets,
           repetitions: this.state.repetitions,
-          weight: this.state.weight,
+          exerciseweight: this.state.exerciseweight,
           time: this.state.time, 
           caloriesburned: this.state.caloriesburned,
         }}
