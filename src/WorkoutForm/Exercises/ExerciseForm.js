@@ -88,7 +88,7 @@ class ExcerciseForm extends Component {
         "Content-Type": "application/json",
       },
     }
-    
+
     fetch(url, options)
       .then(res => {
         if (!res.ok) {
@@ -107,11 +107,12 @@ class ExcerciseForm extends Component {
   }
 
   render() {
-    const renderCreatedExercises = this.context.exercisesArray.length === 0 ? null : <CreatedExercises/>
+    //const renderCreatedExercises = this.context.exercisesArray.length === 0 ? null : <CreatedExercises/>
     console.log(this.context.exercisesArray)
     return (
       <div>
-        {renderCreatedExercises}
+        {/* {renderCreatedExercises} */}
+        <CreatedExercises />
 
         <form className='workout_form xercise' onSubmit={e => this.convertMETCaloriesBurned(e)}>
           <label htmlFor='exercisename'>Exercise Name:</label>
@@ -122,7 +123,7 @@ class ExcerciseForm extends Component {
           <input type='text' id='reps' onChange={(e) => this.updateRepetitions(e.target.value)} />
           <label htmlFor='weight'>Weight lbs:</label>
           <input type='number' id='weight' onChange={(e) => this.updateExerciseWeight(e.target.value)}/>
-          <label htmlFor='time'>TimeSeconds:</label>
+          <label htmlFor='time'>Time Seconds:</label>
           <input type='number' onChange={(e) => this.updateTime(e.target.value)} />
           <button >Submit</button>
         </form>

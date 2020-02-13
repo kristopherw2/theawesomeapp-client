@@ -54,7 +54,6 @@ class App extends Component {
   };
 
   handleCreateWorkout = workout => {
-    console.log(workout.workoutid)
     this.setState({
       workoutid: workout.workoutid,
       workoutname: workout.workoutname,
@@ -73,7 +72,13 @@ class App extends Component {
     this.setState({
       exercisesArray: exercises
     })
-  }
+  };
+
+  handleDeleteExercise = exercises => {
+    this.setState({
+      exercisesArray: [...exercises]
+    })
+  };
 
   render() {
     return (
@@ -98,7 +103,8 @@ class App extends Component {
           exerciseweight: this.state.exerciseweight,
           time: this.state.time, 
           caloriesburned: this.state.caloriesburned,
-          handleExercisesArrayUpdate: this.handleExercisesArrayUpdate
+          handleExercisesArrayUpdate: this.handleExercisesArrayUpdate,
+          handleDeleteExercise: this.handleDeleteExercise
         }}
       >
         <div className='app'>
