@@ -40,7 +40,8 @@ class ExercisesList extends Component {
             time: item.time,
             caloriesburned: item.caloriesburned,
           });
-        });
+          
+        })
       })
       .catch(err => {
         this.setState({
@@ -50,18 +51,16 @@ class ExercisesList extends Component {
   }
 
   render() {
-    /* console.log(this.context); */
-    /* console.log(`MOTHERFUCKINSTATE: ${this.state}`); */
-    const displayExercises = this.state;
-    console.log(displayExercises);
+    console.log(this.state);
 
+    const stateVar = this.state;
+    
     return (
       <div>
         <h3>Exercise Info</h3>
-
-        
-
-        {/* <ul>
+        {/* {displayExercises} */}
+        {/* <div>{displayExercises}</div> */}
+        <ul>
           <li>Exercise Name:</li>
           <li>{this.state.exercisename}</li>
           <li>Sets:</li>
@@ -74,7 +73,7 @@ class ExercisesList extends Component {
           <li>{this.state.time}</li>
           <li>cal burned:</li>
           <li>{this.state.caloriesburned}</li>
-        </ul> */}
+        </ul>
 
         <form>
           <Link to={"/login"} id='btn'>
