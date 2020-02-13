@@ -53,7 +53,6 @@ class CreatedExercises extends Component {
         console.log(this.context.exercisesArray)
 
         const exercisesArray = newExerciseDisplay.map((item, index) => {
-            console.log(item)
             return (
                     <ul>
                         <li key={index}>Name: {item.exercisename}</li>
