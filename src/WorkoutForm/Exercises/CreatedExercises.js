@@ -49,10 +49,10 @@ class CreatedExercises extends Component {
 
     render() {
 
-        // const newExerciseDisplay = this.context.exercisesArray
+        const newExerciseDisplay = this.context.exercisesArray
         console.log(this.context.exercisesArray)
 
-      /*   const exercisesArray = newExerciseDisplay.map((item, index) => {
+        const exercisesArray = newExerciseDisplay.map((item, index) => {
             console.log(item)
             return (
                     <ul>
@@ -61,15 +61,15 @@ class CreatedExercises extends Component {
                         <li key={index+2}>Weight lbs: {item.exerciseweight} total</li>
                         <li key={index+3}> Time: {item.time} seconds</li>
                         <li key={index+4}>Calories: {item.caloriesburned}</li>
-                        <button onClick={() => this.handleDelete(item.exerciseid)}></button>
+                        <button onClick={() => this.handleDelete(item.exerciseid)}>Delete</button>
                     </ul>
                     
             )
-        } )*/
+        } ) 
 
         return ( 
             <div className='results-container'>
-                {/* {exercisesArray} */}
+                {exercisesArray} 
             </div>
         )
     }

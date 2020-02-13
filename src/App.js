@@ -70,7 +70,7 @@ class App extends Component {
   handleExercisesArrayUpdate = exercises => {
     console.log(exercises)
     this.setState({
-      exercisesArray: exercises
+      exercisesArray: [...this.state.exercisesArray, ...exercises]
     })
   };
 

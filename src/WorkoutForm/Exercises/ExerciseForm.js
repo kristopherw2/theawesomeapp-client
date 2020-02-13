@@ -107,12 +107,11 @@ class ExcerciseForm extends Component {
   }
 
   render() {
-    //const renderCreatedExercises = this.context.exercisesArray.length === 0 ? null : <CreatedExercises/>
+    const renderCreatedExercises = this.context.exercisesArray.length === 0 ? null : <CreatedExercises/>
     console.log(this.context.exercisesArray)
     return (
       <div>
-        {/* {renderCreatedExercises} */}
-        <CreatedExercises />
+        {renderCreatedExercises}
 
         <form className='workout_form xercise' onSubmit={e => this.convertMETCaloriesBurned(e)}>
           <label htmlFor='exercisename'>Exercise Name:</label>
