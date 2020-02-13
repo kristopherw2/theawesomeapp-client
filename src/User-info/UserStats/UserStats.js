@@ -36,7 +36,7 @@ class UserStats extends Component {
           height: data.height,
           weight: data.weight
         })
-        this.context.handleUserStats(data)
+        this.context.handleUserStatsUpdate(data)
       })
       .catch(err => {
         this.setState({

@@ -2,6 +2,7 @@ import React from "react";
 import {Component} from "react";
 import {Link} from "react-router-dom";
 import UserContext from '../../UserContext'
+import CreatedExercises from './CreatedExercises'
 
 class ExcerciseForm extends Component {
   constructor(props) {
@@ -15,6 +16,7 @@ class ExcerciseForm extends Component {
       time: '', 
       caloriesburned: '',
       workoutid:"",
+      userid:"",
       metValue: 5,
       kgValue: .453592
     }
@@ -25,50 +27,48 @@ class ExcerciseForm extends Component {
   //kgValue =0.453592
 
   updateExerciseName = letter => {
-    console.log(letter)
     this.setState({
       exercisename: letter
     })
   };
 
   updateSets = letter => {
-    console.log(letter)
     this.setState({
       sets: letter
     })
   };
 
   updateRepetitions = letter => {
-    console.log(letter)
     this.setState({
       repetitions: letter
     })
   }
 
   updateExerciseWeight = letter => {
-    console.log(letter)
     this.setState({
       exerciseweight: letter
     })
   }
 
+  //Update exercise time
   updateTime = letter => {
-    console.log(letter)
     this.setState({
       time: letter
     })
   }
 
+  //converts MET value for calories burnd NEEDS TO EVENTUALLY BE DYNAMIC USING AN AVERAGE RIGHT NOW
   convertMETCaloriesBurned = (e) => {
     e.preventDefault()
-    let convertUserWeight = Math.floor(parseInt(this.state.exerciseweight, 10)/this.state.kgValue)
+    let convertUserWeight = Math.floor(parseInt(this.context.userweight, 10)/this.state.kgValue)
     let convertSecondsToMinutes = (parseInt(this.state.time, 10)/60)
     let calculatedValueForCalories = Math.floor(convertSecondsToMinutes * (this.state.metValue * 3.5 * convertUserWeight)/200)
     console.log(calculatedValueForCalories)
     this.setState(
       {
       caloriesburned: calculatedValueForCalories,
-      workoutid: this.context.workoutid
+      workoutid: this.context.workoutid,
+      userid: this.context.id
     },
     () => {
       this.handlePostToExercise()
@@ -76,9 +76,10 @@ class ExcerciseForm extends Component {
     )
   }
 
+  //handles Post for exercises
   handlePostToExercise() {
-    const { exercisename, sets, repetitions, exerciseweight, time, caloriesburned, workoutid} = this.state
-    const newExercise = { exercisename, sets, repetitions, exerciseweight, time, caloriesburned, workoutid}
+    const { exercisename, sets, repetitions, exerciseweight, time, caloriesburned, workoutid, userid} = this.state
+    const newExercise = { exercisename, sets, repetitions, exerciseweight, time, caloriesburned, workoutid, userid}
     const url = `http://localhost:8000/api/exercises/create`;
     const options = {
       method: "POST",
@@ -86,8 +87,8 @@ class ExcerciseForm extends Component {
       headers: {
         "Content-Type": "application/json",
       },
-    };
-
+    }
+    
     fetch(url, options)
       .then(res => {
         if (!res.ok) {
@@ -96,7 +97,7 @@ class ExcerciseForm extends Component {
         return res.json();
       })
       .then(data => {
-        console.log(data)
+        this.context.handleExercisesArrayUpdate(data)
       })
       .catch(err => {
         this.setState({
@@ -106,8 +107,12 @@ class ExcerciseForm extends Component {
   }
 
   render() {
+    const renderCreatedExercises = this.context.exercisesArray.length === 0 ? null : <CreatedExercises/>
+    console.log(this.context.exercisesArray)
     return (
       <div>
+        {renderCreatedExercises}
+
         <form className='workout_form xercise' onSubmit={e => this.convertMETCaloriesBurned(e)}>
           <label htmlFor='exercisename'>Exercise Name:</label>
           <input type='text' id='exercisename' onChange={(e) => this.updateExerciseName(e.target.value)}/>
@@ -120,12 +125,12 @@ class ExcerciseForm extends Component {
           <label htmlFor='time'>TimeSeconds:</label>
           <input type='number' onChange={(e) => this.updateTime(e.target.value)} />
           <button >Submit</button>
-
-        
         </form>
+
         <Link to={"/homepage"} id='btn'>
             <button>Go back</button>
           </Link>
+
       </div>
     );
   }

@@ -27,12 +27,8 @@ class ResultsDisplay extends Component {
       return item.workoutid !== workoutid ? newWorkoutsArray.push(item) : null;
     });
 ;
-    //const getWorkoutId = getWorkoutsArray
-    /* console.log(`getWorkoutId:${getWorkoutId}`);
-    console.log(`newWorkoutsArray:${newWorkoutsArray}`); */
 
     const url = `http://localhost:8000/api/workouts/${workoutid}`;
-    /* const url = `http://localhost:8000/api/workouts/`; */
     const options = {
       method: "DELETE",
     };
@@ -45,7 +41,6 @@ class ResultsDisplay extends Component {
         return res;
       })
       .then(data => {
-        console.log(newWorkoutsArray)
         this.context.handleWorkoutsArrayUpdate(newWorkoutsArray)
       })
       .catch(err => {
@@ -56,7 +51,6 @@ class ResultsDisplay extends Component {
   };
 
   render() {
-    /* console.log(this.context.workoutsArray); */
     if (this.state.redirect) {
       return <Redirect to={this.state.redirect} />;
     }
@@ -72,7 +66,6 @@ class ResultsDisplay extends Component {
             Delete{item.workoutid}
           </button>
 
-          {/* {item.workoutname} */}
         </div>
       );
     });

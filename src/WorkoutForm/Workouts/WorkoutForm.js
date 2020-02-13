@@ -22,19 +22,13 @@ class WorkoutForm extends Component {
   render() {
     const renderForms = this.context.showWorkoutForm ? <WorkoutName /> : <ExcerciseForm />;
 
-
     return (
       <div className='workout_info'>
         <h3 className='title'>Enter Workout Info</h3>
         {renderForms}
-        {/* <WorkoutName /> */}
-        {/* <ExcerciseForm /> */}
-
-        <form>
           <Link to={"/homepage"} id='btn'>
             <button>Go home, you're drunk!</button>
           </Link>
-        </form>
       </div>
     );
   }

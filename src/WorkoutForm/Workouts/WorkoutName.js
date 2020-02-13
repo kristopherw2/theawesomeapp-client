@@ -13,12 +13,13 @@ class WorkoutName extends Component {
 
   static contextType = UserContext;
 
+  //update workoutname state
   workoutnameChange = letter => {
     this.setState({workoutname: letter});
   };
 
 
-
+  //post a workout 
   handlePostToWorkout(e) {
     e.preventDefault();
     const url = `http://localhost:8000/api/workouts`;
@@ -41,7 +42,6 @@ class WorkoutName extends Component {
         return res.json();
       })
       .then(data => {
-        console.log(data)
         this.context.handleCreateWorkout(data[0]);
       })
       .catch(err => {

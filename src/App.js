@@ -26,6 +26,7 @@ class App extends Component {
       workoutname: "",
       showWorkoutForm: true,
       workoutsArray: [],
+      exercisesArray: [],
       exercisename: '',
       sets: '',
       repetitions: '',
@@ -41,7 +42,7 @@ class App extends Component {
       username: userstats.username,
       age: userstats.age,
       height: userstats.height,
-      weight: userstats.weight,
+      userweight: userstats.weight,
     });
   };
 
@@ -67,6 +68,13 @@ class App extends Component {
     });
   };
 
+  handleExercisesArrayUpdate = exercises => {
+    console.log(exercises)
+    this.setState({
+      exercisesArray: exercises
+    })
+  }
+
   render() {
     return (
       <UserContext.Provider
@@ -82,6 +90,7 @@ class App extends Component {
           handleCreateWorkout: this.handleCreateWorkout,
           showWorkoutForm: this.state.showWorkoutForm,
           workoutsArray: this.state.workoutsArray,
+          exercisesArray: this.state.exercisesArray,
           handleWorkoutsArrayUpdate: this.handleWorkoutsArrayUpdate,
           exercisename: this.state.exercisename,
           sets: this.state.sets,
@@ -89,6 +98,7 @@ class App extends Component {
           exerciseweight: this.state.exerciseweight,
           time: this.state.time, 
           caloriesburned: this.state.caloriesburned,
+          handleExercisesArrayUpdate: this.handleExercisesArrayUpdate
         }}
       >
         <div className='app'>

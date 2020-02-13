@@ -11,6 +11,7 @@ const UserContext = React.createContext({
   workoutname: "",
   showWorkoutForm: "",
   workoutsArray: [],
+  exercisesArray: [],
   exercisename: '',
   sets: '',
   repetitions: '',
@@ -21,6 +22,7 @@ const UserContext = React.createContext({
   handleCreateWorkout: () => {},
   handleUserLogin: () => {},
   handleUserStatsUpdate: () => {},
+  handleExercisesArrayUpdate: () => {}
 });
 
 export default UserContext;
