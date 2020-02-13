@@ -30,9 +30,8 @@ class ExercisesList extends Component {
         if (data.error) {
           throw new Error("Oh, Mamma Mia! That username seems to be taken!");
         }
-        /* console.log(data); */
-        return data.map(item => {
-          return this.setState({
+        let res = data.map(item => {
+          return ({
             exercisename: item.exercisename,
             sets: item.sets,
             repetitions: item.repetitions,
@@ -40,8 +39,10 @@ class ExercisesList extends Component {
             time: item.time,
             caloriesburned: item.caloriesburned,
           });
-          
         })
+        return res.map(item => {
+          
+        } )
       })
       .catch(err => {
         this.setState({
@@ -50,17 +51,22 @@ class ExercisesList extends Component {
       });
   }
 
+  /* handleDataMap(){
+    const someVar = this.state;
+    return someVar.map(item =>{
+      
+    })
+  } */
+
   render() {
     console.log(this.state);
-
-    const stateVar = this.state;
     
     return (
       <div>
         <h3>Exercise Info</h3>
         {/* {displayExercises} */}
         {/* <div>{displayExercises}</div> */}
-        <ul>
+        {/* <ul>
           <li>Exercise Name:</li>
           <li>{this.state.exercisename}</li>
           <li>Sets:</li>
@@ -73,7 +79,7 @@ class ExercisesList extends Component {
           <li>{this.state.time}</li>
           <li>cal burned:</li>
           <li>{this.state.caloriesburned}</li>
-        </ul>
+        </ul> */}
 
         <form>
           <Link to={"/login"} id='btn'>
