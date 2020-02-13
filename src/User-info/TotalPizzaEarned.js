@@ -28,10 +28,16 @@ class TotalPizzaEarned extends Component {
       })
       .then(res => res.json())
       .then(data => {
+        if(data.length === 0) {
+          this.setState({
+            pizzaslices: `You haven't earned any slices better go to the gym and order some!`
+          })
+        } else {
         let pizzaSlices = Math.floor(data.map(item => item.caloriesburned).reduce((a, b) => a + b)/250)
         this.setState({
           pizzaslices: pizzaSlices
         })
+        }
       })
       .catch(err => {
         this.setState({
