@@ -12,12 +12,14 @@ class ExercisesList extends Component {
       exerciseweight: "",
       time: "",
       caloriesburned: "",
+      exerciseArray: [],
     };
   }
 
   static contextType = UserContext;
 
   componentDidMount() {
+    //* http://localhost:8000/api/exercises/:workoutid
     fetch(`http://localhost:8000/api/exercises/4`)
       .then(res => {
         if (!res.ok) {
@@ -30,19 +32,7 @@ class ExercisesList extends Component {
         if (data.error) {
           throw new Error("Oh, Mamma Mia! That username seems to be taken!");
         }
-        let res = data.map(item => {
-          return ({
-            exercisename: item.exercisename,
-            sets: item.sets,
-            repetitions: item.repetitions,
-            exerciseweight: item.exerciseweight,
-            time: item.time,
-            caloriesburned: item.caloriesburned,
-          });
-        })
-        return res.map(item => {
-          
-        } )
+        this.setState({exerciseArray: data});
       })
       .catch(err => {
         this.setState({
@@ -51,41 +41,35 @@ class ExercisesList extends Component {
       });
   }
 
-  /* handleDataMap(){
-    const someVar = this.state;
-    return someVar.map(item =>{
-      
-    })
-  } */
+  showList() {
+    const mapExerciseArray = this.state.exerciseArray;
+    return (
+      <ul>
+        {mapExerciseArray.map(item => (
+          <li key={item.exerciseid}>
+            <div>{`Exercise: ${item.exercisename}`}</div>
+            <div>{`Reps: ${item.repetitions}`}</div>
+            <div>{`Sets: ${item.sets}`}</div>
+            <div>{`Weight: ${item.exerciseweight}`}</div>
+            <div>{`Time: ${item.time}`}</div>
+            <div>{`Calories Burned: ${item.caloriesburned}`}</div>
+            <br/>
+          </li>
+        ))}
+      </ul>
+    );
+  }
 
   render() {
-    console.log(this.state);
-    
     return (
       <div>
         <h3>Exercise Info</h3>
-        {/* {displayExercises} */}
-        {/* <div>{displayExercises}</div> */}
-        {/* <ul>
-          <li>Exercise Name:</li>
-          <li>{this.state.exercisename}</li>
-          <li>Sets:</li>
-          <li>{this.state.sets}</li>
-          <li>Reps:</li>
-          <li>{this.state.repetitions}</li>
-          <li>weight:</li>
-          <li>{this.state.weight}</li>
-          <li>time:</li>
-          <li>{this.state.time}</li>
-          <li>cal burned:</li>
-          <li>{this.state.caloriesburned}</li>
-        </ul> */}
+        <span>{this.showList()}</span>
 
         <form>
           <Link to={"/login"} id='btn'>
             <button>Go home, you're drunk!</button>
           </Link>
-
         </form>
       </div>
     );
