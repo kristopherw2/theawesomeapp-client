@@ -38,7 +38,6 @@ class App extends Component {
 
 
   handUserStatsUpdate = userstats => {
-    /* console.log(userstats) */
     this.setState({
       id: userstats.id,
       username: userstats.username,
@@ -70,7 +69,6 @@ class App extends Component {
   };
 
   handleExercisesArrayUpdate = exercises => {
-    console.log(exercises)
     this.setState({
       exercisesArray: [...this.state.exercisesArray, ...exercises]
     })

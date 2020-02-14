@@ -106,7 +106,6 @@ class Login extends Component {
         return res.json();
       })
       .then(data => {
-        /* console.log(data) */
         if (data.error) {
           throw new Error(`${data.error.message}`);
         }

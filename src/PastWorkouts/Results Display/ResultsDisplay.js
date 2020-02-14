@@ -21,7 +21,6 @@ class ResultsDisplay extends Component {
     this.context.workoutsArray.filter(item => {
       return item.workoutid === workoutid ? workoutIdArray.push(item) : null;
     });
-    /* console.log(workoutIdArray); */
     this.setState({
       redirect: "/excerciselist",
       workoutIdArray: workoutIdArray,
