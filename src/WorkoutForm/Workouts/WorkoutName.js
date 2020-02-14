@@ -52,6 +52,7 @@ class WorkoutName extends Component {
   }
 
   render() {
+    console.log(this.context.userweight)
     return (
       <div>
         <form
