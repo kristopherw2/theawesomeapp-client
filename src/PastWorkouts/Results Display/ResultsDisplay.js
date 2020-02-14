@@ -72,11 +72,11 @@ class ResultsDisplay extends Component {
       return (
         <div key={index} className={`resultsList ${item.workoutid}`}>
           <span onClick={() => this.handleRedirect(item.workoutid)}>
-            {item.workoutname} workoutid: {item.workoutid}
+            {item.workoutname}
           </span>
 
           <button onClick={() => this.handleDelete(item.workoutid)}>
-            Delete{item.workoutid}
+            Delete
           </button>
         </div>
       );
