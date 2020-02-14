@@ -38,7 +38,7 @@ class App extends Component {
 
 
   handUserStatsUpdate = userstats => {
-    console.log(userstats)
+    /* console.log(userstats) */
     this.setState({
       id: userstats.id,
       username: userstats.username,

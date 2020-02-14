@@ -15,7 +15,6 @@ class CreatedExercises extends Component {
     static contextType = UserContext;
 
     handleDelete = exerciseid => {
-        console.log(exerciseid)
         let newExercisesArray = [];
         this.context.exercisesArray.filter(item => {
         return item.exerciseid !== exerciseid ? newExercisesArray.push(item) : null;
@@ -50,7 +49,6 @@ class CreatedExercises extends Component {
     render() {
 
         const newExerciseDisplay = this.context.exercisesArray
-        console.log(this.context.exercisesArray)
 
         const exercisesArray = newExerciseDisplay.map((item, index) => {
             return (

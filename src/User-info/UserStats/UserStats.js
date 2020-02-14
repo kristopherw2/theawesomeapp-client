@@ -29,7 +29,6 @@ class UserStats extends Component {
       })
       .then(res => res.json())
       .then(data => {
-        console.log(data)
         this.setState({
           id: data.id,
           username: data.username,

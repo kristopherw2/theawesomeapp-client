@@ -19,11 +19,6 @@ class ExercisesList extends Component {
   static contextType = UserContext;
 
   componentDidMount() {
-    /* const someVar = this.props.location.state;
-    const getWorkoutExercises = someVar.map(item => {
-      return item.workoutid;
-    });
-    console.log(getWorkoutExercises); */
 
     //* http://localhost:8000/api/exercises/:workoutid
     fetch(`http://localhost:8000/api/exercises/`)
@@ -67,7 +62,6 @@ class ExercisesList extends Component {
   }
 
   render() {
-    console.log(this.props.location.state);
     return (
       <div>
         <h3>Exercise Info</h3>

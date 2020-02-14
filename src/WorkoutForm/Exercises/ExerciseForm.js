@@ -63,7 +63,6 @@ class ExcerciseForm extends Component {
     let convertUserWeight = Math.floor(parseInt(this.context.userweight, 10)/this.state.kgValue)
     let convertSecondsToMinutes = (parseInt(this.state.time, 10)/60)
     let calculatedValueForCalories = Math.floor(convertSecondsToMinutes * (this.state.metValue * 3.5 * convertUserWeight)/200)
-    console.log(calculatedValueForCalories)
     this.setState(
       {
       caloriesburned: calculatedValueForCalories,
@@ -107,9 +106,7 @@ class ExcerciseForm extends Component {
   }
 
   render() {
-    console.log(this.context.userweight)
     const renderCreatedExercises = this.context.exercisesArray.length === 0 ? null : <CreatedExercises/>
-    console.log(this.context.exercisesArray)
     return (
       <div>
         {renderCreatedExercises}

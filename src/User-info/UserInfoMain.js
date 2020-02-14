@@ -11,7 +11,6 @@ export default class UserInfo extends Component {
   static contextType = UserContext;
 
   render() {
-    console.log(this.context.userweight)
     return (
       <div className='user-info'>
         <TotalPizzaEarned />
