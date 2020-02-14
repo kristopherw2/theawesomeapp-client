@@ -66,7 +66,7 @@ class ResultsDisplay extends Component {
     const thisNewVariable = newDisplay.map(item => {
       return (
         <div className={`resultsList ${item.workoutid}`}>
-          <span onClick={this.handleRedirect}> {item.workoutname} </span>
+          <span onClick={this.handleRedirect}> {item.workoutname} workoutid: {item.workoutid} </span>
 
           <button onClick={() => this.handleDelete(item.workoutid)}>
             Delete{item.workoutid}

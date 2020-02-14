@@ -20,7 +20,7 @@ class ExercisesList extends Component {
 
   componentDidMount() {
     //* http://localhost:8000/api/exercises/:workoutid
-    fetch(`http://localhost:8000/api/exercises/4`)
+    fetch(`http://localhost:8000/api/exercises/1`)
       .then(res => {
         if (!res.ok) {
           throw new Error("Oh, Mamma Mia! There seems to be a problem.");
