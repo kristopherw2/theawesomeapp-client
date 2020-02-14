@@ -15,7 +15,7 @@ class CreateUser extends Component {
       password: "",
       age: null,
       height: null,
-      weight: null,
+      userweight: null,
       error: null,
       usernameValidationMessage: "",
       passwordValidationMessage: "",
@@ -43,8 +43,8 @@ class CreateUser extends Component {
     this.setState({height: height});
   }
 
-  updateWeight(weight) {
-    this.setState({weight: weight});
+  updateWeight(userweight) {
+    this.setState({userweight: userweight});
   }
 
   validateLogin = event => {
@@ -103,7 +103,7 @@ class CreateUser extends Component {
         generalValidationMessage: "Height is required",
         generalValid: false,
       });
-    } else if (this.state.weight == null) {
+    } else if (this.state.userweight == null) {
       this.setState({
         generalValidationMessage: "Weight is required",
         generalValid: false,
@@ -126,8 +126,8 @@ class CreateUser extends Component {
   };
 
   handleSubmit() {
-    const {username, password, age, height, weight} = this.state;
-    const newUser = {username, password, age, height, weight};
+    const {username, password, age, height, userweight} = this.state;
+    const newUser = {username, password, age, height, userweight};
 
     //TODO: Will need to change url to live server
     const url = "http://localhost:8000/api/users/registration";
@@ -150,13 +150,12 @@ class CreateUser extends Component {
         if (data.error) {
           throw new Error("Oh, Mamma Mia! That username seems to be taken!");
         }
-
         this.setState({
           username: this.updateUsername(username),
           password: this.updatePassword(password),
           age: this.updateAge(age),
           height: this.updateHeight(height),
-          weight: this.updateWeight(weight),
+          userweight: this.updateWeight(userweight),
           error: null,
           redirect: "/login",
         });
@@ -186,11 +185,12 @@ class CreateUser extends Component {
 
   weightChange = letter => {
     this.setState({
-      weight: letter,
+      userweight: letter,
     });
   };
 
   render() {
+    console.log(this.state);
     if (this.state.redirect) {
       return <Redirect to={this.state.redirect} />;
     }
@@ -264,12 +264,12 @@ class CreateUser extends Component {
           </div>
 
           <div className='form-group'>
-            <label htmlFor='weight'>Weight:</label>
+            <label htmlFor='userweight'>Weight:</label>
             <input
               type='text'
               className='create_user_control'
-              name='weight'
-              id='weight'
+              name='userweight'
+              id='userweight'
               onChange={e => this.updateWeight(e.target.value)}
             />
           </div>

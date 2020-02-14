@@ -12,7 +12,7 @@ class UserStats extends Component {
       username: "",
       age: "",
       height: "",
-      weight: "",
+      userweight: "",
     };
   }
   static contextType = UserContext;
@@ -35,7 +35,7 @@ class UserStats extends Component {
           username: data.username,
           age: data.age,
           height: data.height,
-          weight: data.weight
+          userweight: data.userweight
         })
         this.context.handleUserStatsUpdate(data)
       })
@@ -54,7 +54,7 @@ class UserStats extends Component {
           <li>Username: {this.state.username}</li>
           <li>Age: {this.state.age}</li>
           <li>Height: {this.state.height}</li>
-          <li>Weight: {this.state.weight}</li>
+          <li>Weight: {this.state.userweight}</li>
         </ul>
       </div>
     );

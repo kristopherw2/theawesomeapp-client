@@ -44,7 +44,7 @@ class App extends Component {
       username: userstats.username,
       age: userstats.age,
       height: userstats.height,
-      userweight: userstats.weight,
+      userweight: userstats.userweight,
     });
   };
 
