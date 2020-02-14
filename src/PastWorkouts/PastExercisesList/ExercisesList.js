@@ -19,8 +19,14 @@ class ExercisesList extends Component {
   static contextType = UserContext;
 
   componentDidMount() {
+    /* const someVar = this.props.location.state;
+    const getWorkoutExercises = someVar.map(item => {
+      return item.workoutid;
+    });
+    console.log(getWorkoutExercises); */
+
     //* http://localhost:8000/api/exercises/:workoutid
-    fetch(`http://localhost:8000/api/exercises/1`)
+    fetch(`http://localhost:8000/api/exercises/`)
       .then(res => {
         if (!res.ok) {
           throw new Error("Oh, Mamma Mia! There seems to be a problem.");
@@ -53,7 +59,7 @@ class ExercisesList extends Component {
             <div>{`Weight: ${item.exerciseweight}`}</div>
             <div>{`Time: ${item.time}`}</div>
             <div>{`Calories Burned: ${item.caloriesburned}`}</div>
-            <br/>
+            <br />
           </li>
         ))}
       </ul>
@@ -61,6 +67,7 @@ class ExercisesList extends Component {
   }
 
   render() {
+    console.log(this.props.location.state);
     return (
       <div>
         <h3>Exercise Info</h3>

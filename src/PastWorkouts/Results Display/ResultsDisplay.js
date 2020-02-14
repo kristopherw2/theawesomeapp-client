@@ -18,7 +18,7 @@ class ResultsDisplay extends Component {
   handleRedirect = () => {
     this.setState({
       redirect: "/excerciselist",
-    })
+    });
   };
 
   handleDelete = workoutid => {
@@ -26,8 +26,6 @@ class ResultsDisplay extends Component {
     this.context.workoutsArray.filter(item => {
       return item.workoutid !== workoutid ? newWorkoutsArray.push(item) : null;
     });
-;
-
     const url = `http://localhost:8000/api/workouts/${workoutid}`;
     const options = {
       method: "DELETE",
@@ -41,7 +39,7 @@ class ResultsDisplay extends Component {
         return res;
       })
       .then(data => {
-        this.context.handleWorkoutsArrayUpdate(newWorkoutsArray)
+        this.context.handleWorkoutsArrayUpdate(newWorkoutsArray);
       })
       .catch(err => {
         this.setState({
@@ -51,21 +49,36 @@ class ResultsDisplay extends Component {
   };
 
   render() {
-    if (this.state.redirect) {
-      return <Redirect to={this.state.redirect} />;
-    }
+    /* if (this.state.redirect) {
+      return <Redirect to={{
+        pathname: this.state.redirect,
+        state: this.context.workoutsArray
+      }} />;
+    } */
 
     const newDisplay = this.context.workoutsArray;
 
     const thisNewVariable = newDisplay.map((item, index) => {
+      console.log(this.context.workoutsArray);
+      if (this.state.redirect) {
+        return (
+          <Redirect
+            to={{
+              pathname: this.state.redirect,
+              state: [],
+            }}
+          />
+        );
+      }
       return (
         <div key={index} className={`resultsList ${item.workoutid}`}>
-          <span onClick={this.handleRedirect}>{item.workoutname} workoutid: {item.workoutid}</span>
+          <span onClick={()=>this.handleRedirect()}>
+            {item.workoutname} workoutid: {item.workoutid}
+          </span>
 
           <button onClick={() => this.handleDelete(item.workoutid)}>
             Delete{item.workoutid}
           </button>
-
         </div>
       );
     });
