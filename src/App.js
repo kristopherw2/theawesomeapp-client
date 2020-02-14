@@ -19,6 +19,8 @@ class App extends Component {
     this.state = {
       id: "",
       username: "",
+      age: "",
+      height: "",
       userweight: "",
       workoutid: "",
       workoutname: "",
@@ -34,13 +36,14 @@ class App extends Component {
     };
   }
 
+
   handUserStatsUpdate = userstats => {
     this.setState({
       id: userstats.id,
       username: userstats.username,
       age: userstats.age,
       height: userstats.height,
-      userweight: userstats.weight,
+      userweight: userstats.userweight,
     });
   };
 
@@ -84,6 +87,8 @@ class App extends Component {
         value={{
           id: this.state.id,
           username: this.state.username,
+          age: this.state.age,
+          height: this.state.height,
           userweight: this.state.userweight,
           workoutid: this.state.workoutid,
           handleUserLogin: this.handleUserLogin,
