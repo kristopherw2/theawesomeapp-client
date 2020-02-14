@@ -19,9 +19,14 @@ class ExercisesList extends Component {
   static contextType = UserContext;
 
   componentDidMount() {
+    const passedInWorkoutId = this.props.location.state;
+    const getWorkout = passedInWorkoutId.map(item => {
+      return item.workoutid
+    })
+    console.log(getWorkout);
 
     //* http://localhost:8000/api/exercises/:workoutid
-    fetch(`http://localhost:8000/api/exercises/`)
+    fetch(`http://localhost:8000/api/exercises/${getWorkout}`)
       .then(res => {
         if (!res.ok) {
           throw new Error("Oh, Mamma Mia! There seems to be a problem.");
@@ -62,11 +67,11 @@ class ExercisesList extends Component {
   }
 
   render() {
+    /* console.log(this.props.location.state); */
     return (
       <div>
         <h3>Exercise Info</h3>
         <span>{this.showList()}</span>
-
         <form>
           <Link to={"/login"} id='btn'>
             <button>Go home, you're drunk!</button>

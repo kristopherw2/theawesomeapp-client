@@ -10,19 +10,21 @@ class ResultsDisplay extends Component {
     this.state = {
       redirect: null,
       workoutsArray: [],
+      workoutIdArray: [],
     };
   }
 
   static contextType = UserContext;
 
-  handleRedirect = (workoutid) => {
+  handleRedirect = workoutid => {
     let workoutIdArray = [];
     this.context.workoutsArray.filter(item => {
       return item.workoutid === workoutid ? workoutIdArray.push(item) : null;
     });
-    console.log(workoutIdArray);
+    /* console.log(workoutIdArray); */
     this.setState({
       redirect: "/excerciselist",
+      workoutIdArray: workoutIdArray,
     });
   };
 
@@ -59,6 +61,7 @@ class ResultsDisplay extends Component {
         <Redirect
           to={{
             pathname: this.state.redirect,
+            state: this.state.workoutIdArray,
           }}
         />
       );
