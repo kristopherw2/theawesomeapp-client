@@ -106,11 +106,11 @@ class Login extends Component {
         return res.json();
       })
       .then(data => {
+        console.log(data)
         if (data.error) {
           throw new Error(`${data.error.message}`);
         }
         this.context.handleUserLogin(data)
-        /* {this.context.handleUserLogin(data)} */
         this.setState({
           username: this.updateUsername(username),
           password: this.updatePassword(password),

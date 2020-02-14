@@ -107,6 +107,7 @@ class ExcerciseForm extends Component {
   }
 
   render() {
+    console.log(this.context.userweight)
     const renderCreatedExercises = this.context.exercisesArray.length === 0 ? null : <CreatedExercises/>
     console.log(this.context.exercisesArray)
     return (

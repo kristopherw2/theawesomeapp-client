@@ -38,12 +38,13 @@ class App extends Component {
 
 
   handUserStatsUpdate = userstats => {
+    console.log(userstats)
     this.setState({
       id: userstats.id,
       username: userstats.username,
       age: userstats.age,
       height: userstats.height,
-      userweight: userstats.userweight,
+      userweight: userstats.weight,
     });
   };
 
