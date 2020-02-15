@@ -80,6 +80,15 @@ class App extends Component {
     })
   };
 
+  handleResetWorkoutForm = () => {
+    this.setState({
+    workoutid: "",
+    workoutname: "",
+    exercisesArray: [],
+    showWorkoutForm: true,
+      })
+  }
+
   render() {
     return (
       <UserContext.Provider
@@ -104,7 +113,8 @@ class App extends Component {
           time: this.state.time, 
           caloriesburned: this.state.caloriesburned,
           handleExercisesArrayUpdate: this.handleExercisesArrayUpdate,
-          handleDeleteExercise: this.handleDeleteExercise
+          handleDeleteExercise: this.handleDeleteExercise,
+          handleResetWorkoutForm: this.handleResetWorkoutForm
         }}
       >
         <div className='app'>

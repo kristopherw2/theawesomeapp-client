@@ -23,7 +23,8 @@ const UserContext = React.createContext({
   handleUserLogin: () => {},
   handleUserStatsUpdate: () => {},
   handleExercisesArrayUpdate: () => {},
-  handDeleteExercise: () => {}
+  handDeleteExercise: () => {},
+  handleResetWorkoutForm: () => {}
 }); 
 
 export default UserContext;

@@ -180,7 +180,7 @@ class ExcerciseForm extends Component {
           <button>Submit</button>
 
           <Link to={"/homepage"} id='btn'>
-            <button onClick={this.handleReset}>Go back</button>
+            <button onClick={() => this.context.handleResetWorkoutForm()}>Go back</button>
           </Link>
         </form>
       </div>
