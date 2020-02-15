@@ -24,8 +24,6 @@ class ExcerciseForm extends Component {
 
   static contextType = UserContext;
 
-  //kgValue =0.453592
-
   updateExerciseName = letter => {
     this.setState({
       exercisename: letter,
@@ -103,7 +101,7 @@ class ExcerciseForm extends Component {
       workoutid,
       userid,
     };
-    const url = `http://localhost:8000/api/exercises/create`;
+    const url = `https://sheltered-mesa-92095.herokuapp.com/api/exercises/create`;
     const options = {
       method: "POST",
       body: JSON.stringify(newExercise),
@@ -145,7 +143,6 @@ class ExcerciseForm extends Component {
 
         <form
           className='workout_form xercise'
-          
           onSubmit={e => this.convertMETCaloriesBurned(e)}
         >
           <label htmlFor='exercisename'>Exercise Name:</label>
@@ -180,7 +177,9 @@ class ExcerciseForm extends Component {
           <button>Submit</button>
 
           <Link to={"/homepage"} id='btn'>
-            <button onClick={() => this.context.handleResetWorkoutForm()}>Back to Hompage</button>
+            <button onClick={() => this.context.handleResetWorkoutForm()}>
+              Back to Hompage
+            </button>
           </Link>
         </form>
       </div>

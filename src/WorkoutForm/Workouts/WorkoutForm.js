@@ -3,7 +3,7 @@ import "./WorkoutForm.css";
 import {Component} from "react";
 /* import {Link} from "react-router-dom"; */
 import WorkoutName from "./WorkoutName";
-import UserContext from '../../UserContext';
+import UserContext from "../../UserContext";
 import ExcerciseForm from "../Exercises/ExerciseForm";
 
 class WorkoutForm extends Component {
@@ -20,15 +20,16 @@ class WorkoutForm extends Component {
   static contextType = UserContext;
 
   render() {
-    const renderForms = this.context.showWorkoutForm ? <WorkoutName /> : <ExcerciseForm />;
+    const renderForms = this.context.showWorkoutForm ? (
+      <WorkoutName />
+    ) : (
+      <ExcerciseForm />
+    );
 
     return (
       <div className='workout_info'>
         <h3 className='title'>Enter Workout Info</h3>
         {renderForms}
-          {/* <Link to={"/homepage"} id='btn'>
-            <button>Cancel</button>
-          </Link> */}
       </div>
     );
   }

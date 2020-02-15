@@ -18,9 +18,9 @@ class ExercisesList extends Component {
   componentDidMount() {
     const passedInWorkoutId = this.props.location.state;
     const getWorkout = passedInWorkoutId.map(item => {
-      return item.workoutid
-    })
-    fetch(`http://localhost:8000/api/exercises/${getWorkout}`)
+      return item.workoutid;
+    });
+    fetch(`https://sheltered-mesa-92095.herokuapp.com/api/exercises/${getWorkout}`)
       .then(res => {
         if (!res.ok) {
           throw new Error("Oh, Mamma Mia! There seems to be a problem.");
@@ -66,7 +66,7 @@ class ExercisesList extends Component {
         <h3>Exercise Info</h3>
         <span>{this.showList()}</span>
         <form>
-        <Link to={"/homepage"} id='btn'>
+          <Link to={"/homepage"} id='btn'>
             <button>Back to Homepage</button>
           </Link>
           <Link to={"/login"} id='btn'>

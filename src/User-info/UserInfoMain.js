@@ -19,7 +19,6 @@ export default class UserInfo extends Component {
         <Link to={"/workoutform"}>
           <button>Add New Workout</button>
         </Link>
-        {/* To be removed after static aproval */}
         <Link to={"/"}>
           <button id='logout-btn'>Logout</button>
         </Link>

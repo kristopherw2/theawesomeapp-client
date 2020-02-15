@@ -4,12 +4,9 @@ import {Component} from "react";
 import {Link} from "react-router-dom";
 import {Redirect} from "react-router-dom";
 
-/* import {withRouter} from "react-router-dom"; */
-
 class CreateUser extends Component {
   constructor(props) {
     super(props);
-
     this.state = {
       username: "",
       password: "",
@@ -128,9 +125,7 @@ class CreateUser extends Component {
   handleSubmit() {
     const {username, password, age, height, userweight} = this.state;
     const newUser = {username, password, age, height, userweight};
-
-    //TODO: Will need to change url to live server
-    const url = "http://localhost:8000/api/users/registration";
+    const url = "https://sheltered-mesa-92095.herokuapp.com/api/users/registration";
     const options = {
       method: "POST",
       body: JSON.stringify(newUser),

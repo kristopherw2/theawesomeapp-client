@@ -5,7 +5,6 @@ import {Link} from "react-router-dom";
 import {Redirect} from "react-router-dom";
 import UserContext from "../UserContext";
 
-
 class Login extends Component {
   constructor(props) {
     super(props);
@@ -22,8 +21,6 @@ class Login extends Component {
   }
 
   static contextType = UserContext;
-
-  
 
   updateUsername(username) {
     this.setState({username: username});
@@ -89,7 +86,7 @@ class Login extends Component {
     const {username, password} = this.state;
     const newUser = {username, password};
     //TODO: Will need to change url to live server
-    const url = "http://localhost:8000/api/users/login";
+    const url = "https://sheltered-mesa-92095.herokuapp.com/api/users/login";
     const options = {
       method: "POST",
       body: JSON.stringify(newUser),
@@ -109,15 +106,13 @@ class Login extends Component {
         if (data.error) {
           throw new Error(`${data.error.message}`);
         }
-        this.context.handleUserLogin(data)
+        this.context.handleUserLogin(data);
         this.setState({
           username: this.updateUsername(username),
           password: this.updatePassword(password),
           error: null,
           redirect: "/homepage",
-          
         });
-        
       })
       .catch(err => {
         this.setState({

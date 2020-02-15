@@ -21,7 +21,7 @@ class CreatedExercises extends Component {
         ? newExercisesArray.push(item)
         : null;
     });
-    const url = `http://localhost:8000/api/exercises/${exerciseid}`;
+    const url = `https://sheltered-mesa-92095.herokuapp.com/api/exercises/${exerciseid}`;
     const options = {
       method: "DELETE",
     };
@@ -57,7 +57,10 @@ class CreatedExercises extends Component {
           <li key={index + 2}>Weight lbs: {item.exerciseweight} total</li>
           <li key={index + 3}> Time: {item.time} seconds</li>
           <li key={index + 4}>Calories: {item.caloriesburned}</li>
-          <button key={index + 5} onClick={() => this.handleDelete(item.exerciseid)}>
+          <button
+            key={index + 5}
+            onClick={() => this.handleDelete(item.exerciseid)}
+          >
             Delete
           </button>
         </ul>

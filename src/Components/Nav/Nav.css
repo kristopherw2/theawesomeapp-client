@@ -15,8 +15,6 @@ nav {
 }
 
 #title {
-  /* font-size: 500%; */
-  /* height: 160px; */
   border-bottom: 1px solid red;
   margin-bottom: 1.5px;
   margin-top: -1%;
@@ -29,19 +27,4 @@ nav {
   border-top: 1px solid green;
   padding: 3px;
   margin-top: 1.5px;
-}
-
-@media only screen and (min-width: 375px){
-  h1 {
-    /* font-size: 200%; */
-    
-  }
-}
-
-@media only screen and (min-width: 768px){
-  
-}
-
-@media only screen and (min-width: 1024px){
-  
 }

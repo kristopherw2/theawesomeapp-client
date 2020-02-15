@@ -2,7 +2,7 @@ import React from "react";
 import "./UserStats.css";
 import {Component} from "react";
 import UpdateUserStatsForm from "./UpdateUserStatsForm";
-import ShowUserStats from './ShowUserStats'
+import ShowUserStats from "./ShowUserStats";
 import UserContext from "../../UserContext";
 
 class UserStats extends Component {
@@ -21,7 +21,7 @@ class UserStats extends Component {
   static contextType = UserContext;
 
   componentDidMount() {
-    const url = `http://localhost:8000/api/users/${this.context.id}`;
+    const url = `https://sheltered-mesa-92095.herokuapp.com/api/users/${this.context.id}`;
 
     fetch(url)
       .then(res => {
@@ -58,29 +58,11 @@ class UserStats extends Component {
     const renderUpdateStatsForm =
       this.state.showUpdateStatsForm === true ? (
         <UpdateUserStatsForm switchForm={this.handleUserUpdate} />
-      ) :  <ShowUserStats switchForm={this.handleUserUpdate}/>/* (
-        <ul>
-          <li>Username: {this.state.username}</li>
-          <li>Age: {this.state.age}</li>
-          <li>Height: {this.state.height}</li>
-          <li>Weight: {this.state.userweight}</li>
-          <button onClick={() => this.handleUserUpdate()}>Update Weight</button>
-        </ul>
-      ); */
+      ) : (
+        <ShowUserStats switchForm={this.handleUserUpdate} />
+      );
 
-    console.log(this.state.showUpdateStatsForm);
-
-    return (
-      <div className='userStats'>{renderUpdateStatsForm}</div>
-      // <div className='userStats'>
-      //   <ul>
-      //     <li>Username: {this.state.username}</li>
-      //     <li>Age: {this.state.age}</li>
-      //     <li>Height: {this.state.height}</li>
-      //     <li>Weight: {this.state.userweight}</li>
-      //   </ul>
-      // </div>
-    );
+    return <div className='userStats'>{renderUpdateStatsForm}</div>;
   }
 }
 

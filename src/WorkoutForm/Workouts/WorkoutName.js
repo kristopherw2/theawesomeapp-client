@@ -19,11 +19,10 @@ class WorkoutName extends Component {
     this.setState({workoutname: letter});
   };
 
-
-  //post a workout 
+  //post a workout
   handlePostToWorkout(e) {
     e.preventDefault();
-    const url = `http://localhost:8000/api/workouts`;
+    const url = `https://sheltered-mesa-92095.herokuapp.com/api/workouts`;
     const options = {
       method: "POST",
       body: JSON.stringify({

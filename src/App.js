@@ -47,7 +47,6 @@ class App extends Component {
   };
 
   handleUserWeightUpdate = weight => {
-    console.log(weight.userweight);
     this.setState({
       userweight: weight.userweight,
     });

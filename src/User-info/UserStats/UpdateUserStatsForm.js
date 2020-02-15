@@ -3,7 +3,6 @@ import "./UserStats.css";
 import {Component} from "react";
 import UserContext from "../../UserContext";
 
-
 class UpdateUserStatsForm extends Component {
   constructor() {
     super();
@@ -15,7 +14,7 @@ class UpdateUserStatsForm extends Component {
   static contextType = UserContext;
 
   componentDidMount() {
-    const url = `http://localhost:8000/api/users/${this.context.id}`;
+    const url = `https://sheltered-mesa-92095.herokuapp.com/api/users/${this.context.id}`;
     fetch(url)
       .then(res => {
         if (!res.ok) {
@@ -52,7 +51,7 @@ class UpdateUserStatsForm extends Component {
   };
 
   handleUserWeightUpdate = () => {
-    const url = `http://localhost:8000/api/users/${this.context.id}`;
+    const url = `https://sheltered-mesa-92095.herokuapp.com/api/users/${this.context.id}`;
 
     const updatedUserStats = {
       id: this.context.id,
@@ -77,7 +76,6 @@ class UpdateUserStatsForm extends Component {
       })
       .then(res => res.json())
       .then(res => {
-        console.log(res);
         this.context.handleUserWeightUpdate({
           userweight: this.state.userweight,
         });
@@ -91,10 +89,6 @@ class UpdateUserStatsForm extends Component {
   };
 
   render() {
-    console.log(this.context.id);
-    console.log(this.context.username);
-    console.log(this.state.userweight);
-
     return (
       <ul>
         <li>Username: {this.state.username}</li>
@@ -107,9 +101,9 @@ class UpdateUserStatsForm extends Component {
             onChange={e => this.updateUserWeight(e.target.value)}
           />
         </li>
-          <button onClick={() => this.handleUserWeightUpdate()}>
-            Submit Weight
-          </button>
+        <button onClick={() => this.handleUserWeightUpdate()}>
+          Submit Weight
+        </button>
       </ul>
     );
   }
