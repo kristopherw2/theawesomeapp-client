@@ -13,7 +13,7 @@ button {
   margin-bottom: 5px;
 }
 
-#delete-this-button {
+#logout-btn {
   float: right;
   clear: right;
 }

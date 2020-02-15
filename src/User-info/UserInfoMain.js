@@ -21,7 +21,7 @@ export default class UserInfo extends Component {
         </Link>
         {/* To be removed after static aproval */}
         <Link to={"/"}>
-          <button id='delete-this-button'>Back to landing(Remove)</button>
+          <button id='logout-btn'>Logout</button>
         </Link>
       </div>
     );

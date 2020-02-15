@@ -67,7 +67,7 @@ class ExercisesList extends Component {
         <span>{this.showList()}</span>
         <form>
         <Link to={"/homepage"} id='btn'>
-            <button>Go home, you're drunk!</button>
+            <button>Back to Homepage</button>
           </Link>
           <Link to={"/login"} id='btn'>
             <button>Login</button>

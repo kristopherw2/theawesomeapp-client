@@ -1,6 +1,7 @@
 import React from "react";
 import {Component} from "react";
 import UserContext from "../../UserContext";
+import {Link} from "react-router-dom";
 
 class WorkoutName extends Component {
   constructor(props) {
@@ -65,6 +66,10 @@ class WorkoutName extends Component {
             onChange={e => this.workoutnameChange(e.target.value)}
           />
           <button type='submit'>Submit</button>
+
+          <Link to={"/homepage"} id='btn'>
+            <button>Cancel</button>
+          </Link>
         </form>
       </div>
     );
