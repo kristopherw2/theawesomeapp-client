@@ -47,6 +47,13 @@ class App extends Component {
     });
   };
 
+  handleUserWeightUpdate = weight => {
+    console.log(weight.userweight)
+    this.setState({
+      userweight: weight.userweight
+    })
+  };
+
   handleUserLogin = username => {
     this.setState({
       id: username.id,
@@ -114,7 +121,8 @@ class App extends Component {
           caloriesburned: this.state.caloriesburned,
           handleExercisesArrayUpdate: this.handleExercisesArrayUpdate,
           handleDeleteExercise: this.handleDeleteExercise,
-          handleResetWorkoutForm: this.handleResetWorkoutForm
+          handleResetWorkoutForm: this.handleResetWorkoutForm,
+          handleUserWeightUpdate: this.handleUserWeightUpdate
         }}
       >
         <div className='app'>

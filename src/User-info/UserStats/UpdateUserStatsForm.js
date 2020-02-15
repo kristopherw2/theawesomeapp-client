@@ -7,7 +7,7 @@ class UpdateUserStatsForm extends Component {
     constructor(){
         super()
         this.state = {
-
+            userweight: ""
         }
     }
 
@@ -15,7 +15,6 @@ class UpdateUserStatsForm extends Component {
 
     componentDidMount() {
         const url = `http://localhost:8000/api/users/${this.context.id}`;
-    
         fetch(url)
             .then(res => {
                 if (!res.ok) {
@@ -45,15 +44,65 @@ class UpdateUserStatsForm extends Component {
             this.props.switchForm()
         }
 
+        updateUserWeight = letter => {
+            this.setState({
+                userweight: letter
+            })
+        }
+
+        handleUserWeightUpdate = () => {
+            const url = `http://localhost:8000/api/users/${this.context.id}`
+            
+            const updatedUserStats = {
+                    id: this.context.id,
+                    username: this.context.username,
+                    userweight: this.state.userweight
+                    }
+
+            const options = {
+                    method: "PATCH",
+                    body: JSON.stringify(updatedUserStats),
+                    headers: {
+                    "Content-Type": "application/json",
+                    }   
+                }
+
+                fetch(url, options)
+                    .then(res => {
+                        if (!res.ok) {
+                            throw new Error("Oh, Mamma Mia! There seems to be a problem.");
+                        }
+                        return res
+                    })
+                    .then(res => {
+                        res.json()
+                    })
+                    .then(data => {
+                        console.log(data)
+                        this.context.handleUserWeightUpdate({
+                            userweight: this.state.userweight
+                        })
+                        this.swithUserStatsDisplay()
+                    
+                    })
+                    .catch(err => {
+                        this.setState({
+                            error: err.message,
+                        });
+                    });
+    }
+
     render() {
-        console.log(this.context.userweight)
+        console.log(this.context.id)
+        console.log(this.context.username)
+        console.log(this.state.userweight)
         return (
                 <ul>
-                <li>Username: {this.state.username}</li>
-                <li>Age: {this.state.age}</li>
-                <li>Height: {this.state.height}</li>
-                <li>Weight: <input type="text"/></li>
-                <button onClick={this.swithUserStatsDisplay}>Submit Weight</button>
+                    <li>Username: {this.state.username}</li>
+                    <li>Age: {this.state.age}</li>
+                    <li>Height: {this.state.height}</li>
+                    <li>Weight: <input type="text" onChange={(e) => this.updateUserWeight(e.target.value)}/></li>
+                    <button onClick={() => this.handleUserWeightUpdate()}>Submit Weight</button>
                 </ul>
                 
         )
