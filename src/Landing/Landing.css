@@ -29,6 +29,10 @@ body {
   border-bottom: 1px solid red;
 }
 
+h4{
+  font-weight: 100;
+}
+
 .btn {
   padding: 5px;
 }

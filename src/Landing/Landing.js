@@ -33,6 +33,13 @@ class Landing extends Component {
             Because, c’mon, isn’t that really all you want to know from a
             fitness tracker?
           </p>
+          <h3>Demo Login:</h3>
+          <h4>Username: <p>demoUser</p></h4>
+          <h4>Password: <p>demo1234</p></h4>
+        </section>
+
+        <section>
+          
         </section>
 
         <section className='btn-ctn'>
