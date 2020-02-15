@@ -27,15 +27,14 @@ class App extends Component {
       showWorkoutForm: true,
       workoutsArray: [],
       exercisesArray: [],
-      exercisename: '',
-      sets: '',
-      repetitions: '',
-      exerciseweight: '',
-      time: '', 
-      caloriesburned: '',
+      exercisename: "",
+      sets: "",
+      repetitions: "",
+      exerciseweight: "",
+      time: "",
+      caloriesburned: "",
     };
   }
-
 
   handUserStatsUpdate = userstats => {
     this.setState({
@@ -48,10 +47,10 @@ class App extends Component {
   };
 
   handleUserWeightUpdate = weight => {
-    console.log(weight.userweight)
+    console.log(weight.userweight);
     this.setState({
-      userweight: weight.userweight
-    })
+      userweight: weight.userweight,
+    });
   };
 
   handleUserLogin = username => {
@@ -77,24 +76,24 @@ class App extends Component {
 
   handleExercisesArrayUpdate = exercises => {
     this.setState({
-      exercisesArray: [...this.state.exercisesArray, ...exercises]
-    })
+      exercisesArray: [...this.state.exercisesArray, ...exercises],
+    });
   };
 
   handleDeleteExercise = exercises => {
     this.setState({
-      exercisesArray: [...exercises]
-    })
+      exercisesArray: [...exercises],
+    });
   };
 
   handleResetWorkoutForm = () => {
     this.setState({
-    workoutid: "",
-    workoutname: "",
-    exercisesArray: [],
-    showWorkoutForm: true,
-      })
-  }
+      workoutid: "",
+      workoutname: "",
+      exercisesArray: [],
+      showWorkoutForm: true,
+    });
+  };
 
   render() {
     return (
@@ -117,12 +116,12 @@ class App extends Component {
           sets: this.state.sets,
           repetitions: this.state.repetitions,
           exerciseweight: this.state.exerciseweight,
-          time: this.state.time, 
+          time: this.state.time,
           caloriesburned: this.state.caloriesburned,
           handleExercisesArrayUpdate: this.handleExercisesArrayUpdate,
           handleDeleteExercise: this.handleDeleteExercise,
           handleResetWorkoutForm: this.handleResetWorkoutForm,
-          handleUserWeightUpdate: this.handleUserWeightUpdate
+          handleUserWeightUpdate: this.handleUserWeightUpdate,
         }}
       >
         <div className='app'>
