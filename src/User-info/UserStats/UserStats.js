@@ -1,6 +1,7 @@
 import React from "react";
 import "./UserStats.css";
 import {Component} from "react";
+import {Redirect} from "react-router-dom";
 import UserContext from "../../UserContext";
 
 class UserStats extends Component {
@@ -13,9 +14,16 @@ class UserStats extends Component {
       age: "",
       height: "",
       userweight: "",
+      redirect: null,
     };
   }
   static contextType = UserContext;
+
+  handleRedirect = () => {
+    this.setState({
+      redirect: "/landing",
+    });
+  };
 
   componentDidMount() {
     const url = `http://localhost:8000/api/users/${this.context.id}`;
@@ -34,9 +42,9 @@ class UserStats extends Component {
           username: data.username,
           age: data.age,
           height: data.height,
-          userweight: data.userweight
-        })
-        this.context.handleUserStatsUpdate(data)
+          userweight: data.userweight,
+        });
+        this.context.handleUserStatsUpdate(data);
       })
       .catch(err => {
         this.setState({
@@ -46,9 +54,18 @@ class UserStats extends Component {
   }
 
   render() {
-    
+    if (this.state.redirect) {
+      return (
+        <Redirect
+          to={{
+            pathname: this.state.redirect,
+          }}
+        />
+      );
+    }
+
     return (
-      <div className='userStats'>
+      <div className='userStats' onClick={() => this.handleRedirect()}>
         <ul>
           <li>Username: {this.state.username}</li>
           <li>Age: {this.state.age}</li>
