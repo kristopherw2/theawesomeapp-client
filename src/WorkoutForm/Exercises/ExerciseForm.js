@@ -1,25 +1,25 @@
 import React from "react";
 import {Component} from "react";
 import {Link} from "react-router-dom";
-import UserContext from '../../UserContext'
-import CreatedExercises from './CreatedExercises'
+import UserContext from "../../UserContext";
+import CreatedExercises from "./CreatedExercises";
 
 class ExcerciseForm extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      exercisename: '',
-      sets: '',
-      repetitions: '',
-      exerciseweight: '',
-      time: '', 
-      caloriesburned: '',
-      workoutid:"",
-      userid:"",
+      exercisename: "",
+      sets: "",
+      repetitions: "",
+      exerciseweight: "",
+      time: "",
+      caloriesburned: "",
+      workoutid: "",
+      userid: "",
       metValue: 5,
-      kgValue: .453592
-    }
+      kgValue: 0.453592,
+    };
   }
 
   static contextType = UserContext;
@@ -28,57 +28,81 @@ class ExcerciseForm extends Component {
 
   updateExerciseName = letter => {
     this.setState({
-      exercisename: letter
-    })
+      exercisename: letter,
+    });
   };
 
   updateSets = letter => {
     this.setState({
-      sets: letter
-    })
+      sets: letter,
+    });
   };
 
   updateRepetitions = letter => {
     this.setState({
-      repetitions: letter
-    })
-  }
+      repetitions: letter,
+    });
+  };
 
   updateExerciseWeight = letter => {
     this.setState({
-      exerciseweight: letter
-    })
-  }
+      exerciseweight: letter,
+    });
+  };
 
   //Update exercise time
   updateTime = letter => {
     this.setState({
-      time: letter
-    })
-  }
+      time: letter,
+    });
+  };
 
   //converts MET value for calories burnd NEEDS TO EVENTUALLY BE DYNAMIC USING AN AVERAGE RIGHT NOW
-  convertMETCaloriesBurned = (e) => {
-    e.preventDefault()
-    let convertUserWeight = Math.floor(parseInt(this.context.userweight, 10)/this.state.kgValue)
-    let convertSecondsToMinutes = (parseInt(this.state.time, 10)/60)
-    let calculatedValueForCalories = Math.floor(convertSecondsToMinutes * (this.state.metValue * 3.5 * convertUserWeight)/200)
+  convertMETCaloriesBurned = e => {
+    e.preventDefault();
+    let convertUserWeight = Math.floor(
+      parseInt(this.context.userweight, 10) / this.state.kgValue
+    );
+    let convertSecondsToMinutes = parseInt(this.state.time, 10) / 60;
+    let calculatedValueForCalories = Math.floor(
+      (convertSecondsToMinutes *
+        (this.state.metValue * 3.5 * convertUserWeight)) /
+        200
+    );
     this.setState(
       {
-      caloriesburned: calculatedValueForCalories,
-      workoutid: this.context.workoutid,
-      userid: this.context.id
-    },
-    () => {
-      this.handlePostToExercise()
-    }
-    )
-  }
+        caloriesburned: calculatedValueForCalories,
+        workoutid: this.context.workoutid,
+        userid: this.context.id,
+      },
+      () => {
+        this.handlePostToExercise();
+      }
+    );
+  };
 
   //handles Post for exercises
   handlePostToExercise() {
-    const { exercisename, sets, repetitions, exerciseweight, time, caloriesburned, workoutid, userid} = this.state
-    const newExercise = { exercisename, sets, repetitions, exerciseweight, time, caloriesburned, workoutid, userid}
+    const {
+      exercisename,
+      sets,
+      repetitions,
+      exerciseweight,
+      time,
+      caloriesburned,
+      workoutid,
+      userid,
+    } = this.state;
+    const newExercise = {
+      exercisename,
+      sets,
+      repetitions,
+      exerciseweight,
+      time,
+      caloriesburned,
+      workoutid,
+      userid,
+    };
     const url = `http://localhost:8000/api/exercises/create`;
     const options = {
       method: "POST",
@@ -86,7 +110,7 @@ class ExcerciseForm extends Component {
       headers: {
         "Content-Type": "application/json",
       },
-    }
+    };
 
     fetch(url, options)
       .then(res => {
@@ -96,7 +120,7 @@ class ExcerciseForm extends Component {
         return res.json();
       })
       .then(data => {
-        this.context.handleExercisesArrayUpdate(data)
+        this.context.handleExercisesArrayUpdate(data);
       })
       .catch(err => {
         this.setState({
@@ -105,30 +129,60 @@ class ExcerciseForm extends Component {
       });
   }
 
+  handleReset = () => {
+    this.form.reset();
+    this.setState({
+      exercisesArray: [],
+    });
+  };
+
   render() {
-    const renderCreatedExercises = this.context.exercisesArray.length === 0 ? null : <CreatedExercises/>
+    const renderCreatedExercises =
+      this.context.exercisesArray.length === 0 ? null : <CreatedExercises />;
     return (
       <div>
         {renderCreatedExercises}
 
-        <form className='workout_form xercise' onSubmit={e => this.convertMETCaloriesBurned(e)}>
+        <form
+          className='workout_form xercise'
+          
+          onSubmit={e => this.convertMETCaloriesBurned(e)}
+        >
           <label htmlFor='exercisename'>Exercise Name:</label>
-          <input type='text' id='exercisename' onChange={(e) => this.updateExerciseName(e.target.value)}/>
+          <input
+            type='text'
+            id='exercisename'
+            onChange={e => this.updateExerciseName(e.target.value)}
+          />
           <label htmlFor='sets'>Sets:</label>
-          <input type='text' id='sets' onChange={(e) => this.updateSets(e.target.value)}/>
+          <input
+            type='text'
+            id='sets'
+            onChange={e => this.updateSets(e.target.value)}
+          />
           <label htmlFor='reps'>Reps:</label>
-          <input type='text' id='reps' onChange={(e) => this.updateRepetitions(e.target.value)} />
+          <input
+            type='text'
+            id='reps'
+            onChange={e => this.updateRepetitions(e.target.value)}
+          />
           <label htmlFor='weight'>Weight lbs:</label>
-          <input type='number' id='weight' onChange={(e) => this.updateExerciseWeight(e.target.value)}/>
+          <input
+            type='number'
+            id='weight'
+            onChange={e => this.updateExerciseWeight(e.target.value)}
+          />
           <label htmlFor='time'>Time Seconds:</label>
-          <input type='number' onChange={(e) => this.updateTime(e.target.value)} />
-          <button >Submit</button>
-        </form>
+          <input
+            type='number'
+            onChange={e => this.updateTime(e.target.value)}
+          />
+          <button>Submit</button>
 
-        <Link to={"/homepage"} id='btn'>
-            <button>Go back</button>
+          <Link to={"/homepage"} id='btn'>
+            <button onClick={this.handleReset}>Go back</button>
           </Link>
-
+        </form>
       </div>
     );
   }
