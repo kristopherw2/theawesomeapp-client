@@ -38,10 +38,6 @@ class Landing extends Component {
           <h4>Password: <p>demo1234</p></h4>
         </section>
 
-        <section>
-          
-        </section>
-
         <section className='btn-ctn'>
           <Link to={"/login"}>
             <button className='btn' id='login'>
