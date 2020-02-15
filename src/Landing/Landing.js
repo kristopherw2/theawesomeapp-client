@@ -37,13 +37,13 @@ class Landing extends Component {
 
         <section className='btn-ctn'>
           <Link to={"/login"}>
-            <button className='btn' id='login'>
+            <button className='btn' >
               Login
             </button>
           </Link>
 
           <Link to={"/createuser"}>
-            <button className='btn' id='createuser'>
+            <button className='btn' >
               Create User
             </button>
           </Link>

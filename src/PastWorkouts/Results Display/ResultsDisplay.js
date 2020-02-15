@@ -75,7 +75,7 @@ class ResultsDisplay extends Component {
             {item.workoutname}
           </span>
 
-          <button onClick={() => this.handleDelete(item.workoutid)}>
+          <button className='delete-btn btn' onClick={() => this.handleDelete(item.workoutid)}>
             Delete
           </button>
         </div>

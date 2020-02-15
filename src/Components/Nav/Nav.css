@@ -31,17 +31,3 @@ nav {
   margin-top: 1.5px;
 }
 
-@media only screen and (min-width: 375px){
-  h1 {
-    /* font-size: 200%; */
-    
-  }
-}
-
-@media only screen and (min-width: 768px){
-  
-}
-
-@media only screen and (min-width: 1024px){
-  
-}

@@ -65,10 +65,10 @@ class WorkoutName extends Component {
             id='workout_form_input name'
             onChange={e => this.workoutnameChange(e.target.value)}
           />
-          <button type='submit'>Submit</button>
+          <button type='submit' className="submit-btn btn">Submit</button>
 
           <Link to={"/homepage"} id='btn'>
-            <button>Cancel</button>
+            <button className='cancel-btn btn' >Cancel</button>
           </Link>
         </form>
       </div>

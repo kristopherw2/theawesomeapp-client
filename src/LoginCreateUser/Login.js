@@ -186,12 +186,12 @@ class Login extends Component {
           </div>
 
           <Link to={"/"}>
-            <button type='reset' className='create_user_button'>
+            <button type='reset' className='cancel-btn btn'>
               Cancel Order
             </button>
           </Link>
 
-          <button type='submit' className='create_user_button'>
+          <button type='submit' className='login-btn btn'>
             Login
           </button>
         </form>

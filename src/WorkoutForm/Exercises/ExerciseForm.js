@@ -177,10 +177,10 @@ class ExcerciseForm extends Component {
             type='number'
             onChange={e => this.updateTime(e.target.value)}
           />
-          <button>Submit</button>
+          <button className='submit-btn btn'>Submit</button>
 
           <Link to={"/homepage"} id='btn'>
-            <button onClick={() => this.context.handleResetWorkoutForm()}>Back to Hompage</button>
+            <button className='home-btn btn' onClick={() => this.context.handleResetWorkoutForm()}>Back to Hompage</button>
           </Link>
         </form>
       </div>

@@ -107,7 +107,7 @@ class UpdateUserStatsForm extends Component {
             onChange={e => this.updateUserWeight(e.target.value)}
           />
         </li>
-          <button onClick={() => this.handleUserWeightUpdate()}>
+          <button className="btn" onClick={() => this.handleUserWeightUpdate()}>
             Submit Weight
           </button>
       </ul>

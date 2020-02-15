@@ -17,11 +17,11 @@ export default class UserInfo extends Component {
         <UserStats />
         <PastWorkouts />
         <Link to={"/workoutform"}>
-          <button>Add New Workout</button>
+          <button className='add-workout-btn btn'>Add New Workout</button>
         </Link>
         {/* To be removed after static aproval */}
         <Link to={"/"}>
-          <button id='logout-btn'>Logout</button>
+          <button className='logout-btn btn'>Logout</button>
         </Link>
       </div>
     );

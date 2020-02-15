@@ -63,7 +63,7 @@ class UserStats extends Component {
           <li>Age: {this.state.age}</li>
           <li>Height: {this.state.height}</li>
           <li>Weight: {this.state.userweight}</li>
-          <button onClick={() => this.handleUserUpdate()}>Update Weight</button>
+          <button className='upd-weight-btn btn' onClick={() => this.handleUserUpdate()}>Update Weight</button>
         </ul>
       );
 

@@ -26,9 +26,6 @@ class WorkoutForm extends Component {
       <div className='workout_info'>
         <h3 className='title'>Enter Workout Info</h3>
         {renderForms}
-          {/* <Link to={"/homepage"} id='btn'>
-            <button>Cancel</button>
-          </Link> */}
       </div>
     );
   }

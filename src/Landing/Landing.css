@@ -19,7 +19,7 @@ body {
   padding-right: 175px;
 }
 
-.btn-ctn {
+/* .btn-ctn {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
@@ -27,20 +27,10 @@ body {
   padding-left: 450px;
   padding-right: 450px;
   border-bottom: 1px solid red;
-}
+} */
 
-.btn {
-  padding: 5px;
-}
+
 
 #cowabunga {
   font-weight: bold;
-}
-
-#login {
-  border: 1px solid black;
-}
-
-#createuser {
-  border: 1px solid black;
 }
