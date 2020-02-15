@@ -3,6 +3,7 @@ import "./UserStats.css";
 import {Component} from "react";
 import UserContext from "../../UserContext";
 
+
 class UpdateUserStatsForm extends Component {
   constructor() {
     super();
@@ -74,11 +75,9 @@ class UpdateUserStatsForm extends Component {
         }
         return res;
       })
+      .then(res => res.json())
       .then(res => {
-        res.json();
-      })
-      .then(data => {
-        console.log(data);
+        console.log(res);
         this.context.handleUserWeightUpdate({
           userweight: this.state.userweight,
         });
@@ -95,6 +94,7 @@ class UpdateUserStatsForm extends Component {
     console.log(this.context.id);
     console.log(this.context.username);
     console.log(this.state.userweight);
+
     return (
       <ul>
         <li>Username: {this.state.username}</li>
@@ -107,9 +107,9 @@ class UpdateUserStatsForm extends Component {
             onChange={e => this.updateUserWeight(e.target.value)}
           />
         </li>
-        <button onClick={() => this.handleUserWeightUpdate()}>
-          Submit Weight
-        </button>
+          <button onClick={() => this.handleUserWeightUpdate()}>
+            Submit Weight
+          </button>
       </ul>
     );
   }

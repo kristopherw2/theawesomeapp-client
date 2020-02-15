@@ -1,7 +1,7 @@
 import React from "react";
 import "./UserStats.css";
 import {Component} from "react";
-import UpdateUserStatsForm from './UpdateUserStatsForm'
+import UpdateUserStatsForm from "./UpdateUserStatsForm";
 import UserContext from "../../UserContext";
 
 class UserStats extends Component {
@@ -14,7 +14,7 @@ class UserStats extends Component {
       age: "",
       height: "",
       userweight: "",
-      showUpdateStatsForm: false
+      showUpdateStatsForm: false,
     };
   }
   static contextType = UserContext;
@@ -36,9 +36,9 @@ class UserStats extends Component {
           username: data.username,
           age: data.age,
           height: data.height,
-          userweight: data.userweight
-        })
-        this.context.handleUserStatsUpdate(data)
+          userweight: data.userweight,
+        });
+        this.context.handleUserStatsUpdate(data);
       })
       .catch(err => {
         this.setState({
@@ -47,31 +47,30 @@ class UserStats extends Component {
       });
   }
 
-  handleUserUpdate =() => {
-    this.setState( {
-      showUpdateStatsForm: !this.state.showUpdateStatsForm
-    })
-  }
+  handleUserUpdate = () => {
+    this.setState({
+      showUpdateStatsForm: !this.state.showUpdateStatsForm,
+    });
+  };
 
   render() {
-    const renderUpdateStatsForm = this.state.showUpdateStatsForm === true ? <UpdateUserStatsForm switchForm={ this.handleUserUpdate}/> : (
-    <ul>
-      <li>Username: {this.state.username}</li>
-      <li>Age: {this.state.age}</li>
-      <li>Height: {this.state.height}</li>
-      <li>Weight: {this.state.userweight}</li>
-      <button onClick={() => this.handleUserUpdate()}>Update Weight</button>
-    </ul>
-    
-  )
+    const renderUpdateStatsForm =
+      this.state.showUpdateStatsForm === true ? (
+        <UpdateUserStatsForm switchForm={this.handleUserUpdate} />
+      ) : (
+        <ul>
+          <li>Username: {this.state.username}</li>
+          <li>Age: {this.state.age}</li>
+          <li>Height: {this.state.height}</li>
+          <li>Weight: {this.state.userweight}</li>
+          <button onClick={() => this.handleUserUpdate()}>Update Weight</button>
+        </ul>
+      );
 
-  console.log( this.state.showUpdateStatsForm)
-    
+    console.log(this.state.showUpdateStatsForm);
+
     return (
-      <div className='userStats'>
-        {renderUpdateStatsForm}
-        
-      </div>
+      <div className='userStats'>{renderUpdateStatsForm}</div>
       // <div className='userStats'>
       //   <ul>
       //     <li>Username: {this.state.username}</li>
