@@ -51,13 +51,13 @@ class Landing extends Component {
             <h3 id='usr-pwd'className='demo-sct-password'>Password: <span className="demo-sct-password-pwd"><p>demo1234</p></span></h3>
         </section>
 
-        <section className='btn-ctn'>
+        <section className='btn-ctn-landing'>
           <Link to={"/login"}>
-            <button className='login-btn btn'>Login</button>
+            <button className='login-btn-landing btn'>Login</button>
           </Link>
 
           <Link to={"/createuser"}>
-            <button className='create-btn btn'>Create Account</button>
+            <button className='create-btn-landing btn'>Create Account</button>
           </Link>
         </section>
       </div>

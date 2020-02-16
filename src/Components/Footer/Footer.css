@@ -6,10 +6,26 @@
 }
 
 footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
   font-family: "Bangers", cursive;
   font-size: medium;
-  border-top: 1px solid green;
-  margin-top: 2px;
   flex-direction: row;
   align-items: center;
+  border-top: 1px solid red;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+footer:before {
+  content: " ";
+  position: absolute;
+  /* z-index: -1; */
+  top: 1.5px;
+  left: 1.5px;
+  right: 1.5px;
+  bottom: 1.5px;
+  border-top: 1px solid green;
 }
