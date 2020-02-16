@@ -25,14 +25,21 @@ nav {
 
 @media only screen and (min-width: 320px){
   .subtag {
-    font-size: 50%;
+    font-size: 45%;
     font-weight: 100;
-    /* padding: 3px;
-    margin-top: 1.5px; */
   }
 
   .title {
+    margin-bottom: 1.5px;
+    margin-top: -1%;
     font-size: 300%;
+    color: #77b55a;
+    text-decoration:none;
+    text-shadow: -1.5px 2px 0px #af0d1a;
+  }
+
+  .pizza-slice {
+    text-shadow: none;
   }
 
 }

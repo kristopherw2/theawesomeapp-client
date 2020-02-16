@@ -4,7 +4,7 @@ import {Component} from "react";
 import "./Nav.css";
 
 const slices = (
-  <span role='img' aria-label='A slice of pizza'>
+  <span className="pizza-slice" role='img' aria-label='A slice of pizza'>
     🍕
   </span>
 );

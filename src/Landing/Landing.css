@@ -10,11 +10,60 @@ body {
   font-family: "Neuton", serif;
 }
 
+@media only screen and (min-width: 320px) {
+  .body {
+    display: flex;
+    flex-direction: column;
+  }
 
-/* h4{
-  font-weight: 100;
-} */
+  .body {
+    margin: 2%;
+    font-size: 88%;
+  }
 
-#cowabunga {
-  font-weight: bold;
+  .txt-sct-four {
+    font-family: "Bangers", cursive;
+    font-weight: 100;
+    font-size: 150%;
+    color: #77b55a;
+    text-decoration: none;
+    text-shadow: -0px 1px 0px #af0d1a;
+  }
+
+  .demo-sct-ctn {
+    display: flex;
+    flex-direction: column;
+    padding: 2%;
+  }
+
+  .demo-sct-title {
+    font-size: 160%;
+    font-weight: 500;
+    color: #77b55a;
+    text-decoration: none;
+    text-shadow: -1.5px 2px 0px #af0d1a;
+  }
+
+  .demo-sct-username,
+  .demo-sct-password {
+    font-weight: 100;
+  }
+
+  #usr-pwd {
+    color: #77b55a;
+    text-decoration: none;
+    text-shadow: -0px 1px 0px #af0d1a;
+  }
+
+  p {
+    color: black;
+    text-shadow: none;
+    font-size: smaller;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+}
+
+@media only screen and (min-width: 1024px) {
 }
