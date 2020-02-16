@@ -2,7 +2,7 @@ import React from "react";
 import "./Footer.css";
 
 function Footer() {
-  return <footer>Created by: Holmes & Watson</footer>;
+  return <footer className="footer">Created by: Holmes & Watson</footer>;
 }
 
 export default Footer;

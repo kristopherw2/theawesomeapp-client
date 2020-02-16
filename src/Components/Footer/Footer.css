@@ -22,10 +22,16 @@ footer {
 footer:before {
   content: " ";
   position: absolute;
-  /* z-index: -1; */
+  z-index: -1;
   top: 1.5px;
   left: 1.5px;
   right: 1.5px;
   bottom: 1.5px;
   border-top: 1px solid green;
+}
+
+.footer {
+  color: #77b55a;
+  text-decoration: none;
+  text-shadow: -0px 1px 0px #af0d1a;
 }
