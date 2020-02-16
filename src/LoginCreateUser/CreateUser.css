@@ -16,17 +16,12 @@
   margin-bottom: 1.5px;
 }
 
-.title {
-  font-size: 75px;
-}
-
 .create_form {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
   font-family: "Bangers", cursive;
-  font-size: 25px;
 }
 
 

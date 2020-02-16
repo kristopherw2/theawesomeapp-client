@@ -16,9 +16,6 @@
   margin-bottom: 1.5px;
 }
 
-.title {
-  font-size: 75px;
-}
 
 .form {
   display: flex;
@@ -26,15 +23,8 @@
   justify-content: space-around;
   align-items: center;
   font-family: "Bangers", cursive;
-  font-size: 30px;
 }
 
-/* button {
-  margin-top: 10px;
-  padding: 5px;
-  border: 1px solid black;
-}
- */
 input {
   border: 1px solid black;
 }
