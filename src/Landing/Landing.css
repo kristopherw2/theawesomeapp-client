@@ -36,8 +36,8 @@ body {
     display: grid;
     grid-template-rows: 20% 20% 20% 20% 20%;
     /* padding: 2%; */
-    margin: 2%;
-    padding: 2%;
+    margin-top: 1%;
+    padding-top: 1%;
   }
 
   .demo-sct-title {
@@ -61,6 +61,8 @@ body {
     display: grid;
     grid-template-columns: 45% auto;
     gap: 10%;
+    margin-bottom: 1%;
+    padding-bottom: 1%;
   }
 
   .landing-btn-ctn-login {
@@ -121,17 +123,17 @@ body {
 @media only screen and (min-width: 1024px) {
   .body {
     margin-top: 1%;
-    margin-left: 7%;
-    margin-right: 7%;
+    margin-left: 3%;
+    margin-right: 3%;
     padding-left: 5%;
     padding-right: 5%;
-    font-size: 105%;
+    font-size: 108%;
   }
 
   .txt-sct-four {
     font-family: "Bangers", cursive;
     font-weight: 100;
-    font-size: 160%;
+    font-size: 175%;
     text-shadow: -1px 1.5px 0px #af0d1a;
   }
 
@@ -144,7 +146,7 @@ body {
   .demo-sct-title {
     font-size: 400%;
     font-weight: 500;
-    margin-top: 2%;
+    margin-top: 1%;
   }
 
   .landing-btn-ctn {
