@@ -3,7 +3,7 @@ import "./App.css";
 import './Components/Nav/Nav.css'
 import {Component} from "react";
 import Nav from "./Components/Nav/Nav";
-import Footer from "./Components/Footer/Footer";
+/* import Footer from "./Components/Footer/Footer"; */
 import Landing from "./Landing/Landing";
 import UserInfo from "./User-info/UserInfoMain";
 import WorkoutForm from "./WorkoutForm/Workouts/WorkoutForm";
@@ -130,11 +130,12 @@ class App extends Component {
             <Nav />
             <Route exact path='/' component={Landing} />
             <Route path='/login' component={Login} />
-            <Route path='/createuser' component={CreateUser} />
-            <Route path='/homepage' component={UserInfo} />
-            <Route path='/workoutform' component={WorkoutForm} />
-            <Route path='/excerciselist' component={ExercisesList} />
-            <Footer />
+            <Route path='/createuser' component={CreateUser} /> 
+
+            <Route path='/homepage' component={UserInfo} /> 
+            <Route path='/workoutform' component={WorkoutForm} /> 
+            <Route path='/excerciselist' component={ExercisesList} /> 
+            {/* <Footer /> */}
           </main>
         </div>
       </UserContext.Provider>

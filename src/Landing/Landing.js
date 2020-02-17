@@ -1,7 +1,9 @@
 import React from "react";
 import "./Landing.css";
+import '../Components/Footer/Footer.css'
 import {Component} from "react";
 import {Link} from "react-router-dom";
+import Footer from "../Components/Footer/Footer";
 
 class Landing extends Component {
   render() {
@@ -64,6 +66,7 @@ class Landing extends Component {
             <button className='landing-btn-ctn-create btn'>Register</button>
           </Link>
         </section>
+        <Footer/>
       </div>
     );
   }

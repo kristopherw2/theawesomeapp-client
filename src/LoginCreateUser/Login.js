@@ -1,9 +1,11 @@
 import React from "react";
 import "./Login.css";
+import "../Components/Footer/Footer.css"
 import {Component} from "react";
 import {Link} from "react-router-dom";
 import {Redirect} from "react-router-dom";
 import UserContext from "../UserContext";
+import Footer from "../Components/Footer/Footer";
 
 
 class Login extends Component {
@@ -195,6 +197,7 @@ class Login extends Component {
             Login
           </button>
         </form>
+        <Footer />
       </div>
     );
   }

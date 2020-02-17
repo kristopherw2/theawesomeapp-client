@@ -135,12 +135,21 @@ body {
     text-shadow: -1px 1.5px 0px #af0d1a;
   }
 
-  .demo-sct-title {
-    font-size: 300%;
-    font-weight: 500;
-    color: #77b55a;
-    text-decoration: none;
-    text-shadow: -1.5px 2px 0px #af0d1a;
+  .demo-sct-ctn {
+    margin: 0;
+    padding: 0;
+    /* margin-bottom: 1%; */
   }
 
+  .demo-sct-title {
+    font-size: 400%;
+    font-weight: 500;
+    margin-top: 2%;
+  }
+
+  .landing-btn-ctn {
+    margin: 0;
+    padding: 0;
+    gap: 10%;
+  }
 }
