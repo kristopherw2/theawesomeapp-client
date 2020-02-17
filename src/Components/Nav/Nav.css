@@ -35,7 +35,7 @@ nav {
   font-family: "Neuton", serif;
 }
 
-@media only screen and (min-width: 320px){
+@media only screen and (min-width: 320px) {
   .subtag {
     font-size: 45%;
     font-weight: 100;
@@ -44,22 +44,23 @@ nav {
   .title {
     margin-bottom: 1.5px;
     margin-top: -1%;
-    font-size: 300%;
+    font-size: 325%;
     color: #77b55a;
-    text-decoration:none;
+    text-decoration: none;
     text-shadow: -1.5px 2px 0px #af0d1a;
   }
 
   .pizza-slice {
     text-shadow: none;
   }
-
 }
 
-@media only screen and (min-width: 768px){
-  
+@media only screen and (min-width: 768px) {
+  .title {
+    margin-bottom: 1.5px;
+    font-size: 700%;
+  }
 }
 
-@media only screen and (min-width: 1024px){
-  
+@media only screen and (min-width: 1024px) {
 }
