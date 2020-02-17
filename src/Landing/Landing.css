@@ -60,8 +60,8 @@ body {
     display: grid;
     grid-template-columns: 45% auto;
     gap: 10%;
-    margin-bottom: 1%;
-    padding-bottom: 1%;
+    margin-bottom: 5%;
+    padding-bottom: 5%;
   }
 
   .landing-btn-ctn-login {
