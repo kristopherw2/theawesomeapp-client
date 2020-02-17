@@ -35,7 +35,6 @@ body {
   .demo-sct-ctn {
     display: grid;
     grid-template-rows: 20% 20% 20% 20% 20%;
-    /* padding: 2%; */
     margin-top: 1%;
     padding-top: 1%;
   }

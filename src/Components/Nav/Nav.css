@@ -14,13 +14,13 @@ nav {
   background-color: #aaa;
 }
 
-.title {
+.banner-logo {
   position: relative;
   border-bottom: 1px solid red;
   padding-bottom: 2px;
 }
 
-.title:before {
+.banner-logo:before {
   content: " ";
   position: absolute;
   z-index: -1;
@@ -36,12 +36,7 @@ nav {
 }
 
 @media only screen and (min-width: 320px) {
-  .subtag {
-    font-size: 45%;
-    font-weight: 100;
-  }
-
-  .title {
+  .banner-logo {
     margin-bottom: 1.5px;
     margin-top: -1%;
     font-size: 325%;
@@ -50,13 +45,18 @@ nav {
     text-shadow: -1.5px 2px 0px #af0d1a;
   }
 
+  .subtag {
+    font-size: 45%;
+    font-weight: 100;
+  }
+
   .pizza-slice {
     text-shadow: none;
   }
 }
 
 @media only screen and (min-width: 768px) {
-  .title {
+  .banner-logo {
     font-size: 700%;
   }
 }

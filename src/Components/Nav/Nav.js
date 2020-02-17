@@ -13,7 +13,7 @@ class Nav extends Component {
   render() {
     return (
       <div className='nav'>
-        <h1 className='title'>Fitness {slices}Pizza</h1>
+        <h1 className='banner-logo'>Fitness {slices}Pizza</h1>
         <h2 className='subtag'>(in your mouth)</h2>
       </div>
     );

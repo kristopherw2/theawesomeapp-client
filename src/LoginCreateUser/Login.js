@@ -1,12 +1,11 @@
 import React from "react";
 import "./Login.css";
-import "../Components/Footer/Footer.css"
+import "../Components/Footer/Footer.css";
 import {Component} from "react";
 import {Link} from "react-router-dom";
 import {Redirect} from "react-router-dom";
 import UserContext from "../UserContext";
 import Footer from "../Components/Footer/Footer";
-
 
 class Login extends Component {
   constructor(props) {
@@ -24,8 +23,6 @@ class Login extends Component {
   }
 
   static contextType = UserContext;
-
-  
 
   updateUsername(username) {
     this.setState({username: username});
@@ -111,15 +108,13 @@ class Login extends Component {
         if (data.error) {
           throw new Error(`${data.error.message}`);
         }
-        this.context.handleUserLogin(data)
+        this.context.handleUserLogin(data);
         this.setState({
           username: this.updateUsername(username),
           password: this.updatePassword(password),
           error: null,
           redirect: "/homepage",
-          
         });
-        
       })
       .catch(err => {
         this.setState({
@@ -148,54 +143,67 @@ class Login extends Component {
     );
 
     return (
-      <div className='login'>
-        <h3 className='title'>Login</h3>
+      <div className='login-form'>
+        <h3 className='login-banner'>Login</h3>
         {serverErrorMessage}
-        <form
-          className='login-form'
-          onSubmit={event => this.validateLogin(event)}
-        >
-          <div className='form-group'>
-            <label htmlFor='username'>Username:</label>
-            <input
-              type='text'
-              className='create_user_control'
-              name='username'
-              id='username'
-              onChange={e => this.updateUsername(e.target.value)}
-            />
-            {!this.state.idValid ? (
-              <div>
-                <p>{this.state.usernameValidationMessage}</p>
-              </div>
-            ) : null}
-          </div>
 
-          <div className='form-group'>
-            <label htmlFor='password'>Password:</label>
-            <input
-              type='password'
-              className='create_user_control'
-              name='password'
-              id='password'
-              onChange={e => this.updatePassword(e.target.value)}
-            />
-            {!this.state.passwordValid ? (
-              <div>
-                <p>{this.state.passwordValidationMessage}</p>
-              </div>
-            ) : null}
-          </div>
+        <form onSubmit={event => this.validateLogin(event)}>
+          <section className='login-form-ctn'>
+            <div>
 
-          <Link to={"/"}>
-            <button type='reset' className='cancel-btn btn'>
-              Cancel Order
+              <section className='login-form-usr usr-pwd'>
+                <label htmlFor='username'>Username:</label>
+              </section>
+
+              <section className='login-form-usr-input'>
+                <input
+                  type='text'
+                  name='username'
+                  id='username'
+                  onChange={e => this.updateUsername(e.target.value)}
+                />
+              </section>
+
+              {!this.state.idValid ? (
+                <div>
+                  <p>{this.state.usernameValidationMessage}</p>
+                </div>
+              ) : null}
+            </div>
+
+            <div>
+              <section className='login-form-pwd usr-pwd'>
+                <label htmlFor='password'>Password:</label>
+              </section>
+
+              <section className='login-form-pwd-input'>
+                <input
+                  type='password'
+                  name='password'
+                  id='password'
+                  onChange={e => this.updatePassword(e.target.value)}
+                />
+              </section>
+
+              {!this.state.passwordValid ? (
+                <div>
+                  <p>{this.state.passwordValidationMessage}</p>
+                </div>
+              ) : null}
+            </div>
+          </section>
+
+          <section className='login-btn-ctn'>
+            <Link to={"/"} className='login-btn-cancel'>
+              <button type='reset' className='login-btn-cancel btn'>
+                Cancel Order
+              </button>
+            </Link>
+
+            <button type='submit' className='login-btn-login btn'>
+              Login
             </button>
-          </Link>
-
-          <button type='submit' className='login-btn btn'>
-            Login
-          </button>
+          </section>
         </form>
         <Footer />
       </div>
