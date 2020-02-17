@@ -84,8 +84,6 @@ body {
     font-family: "Bangers", cursive;
     font-weight: 100;
     font-size: 160%;
-    color: #77b55a;
-    text-decoration: none;
     text-shadow: -1px 1.5px 0px #af0d1a;
   }
 
@@ -117,9 +115,32 @@ body {
   .landing-btn-ctn {
     margin: 1%;
     padding: 1%;
-    align-items: center;
   }
 }
 
 @media only screen and (min-width: 1024px) {
+  .body {
+    margin-top: 1%;
+    margin-left: 7%;
+    margin-right: 7%;
+    padding-left: 5%;
+    padding-right: 5%;
+    font-size: 105%;
+  }
+
+  .txt-sct-four {
+    font-family: "Bangers", cursive;
+    font-weight: 100;
+    font-size: 160%;
+    text-shadow: -1px 1.5px 0px #af0d1a;
+  }
+
+  .demo-sct-title {
+    font-size: 300%;
+    font-weight: 500;
+    color: #77b55a;
+    text-decoration: none;
+    text-shadow: -1.5px 2px 0px #af0d1a;
+  }
+
 }

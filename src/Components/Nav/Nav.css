@@ -57,10 +57,10 @@ nav {
 
 @media only screen and (min-width: 768px) {
   .title {
-    margin-bottom: 1.5px;
     font-size: 700%;
   }
 }
 
 @media only screen and (min-width: 1024px) {
+  
 }
