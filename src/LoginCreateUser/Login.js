@@ -149,47 +149,52 @@ class Login extends Component {
 
         <form onSubmit={event => this.validateLogin(event)}>
           <section className='login-form-ctn'>
-            <div>
-
-              <section className='login-form-usr usr-pwd'>
+            <div className='login-form-usr usr-pwd'>
+              <section>
                 <label htmlFor='username'>Username:</label>
               </section>
+            </div>
 
-              <section className='login-form-usr-input'>
+            <div className='login-form-usr-input'>
+              <section>
                 <input
+                  className='login-form-usr-input'
                   type='text'
                   name='username'
                   id='username'
                   onChange={e => this.updateUsername(e.target.value)}
                 />
-              </section>
 
-              {!this.state.idValid ? (
-                <div>
-                  <p>{this.state.usernameValidationMessage}</p>
-                </div>
-              ) : null}
+                {!this.state.idValid ? (
+                  <div>
+                    <p>{this.state.usernameValidationMessage}</p>
+                  </div>
+                ) : null}
+              </section>
             </div>
 
-            <div>
-              <section className='login-form-pwd usr-pwd'>
+            <div className='login-form-pwd usr-pwd'>
+              <section>
                 <label htmlFor='password'>Password:</label>
               </section>
+            </div>
 
-              <section className='login-form-pwd-input'>
+            <div className='login-form-pwd-input'>
+              <section>
                 <input
+                  className='login-form-pwd-input'
                   type='password'
                   name='password'
                   id='password'
                   onChange={e => this.updatePassword(e.target.value)}
                 />
-              </section>
 
-              {!this.state.passwordValid ? (
-                <div>
-                  <p>{this.state.passwordValidationMessage}</p>
-                </div>
-              ) : null}
+                {!this.state.passwordValid ? (
+                  <div>
+                    <p>{this.state.passwordValidationMessage}</p>
+                  </div>
+                ) : null}
+              </section>
             </div>
           </section>
 
@@ -204,8 +209,9 @@ class Login extends Component {
               Login
             </button>
           </section>
+          <Footer className='footer' />
         </form>
-        <Footer className='footer'/>
+        
       </div>
     );
   }

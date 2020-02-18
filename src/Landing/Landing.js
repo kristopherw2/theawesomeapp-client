@@ -66,7 +66,7 @@ class Landing extends Component {
             <button className='landing-btn-ctn-create btn'>Register</button>
           </Link>
         </section>
-        <Footer/>
+        <Footer className='footer' />
       </div>
     );
   }
