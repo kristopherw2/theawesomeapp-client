@@ -209,7 +209,6 @@ class Login extends Component {
               Login
             </button>
           </section>
-          <Footer className='footer' />
         </form>
         
       </div>

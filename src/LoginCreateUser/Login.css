@@ -76,7 +76,6 @@ input {
 
 /*****! Button Container *****/
   .login-btn-ctn {
-    /* margin-top: 13%; */
     margin: 10%;
     padding: 7%;
     grid-template-columns: 56% auto;
@@ -91,10 +90,6 @@ input {
   /**! Login Button **/
   .login-btn-login {
     justify-self: start;
-  }
-
-  .footer-ctn {
-    position: relative;
   }
 }
 

@@ -1,9 +1,8 @@
 import React from "react";
 import "./Landing.css";
-import '../Components/Footer/Footer.css'
+import "../Components/Footer/Footer.css";
 import {Component} from "react";
 import {Link} from "react-router-dom";
-import Footer from "../Components/Footer/Footer";
 
 class Landing extends Component {
   render() {
@@ -47,14 +46,16 @@ class Landing extends Component {
         </section>
 
         <section className='demo-sct-ctn'>
-
           <h2 className='demo-sct-title'>Demo Login</h2>
-          <h3 id='usr-pwd' className='demo-sct-username'>Username:</h3>
+          <h3 id='usr-pwd' className='demo-sct-username'>
+            Username:
+          </h3>
           <span className='demo-sct-username-usr'>demoUser</span>
 
-          <h3 id='usr-pwd' className='demo-sct-password'>Password:</h3>
+          <h3 id='usr-pwd' className='demo-sct-password'>
+            Password:
+          </h3>
           <span className='demo-sct-password-pwd'>demo1234</span>
-          
         </section>
 
         <section className='landing-btn-ctn'>
@@ -66,7 +67,7 @@ class Landing extends Component {
             <button className='landing-btn-ctn-create btn'>Register</button>
           </Link>
         </section>
-        <Footer className='footer' />
+        
       </div>
     );
   }

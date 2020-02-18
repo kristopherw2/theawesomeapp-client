@@ -291,7 +291,6 @@ class CreateUser extends Component {
             </button>
           </div>
         </form>
-        <Footer />
       </div>
     );
   }
