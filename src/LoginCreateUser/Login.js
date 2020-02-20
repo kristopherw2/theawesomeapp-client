@@ -5,7 +5,6 @@ import {Component} from "react";
 import {Link} from "react-router-dom";
 import {Redirect} from "react-router-dom";
 import UserContext from "../UserContext";
-import Footer from "../Components/Footer/Footer";
 
 class Login extends Component {
   constructor(props) {

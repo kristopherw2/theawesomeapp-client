@@ -3,9 +3,6 @@ import "./CreateUser.css";
 import {Component} from "react";
 import {Link} from "react-router-dom";
 import {Redirect} from "react-router-dom";
-import Footer from "../Components/Footer/Footer";
-
-/* import {withRouter} from "react-router-dom"; */
 
 class CreateUser extends Component {
   constructor(props) {

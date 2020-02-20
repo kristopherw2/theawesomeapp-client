@@ -18,7 +18,7 @@ class Landing extends Component {
 
           <span className='body txt-sct-two'>
             No matter your education level Fitness Pizza aims to join these now
-            former adversaries together to help you slide your way into better
+            former adversaries together to help you slice your way into better
             health.
           </span>
 

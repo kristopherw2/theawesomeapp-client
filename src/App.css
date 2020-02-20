@@ -16,6 +16,16 @@ h4 {
   font-family: "Bangers", cursive;
 }
 
+.app {
+  position: relative;
+  min-height: 100vh;
+}
+
+main {
+  padding-bottom: 1rem;
+}
+
+
 .btn {
   margin-left: 2px;
   margin-right: 2px;
