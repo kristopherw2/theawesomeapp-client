@@ -45,7 +45,7 @@ class Landing extends Component {
           </span>
         </section>
 
-        <section className='demo-sct-ctn'>
+        <section className='demo-sct-ctn dmo'>
           <h2 className='demo-sct-title'>Demo Login</h2>
           <h3 id='usr-pwd' className='demo-sct-username'>
             Username:
