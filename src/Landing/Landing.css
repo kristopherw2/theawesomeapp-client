@@ -92,9 +92,16 @@ body {
     text-shadow: -1px 1.5px 0px #af0d1a;
   }
 
+  .demo-sct-ctn {
+    grid-template-rows: 7vh 3.3vh 20% 3.3vh 20%;
+  }
+
   .demo-sct-title {
-    font-size: 300%;
+    font-size: 400%;
     font-weight: 500;
+    color: #77b55a;
+    text-decoration: none;
+    text-shadow: -1.5px 2px 0px #af0d1a;
   }
 
   #usr-pwd {
@@ -104,17 +111,16 @@ body {
     font-size: 200%;
   }
 
-  .demo-sct-ctn {
-    margin: 1%;
-    padding: 1%;
-  }
-
   .demo-sct-title {
     font-size: 400%;
     font-weight: 500;
     color: #77b55a;
     text-decoration: none;
     text-shadow: -1.5px 2px 0px #af0d1a;
+  }
+
+  .demo-sct-username-usr, .demo-sct-password-pwd {
+    font-size: 100%;
   }
 
   .landing-btn-ctn {
