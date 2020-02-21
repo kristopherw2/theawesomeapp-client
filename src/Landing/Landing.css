@@ -79,7 +79,7 @@ body {
 
 @media only screen and (min-width: 768px) {
   .body {
-    margin-top: 2%;
+    margin-top: 1%;
     margin-left: 5%;
     margin-right: 5%;
     font-size: 120%;
@@ -93,7 +93,7 @@ body {
   }
 
   .demo-sct-ctn {
-    grid-template-rows: 7vh 3.3vh 20% 3.3vh 20%;
+    grid-template-rows: 7vh 3vh 3vh 3vh 3vh;
   }
 
   .demo-sct-title {
@@ -108,7 +108,7 @@ body {
     color: #77b55a;
     text-decoration: none;
     text-shadow: -1.5px 2px 0px #af0d1a;
-    font-size: 200%;
+    font-size: 210%;
   }
 
   .demo-sct-title {
@@ -124,8 +124,8 @@ body {
   }
 
   .landing-btn-ctn {
-    margin: 1%;
-    padding: 1%;
+    margin: 0;
+    padding: 0;
   }
 
   
@@ -133,11 +133,11 @@ body {
 
 @media only screen and (min-width: 1024px) {
   .body {
-    margin-top: 1%;
+    /* margin-top: 1%; */
     margin-left: 3%;
     margin-right: 3%;
-    padding-left: 5%;
-    padding-right: 5%;
+    padding-left: 4.75%;
+    padding-right: 4.75%;
     font-size: 108%;
   }
 
@@ -151,7 +151,7 @@ body {
   .demo-sct-ctn {
     margin: 0;
     padding: 0;
-    margin-bottom: 1%;
+    grid-template-rows: 10vh 4vh 3vh 4vh 3vh;
   }
 
   .demo-sct-title {

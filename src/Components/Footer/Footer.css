@@ -46,13 +46,18 @@ footer:before {
 }
 
 @media only screen and (min-width: 768px) {
-  /* footer {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-  } */
+  .footer-ctn {
+    height: 1.8rem;
+  }
+
+  footer{
+    font-size: 150%;
+  }
+  
 }
 
 @media only screen and (min-width: 768px) {
+  .footer-ctn {
+    height: 1.6rem;
+  }
 }
