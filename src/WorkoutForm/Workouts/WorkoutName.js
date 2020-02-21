@@ -22,7 +22,7 @@ class WorkoutName extends Component {
   //post a workout
   handlePostToWorkout(e) {
     e.preventDefault();
-    const url = `https://sheltered-mesa-92095.herokuapp.com/api/workouts`;
+    const url = `http://localhost:8000/api/workouts`;
     const options = {
       method: "POST",
       body: JSON.stringify({
@@ -31,6 +31,7 @@ class WorkoutName extends Component {
       }),
       headers: {
         "Content-Type": "application/json",
+        "authorization": `basic`
       },
     };
 

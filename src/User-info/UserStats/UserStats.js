@@ -21,7 +21,7 @@ class UserStats extends Component {
   static contextType = UserContext;
 
   componentDidMount() {
-    const url = `https://sheltered-mesa-92095.herokuapp.com/api/users/${this.context.id}`;
+    const url = `http://localhost:8000/api/users/${this.context.id}`;
 
     fetch(url)
       .then(res => {

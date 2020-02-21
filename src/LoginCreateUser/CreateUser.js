@@ -125,7 +125,7 @@ class CreateUser extends Component {
   handleSubmit() {
     const {username, password, age, height, userweight} = this.state;
     const newUser = {username, password, age, height, userweight};
-    const url = "https://sheltered-mesa-92095.herokuapp.com/api/users/registration";
+    const url = "http://localhost:8000/api/users/registration";
     const options = {
       method: "POST",
       body: JSON.stringify(newUser),

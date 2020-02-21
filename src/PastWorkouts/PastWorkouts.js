@@ -14,7 +14,7 @@ class PastWorkouts extends Component {
   static contextType = UserContext;
 
   componentDidMount() {
-    const url = `https://sheltered-mesa-92095.herokuapp.com/api/workouts/user/${this.context.id}`;
+    const url = `http://localhost:8000/api/workouts/user/${this.context.id}`;
 
     fetch(url)
       .then(res => {

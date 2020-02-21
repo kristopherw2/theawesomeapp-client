@@ -101,7 +101,7 @@ class ExcerciseForm extends Component {
       workoutid,
       userid,
     };
-    const url = `https://sheltered-mesa-92095.herokuapp.com/api/exercises/create`;
+    const url = `http://localhost:8000/api/exercises/create`;
     const options = {
       method: "POST",
       body: JSON.stringify(newExercise),

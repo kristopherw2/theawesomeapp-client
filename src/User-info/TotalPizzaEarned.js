@@ -13,7 +13,7 @@ class TotalPizzaEarned extends Component {
   static contextType = UserContext;
 
   componentDidMount() {
-    const url = `https://sheltered-mesa-92095.herokuapp.com/api/exercises/user/${this.context.id}`;
+    const url = `http://localhost:8000/api/exercises/user/${this.context.id}`;
 
     fetch(url)
       .then(res => {

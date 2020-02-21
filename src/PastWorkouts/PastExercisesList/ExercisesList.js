@@ -20,7 +20,7 @@ class ExercisesList extends Component {
     const getWorkout = passedInWorkoutId.map(item => {
       return item.workoutid;
     });
-    fetch(`https://sheltered-mesa-92095.herokuapp.com/api/exercises/${getWorkout}`)
+    fetch(`http://localhost:8000/api/exercises/${getWorkout}`)
       .then(res => {
         if (!res.ok) {
           throw new Error("Oh, Mamma Mia! There seems to be a problem.");
