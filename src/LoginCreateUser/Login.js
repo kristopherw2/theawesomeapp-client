@@ -155,7 +155,7 @@ class Login extends Component {
             </div>
 
             <div className='login-form-usr-input'>
-              <section>
+              <section id='input-box'>
                 <input
                   className='login-form-usr-input'
                   type='text'
@@ -179,7 +179,7 @@ class Login extends Component {
             </div>
 
             <div className='login-form-pwd-input'>
-              <section>
+              <section id='input-box'>
                 <input
                   className='login-form-pwd-input'
                   type='password'
@@ -198,18 +198,17 @@ class Login extends Component {
           </section>
 
           <section className='login-btn-ctn'>
+            <button type='submit' className='login-btn-login btn'>
+              Login
+            </button>
+
             <Link to={"/"} className='login-btn-cancel'>
               <button type='reset' className='login-btn-cancel btn'>
                 Cancel Order
               </button>
             </Link>
-
-            <button type='submit' className='login-btn-login btn'>
-              Login
-            </button>
           </section>
         </form>
-        
       </div>
     );
   }

@@ -28,24 +28,24 @@ input {
 
 .login-btn-ctn {
   display: grid;
-  grid-template-columns: 50% 50%;
+  /* grid-template-columns: 50% 50%; */
 }
 
 @media only screen and (min-width: 320px) {
   .login-banner {
-    font-size: 375%;
+    font-size: 420%;
     margin: 6%;
     padding: 6%;
   }
 
   label {
-    font-size: 225%;
+    font-size: 200%;
     padding: 1%;
   }
 
-/*****! Form Container *****/
+  /*****! Form Container *****/
   .login-form-ctn {
-    grid-template-columns: 48% auto;
+    grid-template-columns: 46% auto;
     grid-template-rows: 50% 50%;
     column-gap: 5%;
   }
@@ -58,7 +58,7 @@ input {
   }
 
   .login-form-usr-input {
-    justify-self: start;
+    justify-self: left;
     align-self: center;
   }
 
@@ -74,22 +74,21 @@ input {
     align-self: center;
   }
 
-/*****! Button Container *****/
+  /*****! Button Container *****/
   .login-btn-ctn {
-    margin: 10%;
-    padding: 7%;
-    grid-template-columns: 56% auto;
-    gap: 3%;
+    margin-top: 14%;
+    grid-template-columns: auto 47%;
+    gap: 16%;
   }
 
   /**! Cancel Button **/
   .login-btn-cancel {
-    justify-self: end;
+    justify-self: start;
   }
 
   /**! Login Button **/
   .login-btn-login {
-    justify-self: start;
+    justify-self: end;
   }
 }
 
@@ -106,7 +105,43 @@ input {
   label {
     font-size: 300%;
   }
+
+  .login-form-ctn {
+    column-gap: 2%;
+  }
+
+  #input-box {
+    width: 56%;
+  }
+
+  .login-form-pwd-input,
+  .login-form-usr-input {
+    margin-top: 2%;
+    justify-self: start;
+    width: 85%;
+  }
+
+  .login-btn-ctn {
+    margin: 2%;
+    padding: 2%;
+    grid-template-columns: 40% auto;
+    gap: 16%;
+  }
 }
 
+
+
 @media only screen and (min-width: 1024px) {
+  label {
+    text-shadow: -1.5px 2px 0px #af0d1a;
+  }
+
+  #input-box {
+    width: 38%;
+  }
+
+  .login-form-pwd-input,
+  .login-form-usr-input {
+    width: 100%;
+  }
 }
