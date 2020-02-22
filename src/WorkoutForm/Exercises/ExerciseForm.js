@@ -3,6 +3,7 @@ import {Component} from "react";
 import {Link} from "react-router-dom";
 import UserContext from "../../UserContext";
 import CreatedExercises from "./CreatedExercises";
+import TokenService from "../../services/token-service";
 
 class ExcerciseForm extends Component {
   constructor(props) {
@@ -107,6 +108,7 @@ class ExcerciseForm extends Component {
       body: JSON.stringify(newExercise),
       headers: {
         "Content-Type": "application/json",
+        "authorization": `basic ${TokenService.getAuthToken()}`
       },
     };
 

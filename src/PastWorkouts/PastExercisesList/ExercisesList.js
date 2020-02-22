@@ -1,5 +1,6 @@
 import React, {Component} from "react";
 import {Link} from "react-router-dom";
+import TokenService from "../../services/token-service";
 
 class ExercisesList extends Component {
   constructor(props) {
@@ -20,7 +21,11 @@ class ExercisesList extends Component {
     const getWorkout = passedInWorkoutId.map(item => {
       return item.workoutid;
     });
-    fetch(`http://localhost:8000/api/exercises/${getWorkout}`)
+    fetch(`http://localhost:8000/api/exercises/${getWorkout}`, {
+      headers: {
+        "authorization": `basic ${TokenService.getAuthToken()}`
+      }
+    })
       .then(res => {
         if (!res.ok) {
           throw new Error("Oh, Mamma Mia! There seems to be a problem.");

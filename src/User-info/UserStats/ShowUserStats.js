@@ -2,6 +2,7 @@ import React from "react";
 import "./UserStats.css";
 import {Component} from "react";
 import UserContext from "../../UserContext";
+import TokenService from "../../services/token-service";
 
 class ShowerUserStats extends Component {
   constructor(props) {
@@ -22,7 +23,11 @@ class ShowerUserStats extends Component {
   componentDidMount() {
     const url = `http://localhost:8000/api/users/${this.context.id}`;
 
-    fetch(url)
+    fetch(url, {
+      headers: {
+        "authorization": `basic${TokenService.getAuthToken()}`
+      }
+    })
       .then(res => {
         if (!res.ok) {
           throw new Error("Oh, Mamma Mia! There seems to be a problem.");

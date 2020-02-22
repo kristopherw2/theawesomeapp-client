@@ -2,6 +2,7 @@ import React from "react";
 import "./UserStats.css";
 import {Component} from "react";
 import UserContext from "../../UserContext";
+import TokenService from "../../services/token-service";
 
 class UpdateUserStatsForm extends Component {
   constructor() {
@@ -64,6 +65,7 @@ class UpdateUserStatsForm extends Component {
       body: JSON.stringify(updatedUserStats),
       headers: {
         "Content-Type": "application/json",
+        "authorization": `basic${TokenService.getAuthToken()}`
       },
     };
 

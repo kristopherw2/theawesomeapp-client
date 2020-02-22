@@ -2,6 +2,7 @@ import React from "react";
 import {Component} from "react";
 import UserContext from "../../UserContext";
 import {Link} from "react-router-dom";
+import TokenService from "../../services/token-service";
 
 class WorkoutName extends Component {
   constructor(props) {
@@ -31,7 +32,7 @@ class WorkoutName extends Component {
       }),
       headers: {
         "Content-Type": "application/json",
-        "authorization": `basic`
+        "authorization": `basic ${TokenService.getAuthToken()}`
       },
     };
 

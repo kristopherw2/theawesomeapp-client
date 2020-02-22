@@ -4,6 +4,7 @@ import {Component} from "react";
 import UpdateUserStatsForm from "./UpdateUserStatsForm";
 import ShowUserStats from "./ShowUserStats";
 import UserContext from "../../UserContext";
+import TokenService from "../../services/token-service";
 
 class UserStats extends Component {
   constructor(props) {
@@ -23,7 +24,11 @@ class UserStats extends Component {
   componentDidMount() {
     const url = `http://localhost:8000/api/users/${this.context.id}`;
 
-    fetch(url)
+    fetch(url, {
+      headers: {
+        "authorization": `basic ${TokenService.getAuthToken()}`
+      }
+    })
       .then(res => {
         if (!res.ok) {
           throw new Error("Oh, Mamma Mia! There seems to be a problem.");
