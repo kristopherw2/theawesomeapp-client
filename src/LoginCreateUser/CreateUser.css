@@ -80,6 +80,29 @@ input {
   main {
     padding-bottom: 1.8rem;
   }
+
+  .create-user-banner{
+    margin: 3%;
+    padding: 3%;
+    font-size: 532%;
+  }
+
+  .form-group {
+    width: 50%;
+  }
+
+  label{
+    font-size: 300%;
+  }
+
+  /* #age-label{
+    font-size: 375%;
+  } */
+  
+  .create-user-control{
+    height: 30%;
+    width: 50%;
+  }
 }
 
 @media only screen and (min-width: 1024px){
