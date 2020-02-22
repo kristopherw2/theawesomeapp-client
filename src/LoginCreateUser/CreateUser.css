@@ -5,26 +5,85 @@
   border: 0;
 }
 
-.create_user {
-  padding-top: 20px;
-  padding-bottom: 100px;
+
+/* .create-user {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  border-bottom: 1px solid red;
-  margin-bottom: 1.5px;
-}
+} */
 
-.create_form {
+.create-form {
+  font-family: "Bangers", cursive;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
-  font-family: "Bangers", cursive;
+  
+}
+
+.create-user-banner{
+  color: #77b55a;
+  text-decoration: none;
+  text-shadow: -1.5px 2px 0px #af0d1a;
+}
+
+.create-user-btn-ctn {
+  display: grid;
 }
 
 
 input {
-  border: 1px solid black;
+  border: 1px solid green;
+}
+
+@media only screen and (min-width: 320px){
+  main{
+    padding-bottom: 1.25rem;
+  }
+
+  .create-user-banner{
+    margin: 2%;
+    padding: 2%;
+    font-size: 250%;
+  }
+
+  label{
+    margin-top: 1%;
+    margin-bottom: 1%;
+  }
+
+  .form-group {
+    margin: 1%;
+  }
+
+  .create-user-control {
+    margin: 2%;
+    height: 15px;
+    width: 90px;
+  }
+
+  .create-user-btn-ctn {
+    margin-top: 3%;
+    width: 100%;
+    grid-template-columns: 46% 43%;
+    gap: 4%;
+  }
+
+  .create-user-cancel-btn{
+    justify-self: end;
+  }
+
+}
+
+@media only screen and (min-width: 768px){
+  main {
+    padding-bottom: 1.8rem;
+  }
+}
+
+@media only screen and (min-width: 1024px){
+  main {
+    padding-bottom: 1.6rem;
+  }
 }
