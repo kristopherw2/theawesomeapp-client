@@ -206,7 +206,7 @@ class CreateUser extends Component {
           className='create-form'
           onSubmit={event => this.validateLogin(event)}
         >
-          <div className='form-group'>
+          <section className='form-group-ctn'>
             <label htmlFor='username'>Username:</label>
             <input
               type='text'
@@ -220,9 +220,7 @@ class CreateUser extends Component {
                 <p>{this.state.usernameValidationMessage}</p>
               </div>
             ) : null}
-          </div>
 
-          <div className='form-group'>
             <label htmlFor='password'>Password:</label>
             <input
               type='password'
@@ -236,10 +234,10 @@ class CreateUser extends Component {
                 <p>{this.state.passwordValidationMessage}</p>
               </div>
             ) : null}
-          </div>
 
-          <div className='form-group'>
-            <label id='age-label' htmlFor='age'>Age:</label>
+            <label id='age-label' htmlFor='age'>
+              Age:
+            </label>
             <input
               type='text'
               className='create-user-control'
@@ -247,10 +245,10 @@ class CreateUser extends Component {
               id='age'
               onChange={e => this.updateAge(e.target.value)}
             />
-          </div>
 
-          <div className='form-group'>
-            <label className='form-group' htmlFor='height'>Height:</label>
+            <label className='form-group' htmlFor='height'>
+              Height:
+            </label>
             <input
               type='text'
               className='create-user-control'
@@ -258,9 +256,7 @@ class CreateUser extends Component {
               id='height'
               onChange={e => this.updateHeight(e.target.value)}
             />
-          </div>
 
-          <div className='form-group'>
             <label htmlFor='userweight'>Weight:</label>
             <input
               type='text'
@@ -269,13 +265,14 @@ class CreateUser extends Component {
               id='userweight'
               onChange={e => this.updateWeight(e.target.value)}
             />
-          </div>
-          {!this.state.generalValid ? (
-            <div>
-              <p>{this.state.generalValidationMessage}</p>
-            </div>
-          ) : null}
-          
+
+            {!this.state.generalValid ? (
+              <div>
+                <p>{this.state.generalValidationMessage}</p>
+              </div>
+            ) : null}
+          </section>
+
           <div className='create-user-btn-ctn'>
             <Link to={"/"} className='create-user-cancel-btn'>
               <button type='reset' className='create-user-cancel-btn btn'>

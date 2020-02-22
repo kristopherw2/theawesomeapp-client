@@ -5,13 +5,37 @@
   border: 0;
 }
 
-@media only screen and (min-width: 320px){
+@media only screen and (min-width: 320px) {
+  .create-user {
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+  }
 
+  .create-user-banner {
+    font-size: 8vw;
+  }
+
+  .form-group-ctn {
+    margin: 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  input {
+    width: 50%;
+  }
+
+  .create-user-btn-ctn {
+    display: flex;
+    justify-content: space-evenly;
+  }
 }
 
-@media only screen and (min-width: 768px){
+@media only screen and (min-width: 768px) {
 }
 
-@media only screen and (min-width: 1024px){
-  
+@media only screen and (min-width: 1024px) {
 }
