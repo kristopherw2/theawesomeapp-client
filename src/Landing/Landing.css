@@ -5,164 +5,42 @@
   border: 0;
 }
 
-body {
-  text-align: center;
-  font-family: "Neuton", serif;
-}
-
 @media only screen and (min-width: 320px) {
-  .body {
+  .landing{
     display: flex;
     flex-direction: column;
-    margin-top: 1%;
-    margin-left: 3%;
-    margin-right: 3%;
-    font-size: 93%;
+    text-align: center;
   }
 
-  .txt-sct-four {
-    font-family: "Bangers", cursive;
-    font-weight: 100;
-    font-size: 110%;
-    color: #77b55a;
-    text-decoration: none;
-    text-shadow: 0px 1px 0px #af0d1a;
+  .body{
+    margin: 3px;
+    padding: 3px;
   }
 
-  .dmo {
-    margin: 1%;
-    padding: 1%;
+  .body-ctn{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
   }
 
-  .demo-sct-ctn {
-    display: grid;
-    grid-template-rows: 5vh 3.3vh 20% 3.3vh 20%;
+  .body-sct-four{
+    font-weight: bold;
   }
 
-  .demo-sct-title {
-    font-size: 160%;
-    font-weight: 500;
-    color: #77b55a;
-    text-decoration: none;
-    text-shadow: -1.5px 2px 0px #af0d1a;
+  .landing-btn-ctn{
+    margin: 3px;
+    padding: 3px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
   }
 
-  #usr-pwd {
-    color: #77b55a;
-    text-decoration: none;
-    text-shadow: -1px 1.5px 0px #af0d1a;
-    font-size: 105%;
-    font-weight: 100;
-  }
-
-  .demo-sct-username-usr, .demo-sct-password-pwd {
-    font-size: 85%;
-  }
-
-  .landing-btn-ctn {
-    position: relative;
-    display: grid;
-    grid-template-columns: 45% auto;
-    gap: 10%;
-    margin-bottom: 5%;
-    padding-bottom: 5%;
-  }
-
-  .landing-btn-ctn-login {
-    justify-self: end;
-  }
-
-  .landing-btn-ctn-create {
-    justify-self: start;
-  }
 }
 
 @media only screen and (min-width: 768px) {
-  .body {
-    margin-top: 1%;
-    margin-left: 5%;
-    margin-right: 5%;
-    font-size: 120%;
-  }
 
-  .txt-sct-four {
-    font-family: "Bangers", cursive;
-    font-weight: 100;
-    font-size: 160%;
-    text-shadow: -1px 1.5px 0px #af0d1a;
-  }
-
-  .demo-sct-ctn {
-    grid-template-rows: 7vh 3vh 3vh 3vh 3vh;
-  }
-
-  .demo-sct-title {
-    font-size: 400%;
-    font-weight: 500;
-    color: #77b55a;
-    text-decoration: none;
-    text-shadow: -1.5px 2px 0px #af0d1a;
-  }
-
-  #usr-pwd {
-    color: #77b55a;
-    text-decoration: none;
-    text-shadow: -1.5px 2px 0px #af0d1a;
-    font-size: 210%;
-  }
-
-  .demo-sct-title {
-    font-size: 400%;
-    font-weight: 500;
-    color: #77b55a;
-    text-decoration: none;
-    text-shadow: -1.5px 2px 0px #af0d1a;
-  }
-
-  .demo-sct-username-usr, .demo-sct-password-pwd {
-    font-size: 100%;
-  }
-
-  .landing-btn-ctn {
-    margin: 0;
-    padding: 0;
-  }
-
-  
 }
 
 @media only screen and (min-width: 1024px) {
-  .body {
-    /* margin-top: 1%; */
-    margin-left: 3%;
-    margin-right: 3%;
-    padding-left: 4.75%;
-    padding-right: 4.75%;
-    font-size: 108%;
-  }
-
-  .txt-sct-four {
-    font-family: "Bangers", cursive;
-    font-weight: 100;
-    font-size: 175%;
-    text-shadow: -1px 1.5px 0px #af0d1a;
-  }
-
-  .demo-sct-ctn {
-    margin: 0;
-    padding: 0;
-    grid-template-rows: 10vh 4vh 3vh 4vh 3vh;
-  }
-
-  .demo-sct-title {
-    font-size: 400%;
-    font-weight: 500;
-    margin-top: 1%;
-  }
-
-  .landing-btn-ctn {
-    margin: 0;
-    padding: 0;
-    gap: 10%;
-  }
+  
 }

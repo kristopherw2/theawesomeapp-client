@@ -7,32 +7,36 @@
   margin: 0;
   padding: 0;
   border: 0;
+  font-family: "Neuton", serif;
 }
 
-html {
-  height: 100%;
-}
-
-h1,
+/* h1,
 h2,
 h3,
 h4 {
   font-family: "Bangers", cursive;
-}
+} */
 
-.app {
+.app{
   position: relative;
   min-height: 100vh;
 }
 
-main {
-  padding-bottom: 1rem;
+/* main{
+  padding-bottom: 2.5rem;
+} */
+
+input {
+  border: 1px solid black;
 }
 
 .btn {
+  border: 1px solid black;
+}
+
+/* .btn {
   margin-left: 2px;
   margin-right: 2px;
-  box-shadow: 0px 10px 14px -7px #3e7327;
   background: linear-gradient(to bottom, #77b55a 5%, #68a34a 100%);
   background-color: #77b55a;
   border-radius: 4px;
@@ -54,22 +58,16 @@ main {
 .btn:active {
   position: relative;
   top: 1px;
-}
+} */
 
 @media only screen and (min-width: 320px) {
-  main {
-    padding-bottom: 1.25rem;
+  main{
+    padding-bottom: 2.5rem;
   }
 }
 
 @media only screen and (min-width: 768px) {
-  main {
-    padding-bottom: 1.8rem;
-  }
 }
 
 @media only screen and (min-width: 1024px) {
-  main {
-    padding-bottom: 1.6rem;
-  }
 }

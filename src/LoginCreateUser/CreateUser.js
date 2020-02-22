@@ -250,7 +250,7 @@ class CreateUser extends Component {
           </div>
 
           <div className='form-group'>
-            <label htmlFor='height'>Height:</label>
+            <label className='form-group' htmlFor='height'>Height:</label>
             <input
               type='text'
               className='create-user-control'

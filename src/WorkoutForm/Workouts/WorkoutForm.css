@@ -4,32 +4,3 @@
   padding: 0;
   border: 0;
 }
-
-.workout_info {
-  padding-top: 20px;
-  padding-bottom: 40px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  border-bottom: 1px solid red;
-  margin-bottom: 1.5px;
-}
-
-.workout_form {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  align-items: center;
-  font-family: "Bangers", cursive;
-}
-
-button {
-  margin-top: 10px;
-  padding: 5px;
-  border: 1px solid black;
-}
-
-input {
-  border: 1px solid black;
-}

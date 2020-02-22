@@ -10,8 +10,10 @@ nav {
   top: 0;
   left: 0;
   right: 0;
-  font-family: "Bangers", cursive;
-  background-color: #aaa;
+}
+
+.nav {
+  text-align: center;
 }
 
 .banner-logo {
@@ -31,12 +33,12 @@ nav {
   border-bottom: 1px solid green;
 }
 
-.subtag {
-  font-family: "Neuton", serif;
-}
-
 @media only screen and (min-width: 320px) {
-  .banner-logo {
+  .subtag{
+    font-size: 2vw;
+  }
+
+  /* .banner-logo {
     margin-bottom: 1.5px;
     margin-top: -1%;
     font-size: 325%;
@@ -52,13 +54,11 @@ nav {
 
   .pizza-slice {
     text-shadow: none;
-  }
+  } */
 }
 
 @media only screen and (min-width: 768px) {
-  .banner-logo {
-    font-size: 700%;
-  }
+  
 }
 
 @media only screen and (min-width: 1024px) {

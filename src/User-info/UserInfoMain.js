@@ -13,8 +13,10 @@ export default class UserInfo extends Component {
   render() {
     return (
       <div className='user-info'>
-        <TotalPizzaEarned />
-        <UserStats />
+        <header>
+          <TotalPizzaEarned />
+          <UserStats />
+        </header>
         <PastWorkouts />
         <Link to={"/workoutform"}>
           <button className='add-workout-btn btn'>Add New Workout</button>
