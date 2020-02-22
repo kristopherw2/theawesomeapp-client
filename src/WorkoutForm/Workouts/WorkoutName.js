@@ -28,7 +28,6 @@ class WorkoutName extends Component {
       method: "POST",
       body: JSON.stringify({
         workoutname: this.state.workoutname,
-        userid: this.context.id,
       }),
       headers: {
         "Content-Type": "application/json",

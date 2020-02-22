@@ -1,6 +1,7 @@
 import React, {Component} from "react";
 import {Link} from "react-router-dom";
 import TokenService from "../../services/token-service";
+import UserContext from '../../UserContext'
 
 class ExercisesList extends Component {
   constructor(props) {
@@ -16,8 +17,11 @@ class ExercisesList extends Component {
     };
   }
 
+  static contextType = UserContext;
+
   componentDidMount() {
-    const passedInWorkoutId = this.props.location.state;
+    console.log(this.context.workoutIdArray)
+    const passedInWorkoutId = this.context.workoutIdArray;
     const getWorkout = passedInWorkoutId.map(item => {
       return item.workoutid;
     });

@@ -90,7 +90,7 @@ class ExcerciseForm extends Component {
       time,
       caloriesburned,
       workoutid,
-      userid,
+      //userid,
     } = this.state;
     const newExercise = {
       exercisename,
@@ -100,7 +100,7 @@ class ExcerciseForm extends Component {
       time,
       caloriesburned,
       workoutid,
-      userid,
+      //userid,
     };
     const url = `http://localhost:8000/api/exercises/create`;
     const options = {

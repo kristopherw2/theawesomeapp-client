@@ -1,6 +1,7 @@
 import React, {Component} from "react";
 import "./TotalPizzaEarned.css";
 import UserContext from "../UserContext";
+import TokenService from "../services/token-service"
 
 class TotalPizzaEarned extends Component {
   constructor() {
@@ -14,8 +15,12 @@ class TotalPizzaEarned extends Component {
 
   componentDidMount() {
     const url = `http://localhost:8000/api/exercises/user/${this.context.id}`;
-
-    fetch(url)
+    const options = {
+      headers: {
+        "authorization": `basic ${TokenService.getAuthToken()}`
+      }
+    }
+    fetch(url, options)
       .then(res => {
         if (!res.ok) {
           throw new Error("Oh, Mamma Mia! There seems to be a problem.");

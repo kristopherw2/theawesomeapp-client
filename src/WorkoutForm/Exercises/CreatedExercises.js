@@ -2,6 +2,7 @@ import React from "react";
 import {Component} from "react";
 //import {Link} from "react-router-dom";
 import UserContext from "../../UserContext";
+import TokenService from "../../services/token-service"
 
 class CreatedExercises extends Component {
   constructor(props) {
@@ -24,6 +25,10 @@ class CreatedExercises extends Component {
     const url = `http://localhost:8000/api/exercises/${exerciseid}`;
     const options = {
       method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+        "authorization": `basic ${TokenService.getAuthToken()}`
+      }
     };
 
     fetch(url, options)

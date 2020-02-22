@@ -20,7 +20,7 @@ export default class UserInfo extends Component {
           <button>Add New Workout</button>
         </Link>
         <Link to={"/"}>
-          <button id='logout-btn'>Logout</button>
+          <button id='logout-btn' onClick={() => this.context.handleLogOut()}>Logout</button>
         </Link>
       </div>
     );

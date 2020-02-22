@@ -1,8 +1,9 @@
 import React from "react";
 import "./ResultsDisplay.css";
-import {Redirect} from "react-router-dom";
+import {Redirect, withRouter} from "react-router-dom";
 import {Component} from "react";
 import UserContext from "../../UserContext";
+import TokenService from "../../services/token-service"
 
 class ResultsDisplay extends Component {
   constructor(props) {
@@ -21,10 +22,9 @@ class ResultsDisplay extends Component {
     this.context.workoutsArray.filter(item => {
       return item.workoutid === workoutid ? workoutIdArray.push(item) : null;
     });
-    this.setState({
-      redirect: "/excerciselist",
-      workoutIdArray: workoutIdArray,
-    });
+    console.log(workoutIdArray)
+    this.props.history.push('/exerciselist')
+    this.context.handleWorkoutIdArrayUpdate(workoutIdArray)
   };
 
   handleDelete = workoutid => {
@@ -35,6 +35,10 @@ class ResultsDisplay extends Component {
     const url = `http://localhost:8000/api/workouts/${workoutid}`;
     const options = {
       method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+        "authorization": `basic ${TokenService.getAuthToken()}`
+      }
     };
 
     fetch(url, options)
@@ -80,9 +84,10 @@ class ResultsDisplay extends Component {
           </button>
         </div>
       );
-    });
+    })
+    .reverse();
 
     return <div className='results-container'>{thisNewVariable}</div>;
   }
 }
-export default ResultsDisplay;
+export default withRouter(ResultsDisplay);

@@ -5,6 +5,7 @@ import {Link} from "react-router-dom";
 import {Redirect} from "react-router-dom";
 import TokenService from '../services/token-service'
 import UserContext from "../UserContext";
+import { withRouter } from "react-router-dom"
 
 class Login extends Component {
   constructor(props) {
@@ -96,10 +97,7 @@ class Login extends Component {
 
   handleSubmit = event => {
     event.preventDefault()
-    console.log(event)
     const {username, password} = event.target
-    console.log(username.value, password.value)
-
     event.preventDefault();
     if (username.value === "") {
       this.setState({
@@ -150,10 +148,9 @@ class Login extends Component {
         this.context.handleUserLogin(data);
         this.setState({
           username: this.updateUsername(username),
-          password: this.updatePassword(password),
           error: null,
-          redirect: "/homepage",
         });
+        this.props.history.push('/homepage')
       })
       .catch(err => {
         this.setState({
@@ -171,6 +168,7 @@ class Login extends Component {
   };
 
   render() {
+    console.log(this.props)
     if (this.state.redirect) {
       return <Redirect to={this.state.redirect} />;
     }
@@ -197,7 +195,6 @@ class Login extends Component {
               className='create_user_control'
               name='username'
               id='username'
-             /*  onChange={e => this.updateUsername(e.target.value) }*/
             />
             {!this.state.idValid ? (
               <div>
@@ -214,7 +211,6 @@ class Login extends Component {
               className='create_user_control'
               name='password'
               id='password'
-              /* onChange={e => this.updatePassword(e.target.value) }*/
             />
             {!this.state.passwordValid ? (
               <div>
@@ -238,4 +234,4 @@ class Login extends Component {
   }
 }
 
-export default Login;
+export default withRouter(Login);
