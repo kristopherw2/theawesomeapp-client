@@ -44,9 +44,16 @@
 
   .landing-btn-ctn{
     margin-top: 50px;
-    
   }
 }
 
 @media only screen and (min-width: 1024px) {
+  .body{
+    margin: auto;
+    padding: auto;
+  }
+
+  .landing-btn-ctn{
+    
+  }
 }
