@@ -6,13 +6,42 @@
 }
 
 @media only screen and (min-width: 320px) {
+  .login-form{
+    margin: 10px;
+    padding-top: 25px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+  }
 
+  .login-btn-ctn {
+    margin: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+  }
 }
 
 
 
 @media only screen and (min-width: 768px) {
+  .login-form{
+    margin-top: 45px;
+  }
 
+  .login-banner {
+    font-size: 7vw;
+  }
+  .login-form-ctn {
+    font-size: 5vw;
+  }
+
+  .login-btn-ctn {
+    margin: 60px;
+    display: flex;
+    flex-direction: row;
+
+  }
 }
 
 
