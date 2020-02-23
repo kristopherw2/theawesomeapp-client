@@ -59,7 +59,7 @@ class WorkoutName extends Component {
           className='workout-form name'
           onSubmit={e => this.handlePostToWorkout(e)}
         >
-          <label htmlFor='username'>Workout Name:</label>
+          <label className='workout-form-label' htmlFor='username'>Workout Name</label>
           <input
             type='text'
             className='workout-form-input name'

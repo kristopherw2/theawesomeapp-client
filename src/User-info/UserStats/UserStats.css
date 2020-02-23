@@ -11,20 +11,16 @@ li {
 }
 
 @media only screen and (min-width: 320px) {
-  .userStats{
+  .userStats {
     text-align: left;
-
-    /* padding: 3%; */
   }
 }
 
 @media only screen and (min-width: 768px) {
-  .userStats{
+  .userStats {
     text-align: left;
   }
-
 }
 
 @media only screen and (min-width: 1024px) {
-
 }

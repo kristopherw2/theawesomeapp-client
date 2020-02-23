@@ -8,8 +8,11 @@
 @media only screen and (min-width: 320px) {
   .workout-form {
     display: flex;
-    flex-direction: row;
-    justify-content: center;
+    flex-direction: column;
+  }
+
+  .workout-form-label {
+    padding-bottom: 5%;
   }
 }
 
