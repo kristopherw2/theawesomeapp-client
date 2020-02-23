@@ -64,7 +64,7 @@ class CreatedExercises extends Component {
       );
     });
 
-    return <div className='results-container'>{exercisesArray}</div>;
+    return <div className='create-exercise-results-container'>{exercisesArray}</div>;
   }
 }
 
