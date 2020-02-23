@@ -2,6 +2,7 @@ import React from "react";
 import {Component} from "react";
 import ResultsDisplay from "./Results Display/ResultsDisplay";
 import UserContext from "../UserContext";
+import "./PastWorkouts.css"
 
 class PastWorkouts extends Component {
   constructor(props) {
@@ -39,8 +40,7 @@ class PastWorkouts extends Component {
 
   render() {
     return (
-      <div>
-        <h2>Previous Workouts</h2>
+      <div className='previous-workouts'>
         <ResultsDisplay />
       </div>
     );

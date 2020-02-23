@@ -4,3 +4,74 @@
   padding: 0;
   border: 0;
 }
+
+.pizza_dudes_got_30_seconds {
+  text-align: center;
+}
+
+@media only screen and (min-width: 320px) {
+  .user-info {
+    margin: 5px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  header {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+  }
+
+  .prev-wrkot-title {
+    font-size: 10vw;
+    margin: 5px;
+  }
+
+  .workout-btn-ctn {
+    margin: 5px;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  header {
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 0 2%;
+  }
+
+  .upd-weight-btn {
+    padding: 5px 11px;
+    font-size: 1.25vw;
+  }
+
+  .pizza_dudes_got_30_seconds {
+    font-size: 2.5vw;
+  }
+
+  #grab-some {
+    font-size: 4vw;
+  }
+
+  .prev-wrkot-title {
+    margin-top: 3%;
+  }
+
+  .workout-btn-ctn {
+    margin: 2%;
+  }
+
+}
+
+@media only screen and (min-width: 1024px) {
+  .prev-wrkot-title {
+    margin: 0;
+    font-size: 7vw;
+  }
+
+  .workout-name{
+    margin: 2%;
+    font-size: 2vw;
+  }
+}

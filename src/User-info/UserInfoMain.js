@@ -17,14 +17,16 @@ export default class UserInfo extends Component {
           <TotalPizzaEarned />
           <UserStats />
         </header>
+        <h2 className='prev-wrkot-title'>Previous Workouts</h2>
+        <section className='workout-btn-ctn'>
+          <Link to={"/workoutform"}>
+            <button className='add-workout-btn btn'>Add New Workout</button>
+          </Link>
+          <Link to={"/"}>
+            <button className='logout-btn btn'>Logout</button>
+          </Link>
+        </section>
         <PastWorkouts />
-        <Link to={"/workoutform"}>
-          <button className='add-workout-btn btn'>Add New Workout</button>
-        </Link>
-        {/* To be removed after static aproval */}
-        <Link to={"/"}>
-          <button className='logout-btn btn'>Logout</button>
-        </Link>
       </div>
     );
   }

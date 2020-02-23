@@ -70,8 +70,8 @@ class ResultsDisplay extends Component {
 
     const thisNewVariable = newDisplay.map((item, index) => {
       return (
-        <div key={index} className={`resultsList ${item.workoutid}`}>
-          <span onClick={() => this.handleRedirect(item.workoutid)}>
+        <div key={index} className={`results-list ${item.workoutid}`}>
+          <span className="workout-name" onClick={() => this.handleRedirect(item.workoutid)}>
             {item.workoutname}
           </span>
 
@@ -82,7 +82,7 @@ class ResultsDisplay extends Component {
       );
     });
 
-    return <div className='results-container'>{thisNewVariable}</div>;
+    return <div className='results-ctn'>{thisNewVariable}</div>;
   }
 }
 export default ResultsDisplay;

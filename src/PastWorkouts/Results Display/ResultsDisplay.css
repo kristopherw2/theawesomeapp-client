@@ -5,3 +5,44 @@
   border: 0;
 }
 
+@media only screen and (min-width: 320px) {
+  .results-ctn {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .results-list{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-basis: 50%;
+  }
+
+  .workout-name{
+    font-size: 6vw;
+  }
+
+  .login-btn-cancel-link {
+    margin: 0;
+    padding: 0;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .usr-stats-txt {
+    font-weight: bold;
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  .results-list{
+    width: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-basis: 33%;
+  }
+}
+
+

@@ -58,28 +58,13 @@ class UserStats extends Component {
     const renderUpdateStatsForm =
       this.state.showUpdateStatsForm === true ? (
         <UpdateUserStatsForm switchForm={this.handleUserUpdate} />
-      ) :  <ShowUserStats switchForm={this.handleUserUpdate}/>/* (
-        <ul>
-          <li>Username: {this.state.username}</li>
-          <li>Age: {this.state.age}</li>
-          <li>Height: {this.state.height}</li>
-          <li>Weight: {this.state.userweight}</li>
-          <button className='upd-weight-btn btn' onClick={() => this.handleUserUpdate()}>Update Weight</button>
-        </ul>
-      ); */
+      ) :  <ShowUserStats switchForm={this.handleUserUpdate}/>
 
     console.log(this.state.showUpdateStatsForm);
 
     return (
       <div className='userStats'>{renderUpdateStatsForm}</div>
-      // <div className='userStats'>
-      //   <ul>
-      //     <li>Username: {this.state.username}</li>
-      //     <li>Age: {this.state.age}</li>
-      //     <li>Height: {this.state.height}</li>
-      //     <li>Weight: {this.state.userweight}</li>
-      //   </ul>
-      // </div>
+
     );
   }
 }

@@ -202,7 +202,7 @@ class Login extends Component {
               Login
             </button>
 
-            <Link to={"/"} className='login-btn-cancel'>
+            <Link to={"/"} className='login-btn-cancel-link btn'>
               <button type='reset' className='login-btn-cancel btn'>
                 Cancel Order
               </button>

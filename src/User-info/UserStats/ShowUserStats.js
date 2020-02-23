@@ -56,10 +56,10 @@ componentDidMount() {
   render () {
     return (
       <ul>
-          <li>Username: {this.state.username}</li>
-          <li>Age: {this.state.age}</li>
-          <li>Height: {this.state.height}</li>
-          <li>Weight: {this.state.userweight}</li>
+          <li><span className='usr-stats-txt'>Username:</span> {this.state.username}</li>
+          <li><span className='usr-stats-txt'>Age:</span> {this.state.age}</li>
+          <li><span className='usr-stats-txt'>Height:</span> {this.state.height}</li>
+          <li><span className='usr-stats-txt'>Weight:</span> {this.state.userweight}</li>
           <button className='upd-weight-btn btn' onClick={() => this.swithUserStatsDisplay()}>Update Weight</button>
         </ul>
     )

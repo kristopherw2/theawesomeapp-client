@@ -48,7 +48,7 @@ class TotalPizzaEarned extends Component {
 
   render() {
     const slices = (
-      <span role='img' aria-label='A slice of pizza'>
+      <span id='grab-some' role='img' aria-label='A slice of pizza'>
         🍕
       </span>
     );
@@ -59,7 +59,7 @@ class TotalPizzaEarned extends Component {
   return (
     <div className='pizza_dudes_got_30_seconds'>
       <h3>Lifetime Slices Earned:</h3>
-      <p id='grab_some'>{this.state.pizzaslices} {slices}'s</p>
+      <p >{this.state.pizzaslices} {slices}'s</p>
     </div>
   );
   }

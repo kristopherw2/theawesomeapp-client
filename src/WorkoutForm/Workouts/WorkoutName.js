@@ -2,6 +2,7 @@ import React from "react";
 import {Component} from "react";
 import UserContext from "../../UserContext";
 import {Link} from "react-router-dom";
+import "./WorkoutName.css";
 
 class WorkoutName extends Component {
   constructor(props) {
@@ -19,8 +20,7 @@ class WorkoutName extends Component {
     this.setState({workoutname: letter});
   };
 
-
-  //post a workout 
+  //post a workout
   handlePostToWorkout(e) {
     e.preventDefault();
     const url = `http://localhost:8000/api/workouts`;
@@ -56,20 +56,24 @@ class WorkoutName extends Component {
     return (
       <div>
         <form
-          className='workout_form name'
+          className='workout-form name'
           onSubmit={e => this.handlePostToWorkout(e)}
         >
           <label htmlFor='username'>Workout Name:</label>
           <input
             type='text'
-            id='workout_form_input name'
+            className='workout-form-input name'
             onChange={e => this.workoutnameChange(e.target.value)}
           />
-          <button type='submit' className="submit-btn btn">Submit</button>
+          <section className='workout-btn-ctn'>
+            <button type='submit' className='submit-btn btn'>
+              Submit
+            </button>
 
-          <Link to={"/homepage"} id='btn'>
-            <button className='cancel-btn btn' >Cancel</button>
-          </Link>
+            <Link to={"/homepage"} id='btn'>
+              <button className='cancel-btn btn'>Cancel</button>
+            </Link>
+          </section>
         </form>
       </div>
     );
