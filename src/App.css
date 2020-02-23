@@ -31,10 +31,6 @@ input {
 }
 
 .btn {
-  border: 1px solid black;
-}
-
-/* .btn {
   margin-left: 2px;
   margin-right: 2px;
   background: linear-gradient(to bottom, #77b55a 5%, #68a34a 100%);
@@ -58,7 +54,7 @@ input {
 .btn:active {
   position: relative;
   top: 1px;
-} */
+}
 
 @media only screen and (min-width: 320px) {
   main{

@@ -32,24 +32,46 @@
     padding: 3px;
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
+    justify-content: center;
   }
 }
 
 @media only screen and (min-width: 768px) {
   .body {
-    margin: 10px;
-    padding: 10px;
+    margin: 5px;
+    padding: 5px;
+    font-size: 3vw;
+  }
+
+  .demo-sct-ctn {
+    font-size: 4vw;
+  }
+
+  .demo-sct-username-usr, .demo-sct-password-pwd {
+    font-size: 3vw;
   }
 
   .landing-btn-ctn{
     margin-top: 50px;
   }
+
 }
 
 @media only screen and (min-width: 1024px) {
-  .body{
+  .body {
     margin: auto;
-    padding: auto;
+    font-size: 1.75vw;
+  }
+
+  .demo-sct-ctn {
+    font-size: 3vw;
+  }
+
+  .demo-sct-username-usr, .demo-sct-password-pwd {
+    font-size: 2vw;
+  }
+
+  .landing-btn-ctn{
+    margin: 25px;
   }
 }

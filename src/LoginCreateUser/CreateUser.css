@@ -14,7 +14,7 @@
   }
 
   .create-user-banner {
-    font-size: 8vw;
+    font-size: 9vw;
   }
 
   .form-group-ctn {
@@ -24,18 +24,59 @@
     align-items: center;
   }
 
-  input {
-    width: 50%;
+  label {
+    font-size: 7vw;
+  }
+
+  .create-user-control {
+    width: 36vw;
   }
 
   .create-user-btn-ctn {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
   }
 }
 
 @media only screen and (min-width: 768px) {
+  .create-user-control {
+    width: 30vw;
+    font-size: 2.25vw;
+  }
+
+  .create-form{
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
+  }
+
+  .create-user-btn-ctn {
+    margin: 25px;
+  }
 }
 
 @media only screen and (min-width: 1024px) {
+  .create-user-banner {
+    font-size: 7vw;
+  }
+
+  label {
+    font-size: 4vw;
+  }
+
+  .create-form{
+    margin: 0;
+  }
+
+  .create-user-control {
+    height: 2.15vh;
+    width: 15vw;
+  }
+
+  .form-group-ctn{
+    margin: 25px;
+  }
+
+  
+  
 }
