@@ -207,7 +207,7 @@ class CreateUser extends Component {
           onSubmit={event => this.validateLogin(event)}
         >
           <section className='form-group-ctn'>
-            <label htmlFor='username'>Username:</label>
+            <label className='create-acct-label' htmlFor='username'>Username:</label>
             <input
               type='text'
               className='create-user-control'
@@ -221,7 +221,7 @@ class CreateUser extends Component {
               </div>
             ) : null}
 
-            <label htmlFor='password'>Password:</label>
+            <label className='create-acct-label' htmlFor='password'>Password:</label>
             <input
               type='password'
               className='create-user-control'
@@ -235,7 +235,7 @@ class CreateUser extends Component {
               </div>
             ) : null}
 
-            <label id='age-label' htmlFor='age'>
+            <label className='create-acct-label' id='age-label' htmlFor='age'>
               Age:
             </label>
             <input
@@ -246,7 +246,7 @@ class CreateUser extends Component {
               onChange={e => this.updateAge(e.target.value)}
             />
 
-            <label className='form-group' htmlFor='height'>
+            <label className='create-acct-label' htmlFor='height'>
               Height:
             </label>
             <input
@@ -257,7 +257,7 @@ class CreateUser extends Component {
               onChange={e => this.updateHeight(e.target.value)}
             />
 
-            <label htmlFor='userweight'>Weight:</label>
+            <label className='create-acct-label' htmlFor='userweight'>Weight:</label>
             <input
               type='text'
               className='create-user-control'

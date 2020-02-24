@@ -147,32 +147,47 @@ class ExcerciseForm extends Component {
           onSubmit={e => this.convertMETCaloriesBurned(e)}
         >
           <section className='exercise-form-main'>
-            <label htmlFor='exercisename'>Exercise Name:</label>
+            <label className='exercise-form-label' htmlFor='exercisename'>
+              Exercise Name:
+            </label>
             <input
+              className='exercise-form-input'
               type='text'
               id='exercisename'
               onChange={e => this.updateExerciseName(e.target.value)}
             />
-            <label htmlFor='sets'>Sets:</label>
+            <label className='exercise-form-label' htmlFor='sets'>
+              Sets:
+            </label>
             <input
+              className='exercise-form-input'
               type='text'
               id='sets'
               onChange={e => this.updateSets(e.target.value)}
             />
-            <label htmlFor='reps'>Reps:</label>
+            <label className='exercise-form-label' htmlFor='reps'>
+              Reps:
+            </label>
             <input
+              className='exercise-form-input'
               type='text'
               id='reps'
               onChange={e => this.updateRepetitions(e.target.value)}
             />
-            <label htmlFor='weight'>Weight lbs:</label>
+            <label className='exercise-form-label' htmlFor='weight'>
+              Weight lbs:
+            </label>
             <input
+              className='exercise-form-input'
               type='number'
               id='weight'
               onChange={e => this.updateExerciseWeight(e.target.value)}
             />
-            <label htmlFor='time'>Time Seconds:</label>
+            <label className='exercise-form-label' htmlFor='time'>
+              Time Seconds:
+            </label>
             <input
+              className='exercise-form-input'
               type='number'
               onChange={e => this.updateTime(e.target.value)}
             />
@@ -180,12 +195,12 @@ class ExcerciseForm extends Component {
           <section className='exercise-btn-ctn'>
             <button className='submit-btn btn'>Submit</button>
 
-            <Link to={"/homepage"} className='home-btn btn'>
+            <Link to={"/homepage"}>
               <button
                 className='home-btn btn'
                 onClick={() => this.context.handleResetWorkoutForm()}
               >
-                Back to Hompage
+                Done
               </button>
             </Link>
           </section>

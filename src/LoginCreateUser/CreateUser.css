@@ -24,7 +24,7 @@
     align-items: center;
   }
 
-  label {
+  .create-acct-label {
     font-size: 7vw;
   }
 

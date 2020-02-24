@@ -150,7 +150,7 @@ class Login extends Component {
           <section className='login-form-ctn'>
             <div className='login-form-usr usr-pwd'>
               <section>
-                <label htmlFor='username'>Username:</label>
+                <label className='login-label' htmlFor='username'>Username:</label>
               </section>
             </div>
 
@@ -174,7 +174,7 @@ class Login extends Component {
 
             <div className='login-form-pwd usr-pwd'>
               <section>
-                <label htmlFor='password'>Password:</label>
+                <label className='login-label'  htmlFor='password'>Password:</label>
               </section>
             </div>
 

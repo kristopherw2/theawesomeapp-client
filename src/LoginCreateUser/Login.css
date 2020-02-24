@@ -43,7 +43,9 @@
     flex-direction: row;
   }
 
-  
+  .login-label {
+    font-size: 7vw;
+  }
 }
 
 

@@ -19,10 +19,18 @@
 }
 
 @media only screen and (min-width: 768px) {
-
+  .workout-info {
+    margin: 2%;
+  }
 
 }
 
 @media only screen and (min-width: 1024px) {
+  .workout-info {
+    margin: auto;
+  }
 
+  .workout-info-title{
+    font-size: 5vw;
+  }
 }

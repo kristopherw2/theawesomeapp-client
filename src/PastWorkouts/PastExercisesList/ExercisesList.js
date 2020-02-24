@@ -1,5 +1,6 @@
 import React, {Component} from "react";
 import {Link} from "react-router-dom";
+import './ExercisesList.css'
 
 class ExercisesList extends Component {
   constructor(props) {
@@ -44,16 +45,15 @@ class ExercisesList extends Component {
   showList() {
     const mapExerciseArray = this.state.exerciseArray;
     return (
-      <ul>
+      <ul className='exercise-info-list'>
         {mapExerciseArray.map(item => (
           <li key={item.exerciseid}>
-            <div>{`Exercise: ${item.exercisename}`}</div>
-            <div>{`Reps: ${item.repetitions}`}</div>
-            <div>{`Sets: ${item.sets}`}</div>
-            <div>{`Weight: ${item.exerciseweight}`}</div>
-            <div>{`Time: ${item.time}`}</div>
-            <div>{`Calories Burned: ${item.caloriesburned}`}</div>
-            <br />
+            <div><span className='exercise-info-li'>Exercise: </span>{`${item.exercisename}`}</div>
+            <div><span className='exercise-info-li'>Reps: </span>{`${item.repetitions}`}</div>
+            <div><span className='exercise-info-li'>Sets: </span>{`${item.sets}`}</div>
+            <div><span className='exercise-info-li'>Weight: </span>{`${item.exerciseweight}`}</div>
+            <div><span className='exercise-info-li'>Time: </span>{`${item.time}`}</div>
+            <div><span className='exercise-info-li'>Calories Burned: </span>{`${item.caloriesburned}`}</div>
           </li>
         ))}
       </ul>
@@ -62,9 +62,9 @@ class ExercisesList extends Component {
 
   render() {
     return (
-      <div>
-        <h3>Exercise Info</h3>
-        <span>{this.showList()}</span>
+      <div className='exercise-info-ctn'>
+        <h3 className='exercise-info-title'>Exercise Info</h3>
+        <span className='exercise-info-list-ctn'>{this.showList()}</span>
         <form>
           <Link to={"/homepage"}>
             <button className='home-btn btn'>Back to Homepage</button>

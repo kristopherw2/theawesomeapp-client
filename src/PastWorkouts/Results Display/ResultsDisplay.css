@@ -19,6 +19,10 @@
     flex-basis: 50%;
   }
 
+  .usr-stats-txt {
+    font-weight: bold;
+  }
+
   .workout-name{
     font-size: 6vw;
   }
@@ -30,9 +34,7 @@
 }
 
 @media only screen and (min-width: 768px) {
-  .usr-stats-txt {
-    font-weight: bold;
-  }
+  
 }
 
 @media only screen and (min-width: 1024px) {

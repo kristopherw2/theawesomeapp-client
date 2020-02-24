@@ -18,7 +18,7 @@ export default class UserInfo extends Component {
           <UserStats />
         </header>
         <h2 className='prev-wrkot-title'>Previous Workouts</h2>
-        <section className='workout-btn-ctn'>
+        <section className='prev-wrkot-btn-ctn'>
           <Link to={"/workoutform"}>
             <button className='add-workout-btn btn'>Add New Workout</button>
           </Link>
