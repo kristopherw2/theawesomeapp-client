@@ -8,7 +8,7 @@ No matter your education level Fitness Pizza aims to join former adversaries, Pi
 
 Fitness Pizza will tell you, based off your calories burned, how many slices you burned off that beautiful body of yours. Giving you the power to know, for sure, if you really did earn that coveted cheat meal.
 
-![Screenshot]("assets/landing-screenshot.png")
+![Screenshot](assets/landing-screenshot.png)
 
 ## Technologies Implemented 
 
