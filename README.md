@@ -21,7 +21,7 @@ Fitness Pizza will tell you, based off your calories burned, how many slices you
 
 **"Holmes & Watson"**
 
-**Krisopher Williams**, <br>
-**Carl Ortutay**, 
+**Krisopher Williams** <br>
+**Carl Ortutay** 
 
 
