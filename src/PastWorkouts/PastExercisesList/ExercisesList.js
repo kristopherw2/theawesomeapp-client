@@ -20,14 +20,13 @@ class ExercisesList extends Component {
   static contextType = UserContext;
 
   componentDidMount() {
-    console.log(this.context.workoutIdArray)
     const passedInWorkoutId = this.context.workoutIdArray;
     const getWorkout = passedInWorkoutId.map(item => {
       return item.workoutid;
     });
     fetch(`http://localhost:8000/api/exercises/${getWorkout}`, {
       headers: {
-        "authorization": `basic ${TokenService.getAuthToken()}`
+        "authorization": `bearer ${TokenService.getAuthToken()}`
       }
     })
       .then(res => {

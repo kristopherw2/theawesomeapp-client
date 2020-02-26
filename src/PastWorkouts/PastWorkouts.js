@@ -2,6 +2,7 @@ import React from "react";
 import {Component} from "react";
 import ResultsDisplay from "./Results Display/ResultsDisplay";
 import UserContext from "../UserContext";
+import TokenService from "../services/token-service"
 
 class PastWorkouts extends Component {
   constructor(props) {
@@ -14,9 +15,16 @@ class PastWorkouts extends Component {
   static contextType = UserContext;
 
   componentDidMount() {
-    const url = `http://localhost:8000/api/workouts/user/${this.context.id}`;
+    const url = `http://localhost:8000/api/workouts/user`;
+    const options = {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        "authorization": `bearer ${TokenService.getAuthToken()}`
+      },
+    };
 
-    fetch(url)
+    fetch(url, options)
       .then(res => {
         if (!res.ok) {
           throw new Error("Oh, Mamma Mia! There seems to be a problem.");

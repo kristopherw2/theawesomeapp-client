@@ -90,7 +90,6 @@ class ExcerciseForm extends Component {
       time,
       caloriesburned,
       workoutid,
-      //userid,
     } = this.state;
     const newExercise = {
       exercisename,
@@ -100,7 +99,6 @@ class ExcerciseForm extends Component {
       time,
       caloriesburned,
       workoutid,
-      //userid,
     };
     const url = `http://localhost:8000/api/exercises/create`;
     const options = {
@@ -108,7 +106,7 @@ class ExcerciseForm extends Component {
       body: JSON.stringify(newExercise),
       headers: {
         "Content-Type": "application/json",
-        "authorization": `basic ${TokenService.getAuthToken()}`
+        "authorization": `bearer ${TokenService.getAuthToken()}`
       },
     };
 
