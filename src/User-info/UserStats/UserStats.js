@@ -4,7 +4,6 @@ import {Component} from "react";
 import UpdateUserStatsForm from "./UpdateUserStatsForm";
 import ShowUserStats from "./ShowUserStats";
 import UserContext from "../../UserContext";
-//import TokenService from "../../services/token-service";
 
 class UserStats extends Component {
     constructor(props) {

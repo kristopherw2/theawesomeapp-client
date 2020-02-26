@@ -1,7 +1,6 @@
 import React from "react";
 import "./WorkoutForm.css";
 import {Component} from "react";
-/* import {Link} from "react-router-dom"; */
 import WorkoutName from "./WorkoutName";
 import UserContext from "../../UserContext";
 import ExcerciseForm from "../Exercises/ExerciseForm";
