@@ -22,7 +22,6 @@ class ResultsDisplay extends Component {
     this.context.workoutsArray.filter(item => {
       return item.workoutid === workoutid ? workoutIdArray.push(item) : null;
     });
-    console.log(workoutIdArray)
     this.props.history.push('/exerciselist')
     this.context.handleWorkoutIdArrayUpdate(workoutIdArray)
   };
@@ -37,7 +36,7 @@ class ResultsDisplay extends Component {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
-        "authorization": `basic ${TokenService.getAuthToken()}`
+        "authorization": `bearer ${TokenService.getAuthToken()}`
       }
     };
 

@@ -5,29 +5,19 @@ import UserContext from "../../UserContext";
 import TokenService from "../../services/token-service";
 
 class ShowerUserStats extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      id: "",
-      username: "",
-      age: "",
-      height: "",
-      userweight: "",
-      showUpdateStatsForm: false,
-    };
-  }
 
   static contextType = UserContext;
 
   componentDidMount() {
-    const url = `http://localhost:8000/api/users/${this.context.id}`;
-
-    fetch(url, {
+    const url = `http://localhost:8000/api/users/userstats`;
+    const options = {
+      method: "GET",
       headers: {
-        "authorization": `basic${TokenService.getAuthToken()}`
-      }
-    })
+        "Content-Type": "application/json",
+        "authorization": `bearer ${TokenService.getAuthToken()}`
+      },
+    };
+    fetch(url, options)
       .then(res => {
         if (!res.ok) {
           throw new Error("Oh, Mamma Mia! There seems to be a problem.");
@@ -36,14 +26,7 @@ class ShowerUserStats extends Component {
       })
       .then(res => res.json())
       .then(data => {
-        this.setState({
-          id: data.id,
-          username: data.username,
-          age: data.age,
-          height: data.height,
-          userweight: data.userweight,
-        });
-        this.context.handleUserStatsUpdate(data);
+        this.context.handleUserStatsUpdate(data)
       })
       .catch(err => {
         this.setState({
@@ -57,12 +40,13 @@ class ShowerUserStats extends Component {
   };
 
   render() {
+    console.log(this.context.username)
     return (
       <ul>
-        <li>Username: {this.state.username}</li>
-        <li>Age: {this.state.age}</li>
-        <li>Height: {this.state.height}</li>
-        <li>Weight: {this.state.userweight}</li>
+        <li>Username: {this.context.username}</li>
+        <li>Age: {this.context.age}</li>
+        <li>Height: {this.context.height}</li>
+        <li>Weight: {this.context.userweight}</li>
         <button onClick={() => this.swithUserStatsDisplay()}>
           Update Weight
         </button>

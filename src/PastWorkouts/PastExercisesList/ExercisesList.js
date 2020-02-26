@@ -27,7 +27,7 @@ class ExercisesList extends Component {
     });
     fetch(`http://localhost:8000/api/exercises/${getWorkout}`, {
       headers: {
-        "authorization": `basic ${TokenService.getAuthToken()}`
+        "authorization": `bearer ${TokenService.getAuthToken()}`
       }
     })
       .then(res => {

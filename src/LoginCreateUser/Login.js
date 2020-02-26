@@ -43,59 +43,7 @@ class Login extends Component {
     this.setState({password: password});
   }
 
-  // validateLogin = event => {
-  //   event.preventDefault();
-  //   if (this.state.username === "") {
-  //     this.setState({
-  //       usernameValidationMessage: "Username can not be blank",
-  //       idValid: false,
-  //     });
-  //   } else if (this.state.password === "") {
-  //     this.setState({
-  //       passwordValidationMessage: "Password is required",
-  //       passwordValid: false,
-  //     });
-  //   } else if (
-  //     this.state.password.length < 8 ||
-  //     this.state.password.length > 36
-  //   ) {
-  //     this.setState({
-  //       passwordValidationMessage:
-  //         "Password must be between 8 and 36 characters",
-  //       passwordValid: false,
-  //     });
-  //   } else if (
-  //     this.state.password.startsWith(" ") ||
-  //     this.state.password.endsWith(" ")
-  //   ) {
-  //     this.setState({
-  //       passwordValidationMessage: "Password Must not start or end with spaces",
-  //       passwordValid: false,
-  //     });
-  //   } else if (
-  //     !this.state.password.match(/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/)
-  //   ) {
-  //     this.setState({
-  //       passwordValidationMessage:
-  //         "Password must contain letters and at least one digit",
-  //       passwordValid: false,
-  //     });
-  //   } else {
-  //     this.setState(
-  //       {
-  //         usernameValidationMessage: "",
-  //         passwordValidationMessage: "",
-  //         idValid: true,
-  //         passwordValid: true,
-  //       },
-  //       () => {
-  //         this.handleSubmit(event);
-  //       }
-  //     );
-  //   }
-  // };
-
-  handleSubmit = event => {
+  handleSubmitJwtAuth = event => {
     event.preventDefault()
     const {username, password} = event.target
     event.preventDefault();
@@ -119,11 +67,6 @@ class Login extends Component {
         }
       );
     }
-
-    
-    TokenService.saveAuthToken(
-      TokenService.makeBasicAuthToken(username.value, password.value)
-    )
     //TODO: Will need to change url to live server
     const url = "http://localhost:8000/api/users/login";
     const options = {
@@ -145,9 +88,9 @@ class Login extends Component {
         if (data.error) {
           throw new Error(`${data.error.message}`);
         }
+        TokenService.saveAuthToken(data.authToken)
         this.context.handleUserLogin(data);
         this.setState({
-          username: this.updateUsername(username),
           error: null,
         });
         this.props.history.push('/homepage')
@@ -168,7 +111,6 @@ class Login extends Component {
   };
 
   render() {
-    console.log(this.props)
     if (this.state.redirect) {
       return <Redirect to={this.state.redirect} />;
     }
@@ -185,7 +127,7 @@ class Login extends Component {
         {serverErrorMessage}
         <form
           className='login-form'
-          onSubmit={event => this.handleSubmit(event)}
+          onSubmit={event => this.handleSubmitJwtAuth(event)}
         >
           <div className='form-group'>
             <label htmlFor='username'>Username:</label>

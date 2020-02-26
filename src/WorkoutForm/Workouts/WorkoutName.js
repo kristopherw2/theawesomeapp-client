@@ -31,7 +31,7 @@ class WorkoutName extends Component {
       }),
       headers: {
         "Content-Type": "application/json",
-        "authorization": `basic ${TokenService.getAuthToken()}`
+        "authorization": `bearer ${TokenService.getAuthToken()}`
       },
     };
 

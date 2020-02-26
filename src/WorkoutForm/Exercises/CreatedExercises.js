@@ -27,7 +27,7 @@ class CreatedExercises extends Component {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
-        "authorization": `basic ${TokenService.getAuthToken()}`
+        "authorization": `bearer ${TokenService.getAuthToken()}`
       }
     };
 
@@ -58,10 +58,10 @@ class CreatedExercises extends Component {
       return (
         <ul>
           <li key={index}>Name: {item.exercisename}</li>
-          <li key={index + 1}>Sets: {item.sets}</li>
-          <li key={index + 2}>Weight lbs: {item.exerciseweight} total</li>
-          <li key={index + 3}> Time: {item.time} seconds</li>
-          <li key={index + 4}>Calories: {item.caloriesburned}</li>
+          <li key={index+=1}>Sets: {item.sets}</li>
+          <li key={index+=2}>Weight lbs: {item.exerciseweight} total</li>
+          <li key={index+=3}> Time: {item.time} seconds</li>
+          <li key={index+=4}>Calories: {item.caloriesburned}</li>
           <button
             key={index + 5}
             onClick={() => this.handleDelete(item.exerciseid)}
