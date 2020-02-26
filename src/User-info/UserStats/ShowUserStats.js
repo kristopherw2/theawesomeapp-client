@@ -40,7 +40,6 @@ class ShowerUserStats extends Component {
   };
 
   render() {
-    console.log(this.context.username)
     return (
       <ul>
         <li>Username: {this.context.username}</li>

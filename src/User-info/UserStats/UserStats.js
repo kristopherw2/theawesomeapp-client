@@ -21,41 +21,6 @@ class UserStats extends Component {
     }
     static contextType = UserContext;
 
-    // componentDidMount() {
-    //     if (TokenService.getAuthToken()) {
-    //         const url = `http://localhost:8000/api/users/userstats`;
-    //         fetch(url, {
-    //             headers: {
-    //                 authorization: `bearer ${TokenService.getAuthToken()}`
-    //             }
-    //         })
-    //             .then(res => {
-    //                 if (!res.ok) {
-    //                     throw new Error(
-    //                         "Oh, Mamma Mia! There seems to be a problem."
-    //                     );
-    //                 }
-    //                 return res;
-    //             })
-    //             .then(res => res.json())
-    //             .then(data => {
-    //                 console.log(data);
-    //                 this.setState({
-    //                     id: data.id,
-    //                     username: data.username,
-    //                     age: data.age,
-    //                     height: data.height,
-    //                     userweight: data.userweight
-    //                 });
-    //             })
-    //             .catch(err => {
-    //                 this.setState({
-    //                     error: err.message
-    //                 });
-    //             });
-    //     }
-    // }
-
     handleUserUpdate = () => {
         this.setState({
             showUpdateStatsForm: !this.state.showUpdateStatsForm

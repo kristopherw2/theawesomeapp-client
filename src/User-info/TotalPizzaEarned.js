@@ -24,7 +24,6 @@ class TotalPizzaEarned extends Component {
         };
         fetch(url, options)
             .then(res => {
-                console.log(res);
                 if (!res.ok) {
                     throw new Error(
                         "Oh, Mamma Mia! There seems to be a problem."
@@ -33,11 +32,9 @@ class TotalPizzaEarned extends Component {
                 return res;
             })
             .then(res => {
-                console.log(res);
                 return res.json();
             })
             .then(data => {
-                console.log(data);
                 if (data.length === 0) {
                     this.setState({
                         pizzaslices: `You haven't earned any slices better go to the gym and knead that dough!`
@@ -61,7 +58,6 @@ class TotalPizzaEarned extends Component {
     }
 
     render() {
-        console.log("this is rendering");
         const slices = (
             <span role="img" aria-label="A slice of pizza">
                 🍕
