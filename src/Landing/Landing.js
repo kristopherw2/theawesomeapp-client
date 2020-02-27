@@ -2,8 +2,15 @@ import React from "react";
 import "./Landing.css";
 import {Component} from "react";
 import {Link} from "react-router-dom";
+import TokenService from '../services/token-service'
 
 class Landing extends Component {
+
+  componentDidMount() {
+    if(TokenService.hasAuthToken()){
+      this.props.history.push('/homepage')
+    }
+  }
   render() {
     return (
       <div className='Landing'>
