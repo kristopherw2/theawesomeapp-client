@@ -1,7 +1,7 @@
 import React from "react";
 import {Component} from "react";
 import UserContext from "../../UserContext";
-import TokenService from "../../services/token-service"
+import TokenService from "../../services/token-service";
 
 class CreatedExercises extends Component {
   constructor(props) {
@@ -26,8 +26,8 @@ class CreatedExercises extends Component {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
-        "authorization": `bearer ${TokenService.getAuthToken()}`
-      }
+        authorization: `bearer ${TokenService.getAuthToken()}`,
+      },
     };
 
     fetch(url, options)
@@ -55,13 +55,29 @@ class CreatedExercises extends Component {
 
     const exercisesArray = newExerciseDisplay.map((item, index) => {
       return (
-        <ul>
-          <li key={index}>Name: {item.exercisename}</li>
-          <li key={index+=1}>Sets: {item.sets}</li>
-          <li key={index+=2}>Weight lbs: {item.exerciseweight} total</li>
-          <li key={index+=3}> Time: {item.time} seconds</li>
-          <li key={index+=4}>Calories: {item.caloriesburned}</li>
+        <ul className='exercise-list'>
+          <li key={index}>
+            {" "}
+            <span className='exercise-list-label'>Name:</span>{" "}
+            {item.exercisename}
+          </li>
+          <li key={index + 1}>
+            <span className='exercise-list-label'>Sets:</span> {item.sets}
+          </li>
+          <li key={index + 2}>
+            <span className='exercise-list-label'>Weight lbs:</span>{" "}
+            {item.exerciseweight} total
+          </li>
+          <li key={index + 3}>
+            <span className='exercise-list-label'>Time:</span> {item.time}{" "}
+            seconds
+          </li>
+          <li key={index + 4}>
+            <span className='exercise-list-label'>Calories:</span>{" "}
+            {item.caloriesburned}
+          </li>
           <button
+            className='delete-btn btn'
             key={index + 5}
             onClick={() => this.handleDelete(item.exerciseid)}
           >
@@ -71,7 +87,9 @@ class CreatedExercises extends Component {
       );
     });
 
-    return <div className='results-container'>{exercisesArray}</div>;
+    return (
+      <div className='create-exercise-results-container'>{exercisesArray}</div>
+    );
   }
 }
 

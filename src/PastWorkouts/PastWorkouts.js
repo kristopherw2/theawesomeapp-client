@@ -2,7 +2,8 @@ import React from "react";
 import {Component} from "react";
 import ResultsDisplay from "./Results Display/ResultsDisplay";
 import UserContext from "../UserContext";
-import TokenService from "../services/token-service"
+import TokenService from "../services/token-service";
+import "./PastWorkouts.css";
 
 class PastWorkouts extends Component {
   constructor(props) {
@@ -20,7 +21,7 @@ class PastWorkouts extends Component {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
-        "authorization": `bearer ${TokenService.getAuthToken()}`
+        authorization: `bearer ${TokenService.getAuthToken()}`,
       },
     };
 
@@ -33,10 +34,10 @@ class PastWorkouts extends Component {
       })
       .then(res => res.json())
       .then(data => {
-        this.context.handleWorkoutsArrayUpdate(data)
+        this.context.handleWorkoutsArrayUpdate(data);
         this.setState({
-          workouts: data
-        })
+          workouts: data,
+        });
       })
       .catch(err => {
         this.setState({
@@ -47,8 +48,7 @@ class PastWorkouts extends Component {
 
   render() {
     return (
-      <div>
-        <h2>Previous Workouts</h2>
+      <div className='previous-workouts'>
         <ResultsDisplay />
       </div>
     );

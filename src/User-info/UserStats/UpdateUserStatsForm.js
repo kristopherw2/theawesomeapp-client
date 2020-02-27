@@ -17,11 +17,11 @@ class UpdateUserStatsForm extends Component {
   componentDidMount() {
     const url = `http://localhost:8000/api/users/userstats`;
     const options = {
-        method: "get",
-        headers: {
-            "Content-Type": "application/json",
-            authorization: `bearer ${TokenService.getAuthToken()}`
-        }
+      method: "get",
+      headers: {
+        "Content-Type": "application/json",
+        authorization: `bearer ${TokenService.getAuthToken()}`,
+      },
     };
     fetch(url, options)
       .then(res => {
@@ -63,7 +63,7 @@ class UpdateUserStatsForm extends Component {
       body: JSON.stringify(updatedUserStats),
       headers: {
         "Content-Type": "application/json",
-        "authorization": `bearer ${TokenService.getAuthToken()}`
+        authorization: `bearer ${TokenService.getAuthToken()}`,
       },
     };
 
@@ -101,7 +101,10 @@ class UpdateUserStatsForm extends Component {
             onChange={e => this.updateUserWeight(e.target.value)}
           />
         </li>
-        <button onClick={() => this.handleUserWeightUpdate()}>
+        <button
+          className='upd-weight-btn btn'
+          onClick={() => this.handleUserWeightUpdate()}
+        >
           Submit Weight
         </button>
       </ul>

@@ -1,6 +1,7 @@
 import React from "react";
 import "./App.css";
-import { Component } from "react";
+import "./Components/Nav/Nav.css";
+import {Component} from "react";
 import Nav from "./Components/Nav/Nav";
 import Footer from "./Components/Footer/Footer";
 import Landing from "./Landing/Landing";
@@ -8,173 +9,157 @@ import UserInfo from "./User-info/UserInfoMain";
 import WorkoutForm from "./WorkoutForm/Workouts/WorkoutForm";
 import Login from "./LoginCreateUser/Login";
 import CreateUser from "./LoginCreateUser/CreateUser";
-import { Route, Switch } from "react-router-dom";
+import {Route, Switch} from "react-router-dom";
 import UserContext from "./UserContext";
 import ExercisesList from "./PastWorkouts/PastExercisesList/ExercisesList";
 import PublicOnlyRoute from "./Utils/PublicRouteOnly";
 import PrivateRoute from "./Utils/PrivateRoute";
 import PageNotFound from "./Components/PageNotFound";
-//import TokenService from "./services/token-service";
 
 class App extends Component {
-    constructor(props) {
-        super(props);
+  constructor(props) {
+    super(props);
 
-        this.state = {
-            username: "",
-            age: "",
-            height: "",
-            userweight: "",
-            workoutid: "",
-            workoutname: "",
-            showWorkoutForm: true,
-            workoutsArray: [],
-            exercisesArray: [],
-            exercisename: "",
-            workoutIdArray: [],
-            sets: "",
-            repetitions: "",
-            exerciseweight: "",
-            time: "",
-            caloriesburned: "",
-            token: null
-        };
-    }
-    /* MOVE METHODS INTO STATE TO CLEAN CONTEXT */
-
-    handleLogOut = () => {
-        localStorage.clear();
+    this.state = {
+      username: "",
+      age: "",
+      height: "",
+      userweight: "",
+      workoutid: "",
+      workoutname: "",
+      showWorkoutForm: true,
+      workoutsArray: [],
+      exercisesArray: [],
+      exercisename: "",
+      workoutIdArray: [],
+      sets: "",
+      repetitions: "",
+      exerciseweight: "",
+      time: "",
+      caloriesburned: "",
+      token: null,
     };
+  }
+  /* MOVE METHODS INTO STATE TO CLEAN CONTEXT */
 
-    handUserStatsUpdate = userstats => {
-        this.setState({
-            id: userstats.id,
-            username: userstats.username,
-            age: userstats.age,
-            height: userstats.height,
-            userweight: userstats.userweight
-        });
-    };
+  handleLogOut = () => {
+    localStorage.clear();
+  };
 
-    handleUserWeightUpdate = weight => {
-        this.setState({
-            userweight: weight.userweight
-        });
-    };
+  handUserStatsUpdate = userstats => {
+    this.setState({
+      id: userstats.id,
+      username: userstats.username,
+      age: userstats.age,
+      height: userstats.height,
+      userweight: userstats.userweight,
+    });
+  };
 
-    handleUserLogin = token => {
-        this.setState({
-            token: true
-        });
-    };
+  handleUserWeightUpdate = weight => {
+    this.setState({
+      userweight: weight.userweight,
+    });
+  };
 
-    handleCreateWorkout = workout => {
-        this.setState({
-            workoutid: workout.workoutid,
-            workoutname: workout.workoutname,
-            showWorkoutForm: false
-        });
-    };
+  handleUserLogin = token => {
+    this.setState({
+      token: true,
+    });
+  };
 
-    handleWorkoutsArrayUpdate = workout => {
-        this.setState({
-            workoutsArray: [...workout]
-        });
-    };
+  handleCreateWorkout = workout => {
+    this.setState({
+      workoutid: workout.workoutid,
+      workoutname: workout.workoutname,
+      showWorkoutForm: false,
+    });
+  };
 
-    handleExercisesArrayUpdate = exercises => {
-        this.setState({
-            exercisesArray: [...this.state.exercisesArray, ...exercises]
-        });
-    };
+  handleWorkoutsArrayUpdate = workout => {
+    this.setState({
+      workoutsArray: [...workout],
+    });
+  };
 
-    handleDeleteExercise = exercises => {
-        this.setState({
-            exercisesArray: [...exercises]
-        });
-    };
+  handleExercisesArrayUpdate = exercises => {
+    this.setState({
+      exercisesArray: [...this.state.exercisesArray, ...exercises],
+    });
+  };
 
-    handleResetWorkoutForm = () => {
-        this.setState({
-            workoutid: "",
-            workoutname: "",
-            exercisesArray: [],
-            showWorkoutForm: true
-        });
-    };
+  handleDeleteExercise = exercises => {
+    this.setState({
+      exercisesArray: [...exercises],
+    });
+  };
 
-    handleWorkoutIdArrayUpdate = workoutid => {
-        this.setState({
-            workoutIdArray: workoutid
-        });
-    };
+  handleResetWorkoutForm = () => {
+    this.setState({
+      workoutid: "",
+      workoutname: "",
+      exercisesArray: [],
+      showWorkoutForm: true,
+    });
+  };
 
-    render() {
-        return (
-            <UserContext.Provider
-                value={{
-                    id: this.state.id,
-                    username: this.state.username,
-                    age: this.state.age,
-                    height: this.state.height,
-                    userweight: this.state.userweight,
-                    workoutid: this.state.workoutid,
-                    handleUserLogin: this.handleUserLogin,
-                    handleUserStatsUpdate: this.handUserStatsUpdate,
-                    handleCreateWorkout: this.handleCreateWorkout,
-                    showWorkoutForm: this.state.showWorkoutForm,
-                    workoutsArray: this.state.workoutsArray,
-                    exercisesArray: this.state.exercisesArray,
-                    handleWorkoutsArrayUpdate: this.handleWorkoutsArrayUpdate,
-                    exercisename: this.state.exercisename,
-                    sets: this.state.sets,
-                    repetitions: this.state.repetitions,
-                    exerciseweight: this.state.exerciseweight,
-                    time: this.state.time,
-                    caloriesburned: this.state.caloriesburned,
-                    handleExercisesArrayUpdate: this.handleExercisesArrayUpdate,
-                    handleDeleteExercise: this.handleDeleteExercise,
-                    handleResetWorkoutForm: this.handleResetWorkoutForm,
-                    handleUserWeightUpdate: this.handleUserWeightUpdate,
-                    workoutIdArray: this.state.workoutIdArray,
-                    handleWorkoutIdArrayUpdate: this.handleWorkoutIdArrayUpdate,
-                    handleLogOut: this.handleLogOut,
-                    token: this.state.token
-                }}
-            >
-                <div className="app">
-                    <main>
-                        <Nav />
-                        <Switch>
-                            <Route exact path={"/"} component={Landing} />
-                            <PublicOnlyRoute
-                                path={"/login"}
-                                component={Login}
-                            />
-                            <PublicOnlyRoute
-                                path={"/createuser"}
-                                component={CreateUser}
-                            />
-                            <PrivateRoute
-                                path={"/homepage"}
-                                component={UserInfo}
-                            />
-                            <PrivateRoute
-                                path={"/workoutform"}
-                                component={WorkoutForm}
-                            />
-                            <PrivateRoute
-                                path={"/exerciselist"}
-                                component={ExercisesList}
-                            />
-                            <Route component={PageNotFound} />
-                        </Switch>
-                        <Footer />
-                    </main>
-                </div>
-            </UserContext.Provider>
-        );
-    }
+  handleWorkoutIdArrayUpdate = workoutid => {
+    this.setState({
+      workoutIdArray: workoutid,
+    });
+  };
+
+  render() {
+    return (
+      <UserContext.Provider
+        value={{
+          id: this.state.id,
+          username: this.state.username,
+          age: this.state.age,
+          height: this.state.height,
+          userweight: this.state.userweight,
+          workoutid: this.state.workoutid,
+          handleUserLogin: this.handleUserLogin,
+          handleUserStatsUpdate: this.handUserStatsUpdate,
+          handleCreateWorkout: this.handleCreateWorkout,
+          showWorkoutForm: this.state.showWorkoutForm,
+          workoutsArray: this.state.workoutsArray,
+          exercisesArray: this.state.exercisesArray,
+          handleWorkoutsArrayUpdate: this.handleWorkoutsArrayUpdate,
+          exercisename: this.state.exercisename,
+          sets: this.state.sets,
+          repetitions: this.state.repetitions,
+          exerciseweight: this.state.exerciseweight,
+          time: this.state.time,
+          caloriesburned: this.state.caloriesburned,
+          handleExercisesArrayUpdate: this.handleExercisesArrayUpdate,
+          handleDeleteExercise: this.handleDeleteExercise,
+          handleResetWorkoutForm: this.handleResetWorkoutForm,
+          handleUserWeightUpdate: this.handleUserWeightUpdate,
+          workoutIdArray: this.state.workoutIdArray,
+          handleWorkoutIdArrayUpdate: this.handleWorkoutIdArrayUpdate,
+          handleLogOut: this.handleLogOut,
+          token: this.state.token,
+        }}
+      >
+        <div className='app'>
+          <main>
+            <Nav />
+            <Switch>
+              <Route exact path={"/"} component={Landing} />
+              <PublicOnlyRoute path={"/login"} component={Login} />
+              <PublicOnlyRoute path={"/createuser"} component={CreateUser} />
+              <PrivateRoute path={"/homepage"} component={UserInfo} />
+              <PrivateRoute path={"/workoutform"} component={WorkoutForm} />
+              <PrivateRoute path={"/exerciselist"} component={ExercisesList} />
+              <Route component={PageNotFound} />
+            </Switch>
+            <Footer />
+          </main>
+        </div>
+      </UserContext.Provider>
+    );
+  }
 }
 
 export default App;

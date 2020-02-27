@@ -13,15 +13,20 @@ export default class UserInfo extends Component {
   render() {
     return (
       <div className='user-info'>
-        <TotalPizzaEarned />
-        <UserStats />
+        <header>
+          <TotalPizzaEarned />
+          <UserStats />
+        </header>
+        <h2 className='prev-wrkot-title'>Previous Workouts</h2>
+        <section className='prev-wrkot-btn-ctn'>
+          <Link to={"/workoutform"}>
+            <button className='add-workout-btn btn'>Add New Workout</button>
+          </Link>
+          <Link to={"/"}>
+            <button className='logout-btn btn'onClick={() => this.context.handleLogOut()}>Logout</button>
+          </Link>
+        </section>
         <PastWorkouts />
-        <Link to={"/workoutform"}>
-          <button>Add New Workout</button>
-        </Link>
-        <Link to={"/"}>
-          <button id='logout-btn' onClick={() => this.context.handleLogOut()}>Logout</button>
-        </Link>
       </div>
     );
   }

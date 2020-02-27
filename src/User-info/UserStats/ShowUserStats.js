@@ -5,7 +5,6 @@ import UserContext from "../../UserContext";
 import TokenService from "../../services/token-service";
 
 class ShowerUserStats extends Component {
-
   static contextType = UserContext;
 
   componentDidMount() {
@@ -14,7 +13,7 @@ class ShowerUserStats extends Component {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
-        "authorization": `bearer ${TokenService.getAuthToken()}`
+        authorization: `bearer ${TokenService.getAuthToken()}`,
       },
     };
     fetch(url, options)
@@ -26,7 +25,7 @@ class ShowerUserStats extends Component {
       })
       .then(res => res.json())
       .then(data => {
-        this.context.handleUserStatsUpdate(data)
+        this.context.handleUserStatsUpdate(data);
       })
       .catch(err => {
         this.setState({
@@ -42,11 +41,24 @@ class ShowerUserStats extends Component {
   render() {
     return (
       <ul>
-        <li>Username: {this.context.username}</li>
-        <li>Age: {this.context.age}</li>
-        <li>Height: {this.context.height}</li>
-        <li>Weight: {this.context.userweight}</li>
-        <button onClick={() => this.swithUserStatsDisplay()}>
+        <li>
+          <span className='usr-stats-txt'>Username:</span>{" "}
+          {this.context.username}
+        </li>
+        <li>
+          <span className='usr-stats-txt'>Age:</span> {this.context.age}
+        </li>
+        <li>
+          <span className='usr-stats-txt'>Height:</span> {this.context.height}
+        </li>
+        <li>
+          <span className='usr-stats-txt'>Weight:</span>{" "}
+          {this.context.userweight}
+        </li>
+        <button
+          className='upd-weight-btn btn'
+          onClick={() => this.swithUserStatsDisplay()}
+        >
           Update Weight
         </button>
       </ul>

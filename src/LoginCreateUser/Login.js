@@ -1,11 +1,12 @@
 import React from "react";
 import "./Login.css";
+import "../Components/Footer/Footer.css";
 import {Component} from "react";
 import {Link} from "react-router-dom";
 import {Redirect} from "react-router-dom";
-import TokenService from '../services/token-service'
+import TokenService from "../services/token-service";
 import UserContext from "../UserContext";
-import { withRouter } from "react-router-dom"
+import {withRouter} from "react-router-dom";
 
 class Login extends Component {
   constructor(props) {
@@ -24,16 +25,13 @@ class Login extends Component {
 
   static contextType = UserContext;
 
-  //trying to implement auth
-
   handleSubmitBasicAuth = ev => {
-    ev.preventDefault()
-    const {username, password} = ev.target
+    ev.preventDefault();
+    const {username, password} = ev.target;
     TokenService.saveAuthToken(
       TokenService.makeBasicAuthToken(username.value, password.value)
-    )
-
-  }
+    );
+  };
 
   updateUsername(username) {
     this.setState({username: username});
@@ -44,8 +42,8 @@ class Login extends Component {
   }
 
   handleSubmitJwtAuth = event => {
-    event.preventDefault()
-    const {username, password} = event.target
+    event.preventDefault();
+    const {username, password} = event.target;
     event.preventDefault();
     if (username.value === "") {
       this.setState({
@@ -58,20 +56,21 @@ class Login extends Component {
         passwordValid: false,
       });
     } else {
-      this.setState(
-        {
-          usernameValidationMessage: "",
-          passwordValidationMessage: "",
-          idValid: true,
-          passwordValid: true,
-        }
-      );
+      this.setState({
+        usernameValidationMessage: "",
+        passwordValidationMessage: "",
+        idValid: true,
+        passwordValid: true,
+      });
     }
     //TODO: Will need to change url to live server
     const url = "http://localhost:8000/api/users/login";
     const options = {
       method: "POST",
-      body: JSON.stringify({username: username.value, password: password.value}),
+      body: JSON.stringify({
+        username: username.value,
+        password: password.value,
+      }),
       headers: {
         "Content-Type": "application/json",
       },
@@ -88,19 +87,19 @@ class Login extends Component {
         if (data.error) {
           throw new Error(`${data.error.message}`);
         }
-        TokenService.saveAuthToken(data.authToken)
+        TokenService.saveAuthToken(data.authToken);
         this.context.handleUserLogin(data);
         this.setState({
           error: null,
         });
-        this.props.history.push('/homepage')
+        this.props.history.push("/homepage");
       })
       .catch(err => {
         this.setState({
           error: err.message,
         });
       });
-  }
+  };
 
   usernameChange = letter => {
     this.setState({username: letter});
@@ -122,54 +121,76 @@ class Login extends Component {
     );
 
     return (
-      <div className='login'>
-        <h3 className='title'>Login</h3>
+      <div className='login-form'>
+        <h3 className='login-banner'>Login</h3>
         {serverErrorMessage}
-        <form
-          className='login-form'
-          onSubmit={event => this.handleSubmitJwtAuth(event)}
-        >
-          <div className='form-group'>
-            <label htmlFor='username'>Username:</label>
-            <input
-              required
-              type='text'
-              className='create_user_control'
-              name='username'
-              id='username'
-            />
-            {!this.state.idValid ? (
-              <div>
-                <p>{this.state.usernameValidationMessage}</p>
-              </div>
-            ) : null}
-          </div>
 
-          <div className='form-group'>
-            <label htmlFor='password'>Password:</label>
-            <input
-              required
-              type='password'
-              className='create_user_control'
-              name='password'
-              id='password'
-            />
-            {!this.state.passwordValid ? (
-              <div>
-                <p>{this.state.passwordValidationMessage}</p>
-              </div>
-            ) : null}
-          </div>
+        <form onSubmit={event => this.handleSubmitJwtAuth(event)}>
+          <section className='login-form-ctn'>
+            <div className='login-form-usr usr-pwd'>
+              <section>
+                <label className='login-label' htmlFor='username'>
+                  Username:
+                </label>
+              </section>
+            </div>
 
-          <Link to={"/"}>
-            <button type='reset' className='create_user_button'>
-              Cancel Order
+            <div className='login-form-usr-input'>
+              <section id='input-box'>
+                <input
+                  required
+                  className='login-form-usr-input'
+                  type='text'
+                  name='username'
+                  id='username'
+                />
+
+                {!this.state.idValid ? (
+                  <div>
+                    <p>{this.state.usernameValidationMessage}</p>
+                  </div>
+                ) : null}
+              </section>
+            </div>
+
+            <div className='login-form-pwd usr-pwd'>
+              <section>
+                <label className='login-label' htmlFor='password'>
+                  Password:
+                </label>
+              </section>
+            </div>
+
+            <div className='login-form-pwd-input'>
+              <section id='input-box'>
+                <input
+                  required
+                  className='login-form-pwd-input'
+                  type='password'
+                  name='password'
+                  id='password'
+                />
+
+                {!this.state.passwordValid ? (
+                  <div>
+                    <p>{this.state.passwordValidationMessage}</p>
+                  </div>
+                ) : null}
+              </section>
+            </div>
+          </section>
+
+          <section className='login-btn-ctn'>
+            <button type='submit' className='login-btn-login btn'>
+              Login
             </button>
-          </Link>
 
-          <button type='submit' className='create_user_button'>
-            Login
-          </button>
+            <Link to={"/"} className='login-btn-cancel-link btn'>
+              <button type='reset' className='login-btn-cancel btn'>
+                Cancel Order
+              </button>
+            </Link>
+          </section>
         </form>
       </div>
     );

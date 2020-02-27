@@ -3,6 +3,7 @@ import {Component} from "react";
 import UserContext from "../../UserContext";
 import {Link} from "react-router-dom";
 import TokenService from "../../services/token-service";
+import "./WorkoutName.css";
 
 class WorkoutName extends Component {
   constructor(props) {
@@ -31,7 +32,7 @@ class WorkoutName extends Component {
       }),
       headers: {
         "Content-Type": "application/json",
-        "authorization": `bearer ${TokenService.getAuthToken()}`
+        authorization: `bearer ${TokenService.getAuthToken()}`,
       },
     };
 
@@ -56,20 +57,26 @@ class WorkoutName extends Component {
     return (
       <div>
         <form
-          className='workout_form name'
+          className='workout-form name'
           onSubmit={e => this.handlePostToWorkout(e)}
         >
-          <label htmlFor='username'>Workout Name:</label>
+          <label className='workout-form-label' htmlFor='username'>
+            Workout Name
+          </label>
           <input
             type='text'
-            id='workout_form_input name'
+            className='workout-form-input name'
             onChange={e => this.workoutnameChange(e.target.value)}
           />
-          <button type='submit'>Submit</button>
+          <section className='workout-btn-ctn'>
+            <button type='submit' className='submit-btn btn'>
+              Submit
+            </button>
 
-          <Link to={"/homepage"} id='btn'>
-            <button>Cancel</button>
-          </Link>
+            <Link to={"/homepage"} id='btn'>
+              <button className='cancel-btn btn'>Cancel</button>
+            </Link>
+          </section>
         </form>
       </div>
     );

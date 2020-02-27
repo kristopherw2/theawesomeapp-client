@@ -6,36 +6,36 @@ import ShowUserStats from "./ShowUserStats";
 import UserContext from "../../UserContext";
 
 class UserStats extends Component {
-    constructor(props) {
-        super(props);
+  constructor(props) {
+    super(props);
 
-        this.state = {
-            id: "",
-            username: "",
-            age: "",
-            height: "",
-            userweight: "",
-            showUpdateStatsForm: false
-        };
-    }
-    static contextType = UserContext;
-
-    handleUserUpdate = () => {
-        this.setState({
-            showUpdateStatsForm: !this.state.showUpdateStatsForm
-        });
+    this.state = {
+      id: "",
+      username: "",
+      age: "",
+      height: "",
+      userweight: "",
+      showUpdateStatsForm: false,
     };
+  }
+  static contextType = UserContext;
 
-    render() {
-        const renderUpdateStatsForm =
-            this.state.showUpdateStatsForm === true ? (
-                <UpdateUserStatsForm switchForm={this.handleUserUpdate} />
-            ) : (
-                <ShowUserStats switchForm={this.handleUserUpdate} />
-            );
+  handleUserUpdate = () => {
+    this.setState({
+      showUpdateStatsForm: !this.state.showUpdateStatsForm,
+    });
+  };
 
-        return <div className="userStats">{renderUpdateStatsForm}</div>;
-    }
+  render() {
+    const renderUpdateStatsForm =
+      this.state.showUpdateStatsForm === true ? (
+        <UpdateUserStatsForm switchForm={this.handleUserUpdate} />
+      ) : (
+        <ShowUserStats switchForm={this.handleUserUpdate} />
+      );
+
+    return <div className='userStats'>{renderUpdateStatsForm}</div>;
+  }
 }
 
 export default UserStats;

@@ -3,7 +3,7 @@ import {Component} from "react";
 import "./Nav.css";
 
 const slices = (
-  <span role='img' aria-label='A slice of pizza'>
+  <span className='pizza-slice' role='img' aria-label='A slice of pizza'>
     🍕
   </span>
 );
@@ -12,7 +12,7 @@ class Nav extends Component {
   render() {
     return (
       <div className='nav'>
-        <h1 id='title'>Fitness {slices}Pizza</h1>
+        <h1 className='banner-logo'>Fitness {slices}Pizza</h1>
         <h2 className='subtag'>(in your mouth)</h2>
       </div>
     );

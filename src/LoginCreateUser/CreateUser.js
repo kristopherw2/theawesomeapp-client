@@ -196,18 +196,20 @@ class CreateUser extends Component {
     );
 
     return (
-      <div className='create_user'>
-        <h3 className='title'>Create Profile</h3>
+      <div className='create-user'>
+        <h3 className='create-user-banner'>Create Account</h3>
         {serverErrorMessage}
         <form
-          className='create_form'
+          className='create-form'
           onSubmit={event => this.validateLogin(event)}
         >
-          <div className='form-group'>
-            <label htmlFor='username'>Username:</label>
+          <section className='form-group-ctn'>
+            <label className='create-acct-label' htmlFor='username'>
+              Username:
+            </label>
             <input
               type='text'
-              className='create_user_control'
+              className='create-user-control'
               name='username'
               id='username'
               onChange={e => this.updateUsername(e.target.value)}
@@ -217,13 +219,13 @@ class CreateUser extends Component {
                 <p>{this.state.usernameValidationMessage}</p>
               </div>
             ) : null}
-          </div>
 
-          <div className='form-group'>
-            <label htmlFor='password'>Password:</label>
+            <label className='create-acct-label' htmlFor='password'>
+              Password:
+            </label>
             <input
               type='password'
-              className='create_user_control'
+              className='create-user-control'
               name='password'
               id='password'
               onChange={e => this.updatePassword(e.target.value)}
@@ -233,54 +235,55 @@ class CreateUser extends Component {
                 <p>{this.state.passwordValidationMessage}</p>
               </div>
             ) : null}
-          </div>
 
-          <div className='form-group'>
-            <label htmlFor='age'>Age:</label>
+            <label className='create-acct-label' id='age-label' htmlFor='age'>
+              Age:
+            </label>
             <input
               type='text'
-              className='create_user_control'
+              className='create-user-control'
               name='age'
               id='age'
               onChange={e => this.updateAge(e.target.value)}
             />
-          </div>
 
-          <div className='form-group'>
-            <label htmlFor='height'>Height:</label>
+            <label className='create-acct-label' htmlFor='height'>
+              Height:
+            </label>
             <input
               type='text'
-              className='create_user_control'
+              className='create-user-control'
               name='height'
               id='height'
               onChange={e => this.updateHeight(e.target.value)}
             />
-          </div>
 
-          <div className='form-group'>
-            <label htmlFor='userweight'>Weight:</label>
+            <label className='create-acct-label' htmlFor='userweight'>
+              Weight:
+            </label>
             <input
               type='text'
-              className='create_user_control'
+              className='create-user-control'
               name='userweight'
               id='userweight'
               onChange={e => this.updateWeight(e.target.value)}
             />
-          </div>
-          {!this.state.generalValid ? (
-            <div>
-              <p>{this.state.generalValidationMessage}</p>
-            </div>
-          ) : null}
 
-          <div className='create_user_button_group'>
-            <Link to={"/"}>
-              <button type='reset' className='create_user_button'>
+            {!this.state.generalValid ? (
+              <div>
+                <p>{this.state.generalValidationMessage}</p>
+              </div>
+            ) : null}
+          </section>
+
+          <div className='create-user-btn-ctn'>
+            <Link to={"/"} className='create-user-cancel-btn'>
+              <button type='reset' className='create-user-cancel-btn btn'>
                 Cancel Order
               </button>
             </Link>
 
-            <button type='submit' className='create_user_button'>
+            <button type='submit' className='create-user-submit-btn btn'>
               Toss in the Oven
             </button>
           </div>
