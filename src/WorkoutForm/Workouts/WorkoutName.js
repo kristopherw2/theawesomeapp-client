@@ -55,30 +55,33 @@ class WorkoutName extends Component {
 
   render() {
     return (
-      <div>
-        <form
-          className='workout-form name'
-          onSubmit={e => this.handlePostToWorkout(e)}
-        >
-          <label className='workout-form-label' htmlFor='username'>
-            Workout Name
-          </label>
-          <input
-            type='text'
-            className='workout-form-input name'
-            onChange={e => this.workoutnameChange(e.target.value)}
-          />
-          <section className='workout-btn-ctn'>
-            <button type='submit' className='submit-btn btn'>
-              Submit
-            </button>
+        <div>
+            <form
+                className="workout-form name"
+                onSubmit={e => this.handlePostToWorkout(e)}
+            >
+                <label className="workout-form-label" htmlFor="username">
+                    Workout Name
+                </label>
+                <input
+                    type="text"
+                    id="username"
+                    className="workout-form-input name"
+                    onChange={e => this.workoutnameChange(e.target.value)}
+                    required
+                />
 
-            <Link to={"/homepage"} id='btn'>
-              <button className='cancel-btn btn'>Cancel</button>
-            </Link>
-          </section>
-        </form>
-      </div>
+                <section className="workout-btn-ctn">
+                    <button type="submit" className="submit-btn btn">
+                        Submit
+                    </button>
+
+                    <Link to={"/homepage"} id="btn">
+                        <button className="cancel-btn btn">Cancel</button>
+                    </Link>
+                </section>
+            </form>
+        </div>
     );
   }
 }

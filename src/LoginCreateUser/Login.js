@@ -162,7 +162,7 @@ class Login extends Component {
             </div>
 
             <div className='login-form-pwd-input'>
-              <section id='input-box'>
+              <section id='input-box1'>
                 <input
                   required
                   className='login-form-pwd-input'

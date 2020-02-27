@@ -40,6 +40,7 @@ class ShowerUserStats extends Component {
 
   render() {
     return (
+      <>
       <ul>
         <li>
           <span className='usr-stats-txt'>Username:</span>{" "}
@@ -55,13 +56,14 @@ class ShowerUserStats extends Component {
           <span className='usr-stats-txt'>Weight:</span>{" "}
           {this.context.userweight}
         </li>
-        <button
+      </ul>
+      <button
           className='upd-weight-btn btn'
           onClick={() => this.swithUserStatsDisplay()}
         >
           Update Weight
         </button>
-      </ul>
+        </>
     );
   }
 }

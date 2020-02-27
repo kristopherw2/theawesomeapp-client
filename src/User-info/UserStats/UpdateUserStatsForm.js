@@ -90,24 +90,31 @@ class UpdateUserStatsForm extends Component {
 
   render() {
     return (
-      <ul>
-        <li>Username: {this.context.username}</li>
-        <li>Age: {this.context.age}</li>
-        <li>Height: {this.context.height}</li>
-        <li>
-          Weight:{" "}
-          <input
-            type='text'
-            onChange={e => this.updateUserWeight(e.target.value)}
-          />
-        </li>
-        <button
-          className='upd-weight-btn btn'
-          onClick={() => this.handleUserWeightUpdate()}
-        >
-          Submit Weight
-        </button>
-      </ul>
+        <>
+            <ul>
+                <li>Username: {this.context.username}</li>
+                <li>Age: {this.context.age}</li>
+                <li>Height: {this.context.height}</li>
+                <li>
+                    <label htmlFor="weight">Weight: </label>
+                    <input
+                        id="weight"
+                        type="text"
+                        required
+                        onChange={e => this.updateUserWeight(e.target.value)}
+                    />
+                </li>
+                <li>
+                    {" "}
+                    <button
+                        className="upd-weight-btn btn"
+                        onClick={() => this.handleUserWeightUpdate()}
+                    >
+                        Submit Weight
+                    </button>
+                </li>
+            </ul>
+        </>
     );
   }
 }
