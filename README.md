@@ -8,7 +8,7 @@ Fitness Pizza will tell you, based off your calories burned, how many slices you
 
 ## Live App
 
-## Screens
+## Screenshots
 
 ## Built With
 
