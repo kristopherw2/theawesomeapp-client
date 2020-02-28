@@ -15,7 +15,7 @@ class UpdateUserStatsForm extends Component {
   static contextType = UserContext;
 
   componentDidMount() {
-    const url = `http://localhost:8000/api/users/userstats`;
+    const url = `https://sheltered-mesa-92095.herokuapp.com/api/users/userstats`;
     const options = {
       method: "get",
       headers: {
@@ -52,7 +52,7 @@ class UpdateUserStatsForm extends Component {
   };
 
   handleUserWeightUpdate = () => {
-    const url = `http://localhost:8000/api/users/userstats`;
+    const url = `https://sheltered-mesa-92095.herokuapp.com/api/users/userstats`;
 
     const updatedUserStats = {
       userweight: this.state.userweight,

@@ -22,7 +22,7 @@ class CreatedExercises extends Component {
                 ? newExercisesArray.push(item)
                 : null;
         });
-        const url = `http://localhost:8000/api/exercises/${exerciseid}`;
+        const url = `https://sheltered-mesa-92095.herokuapp.com/api/exercises/${exerciseid}`;
         const options = {
             method: "DELETE",
             headers: {

@@ -25,7 +25,7 @@ class ExercisesList extends Component {
     const getWorkout = passedInWorkoutId.map(item => {
       return item.workoutid;
     });
-    fetch(`http://localhost:8000/api/exercises/${getWorkout}`, {
+    fetch(`https://sheltered-mesa-92095.herokuapp.com/api/exercises/${getWorkout}`, {
       headers: {
         authorization: `bearer ${TokenService.getAuthToken()}`,
       },

@@ -31,7 +31,7 @@ class ResultsDisplay extends Component {
     this.context.workoutsArray.filter(item => {
       return item.workoutid !== workoutid ? newWorkoutsArray.push(item) : null;
     });
-    const url = `http://localhost:8000/api/workouts/${workoutid}`;
+    const url = `https://sheltered-mesa-92095.herokuapp.com/api/workouts/${workoutid}`;
     const options = {
       method: "DELETE",
       headers: {
