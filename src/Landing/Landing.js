@@ -56,12 +56,12 @@ class Landing extends Component {
           <h3 id='usr-pwd' className='demo-sct-username'>
             Username:
           </h3>
-          <span className='demo-sct-username-usr'>demoUser</span>
+          <span className='demo-sct-username-usr'>Pizzafan</span>
 
           <h3 id='usr-pwd1' className='demo-sct-password'>
             Password:
           </h3>
-          <span className='demo-sct-password-pwd'>demo1234</span>
+          <span className='demo-sct-password-pwd'>cowabunga1</span>
         </section>
 
         <section className='landing-btn-ctn'>

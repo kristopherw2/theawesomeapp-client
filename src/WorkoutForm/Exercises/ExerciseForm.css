@@ -37,10 +37,6 @@
     flex-wrap: wrap;
   }
 
-  /* .exercise-form-main {
-    font-size: 9vw;
-  } */
-
   .exercise-btn-ctn {
     justify-content: center;
   }
@@ -60,8 +56,4 @@
   .exercise-form-label {
     font-size: 5vw;
   }
-
-  /* .exercise-form-input {
-    font-size: 0.99vw;
-  } */
 }
