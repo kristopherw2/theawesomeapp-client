@@ -5,36 +5,48 @@
   border: 0;
 }
 
-.login {
-  padding-top: 20px;
-  padding-bottom: 200px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  border-bottom: 1px solid red;
-  margin-bottom: 1.5px;
+@media only screen and (min-width: 320px) {
+  .login-banner {
+    padding: 5px;
+    font-size: 11vw;
+  }
+
+  .login-form {
+    margin: 10px;
+    padding-top: 25px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .login-btn-ctn {
+    margin: 12px;
+    padding: 15px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  form {
+    margin: 10px;
+  }
 }
 
-.title {
-  font-size: 75px;
+@media only screen and (min-width: 768px) {
+  .login-btn-ctn {
+    margin: 12px;
+    padding: 15px;
+    display: flex;
+    flex-direction: row;
+  }
+
+  .login-label {
+    font-size: 7vw;
+  }
 }
 
-.form {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  align-items: center;
-  font-family: "Bangers", cursive;
-  font-size: 30px;
-}
-
-button {
-  margin-top: 10px;
-  padding: 5px;
-  border: 1px solid black;
-}
-
-input {
-  border: 1px solid black;
+@media only screen and (min-width: 1024px) {
+  .login-form {
+    margin: 0;
+  }
 }

@@ -1,7 +1,6 @@
 import React from "react";
 import "./WorkoutForm.css";
 import {Component} from "react";
-/* import {Link} from "react-router-dom"; */
 import WorkoutName from "./WorkoutName";
 import UserContext from "../../UserContext";
 import ExcerciseForm from "../Exercises/ExerciseForm";
@@ -27,8 +26,8 @@ class WorkoutForm extends Component {
     );
 
     return (
-      <div className='workout_info'>
-        <h3 className='title'>Enter Workout Info</h3>
+      <div className='workout-info'>
+        <h3 className='workout-info-title'>Enter Workout Info</h3>
         {renderForms}
       </div>
     );

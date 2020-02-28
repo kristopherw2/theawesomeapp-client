@@ -7,20 +7,98 @@
   margin: 0;
   padding: 0;
   border: 0;
+  font-family: "Neuton", serif;
 }
 
-h1,
+/* h1,
 h2,
 h3,
 h4 {
   font-family: "Bangers", cursive;
+} */
+
+.app{
+  position: relative;
+  min-height: 100vh;
 }
 
-p {
-  padding-left: 10%;
-  padding-right: 10%;
+input {
+  border: 1px solid black;
 }
 
-header {
-  padding: 12% 0;
+/* .btn {
+  margin-left: 2px;
+  margin-right: 2px;
+  background: linear-gradient(to bottom, #77b55a 5%, #68a34a 100%);
+  background-color: #77b55a;
+  border-radius: 4px;
+  border: 1px solid #4b8f29;
+  display: inline-block;
+  cursor: pointer;
+  color: #ffffff;
+  font-family: Arial;
+  font-size: 13px;
+  font-weight: bold;
+  padding: 6px 12px;
+  text-decoration: none;
+  text-shadow: 0px 1px 0px #5b8a3c;
+}
+.btn:hover {
+  background: linear-gradient(to bottom, #72b352 5%, #77b55a 100%);
+  background-color: #72b352;
+}
+.btn:active {
+  position: relative;
+  top: 1px;
+} */
+
+.btn {
+  margin-left: 2px;
+  margin-right: 2px;
+  background: linear-gradient(to bottom, darkgray 5%, gray 100%);
+  background-color: darkgray;
+  border-radius: 4px;
+  display: inline-block;
+  cursor: pointer;
+  color: #ffffff;
+  font-family: Arial;
+  font-weight: bold;
+  padding: 6px 12px;
+  text-decoration: none;
+}
+.btn:hover {
+  background: linear-gradient(to bottom, gray 5%, darkgray 100%);
+  background-color: gray;
+}
+.btn:active {
+  position: relative;
+  top: 1px;
+} 
+
+@media only screen and (min-width: 320px) {
+  main{
+    padding-bottom: 2rem;
+  }
+
+  .btn{
+    padding: 5px 11px;
+    font-size: 3vw;
+  } 
+}
+
+@media only screen and (min-width: 768px) {
+  .app{
+    min-height: 98vh;
+  }
+  .btn{
+    padding: 6px 12px;
+    font-size: 2vw;
+  } 
+}
+
+@media only screen and (min-width: 1024px) {
+  .btn{
+    /* padding: 6px 12px; */
+    font-size: 1.25vw;
+  } 
 }

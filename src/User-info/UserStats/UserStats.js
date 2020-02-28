@@ -20,34 +20,6 @@ class UserStats extends Component {
   }
   static contextType = UserContext;
 
-  componentDidMount() {
-    const url = `https://sheltered-mesa-92095.herokuapp.com/api/users/${this.context.id}`;
-
-    fetch(url)
-      .then(res => {
-        if (!res.ok) {
-          throw new Error("Oh, Mamma Mia! There seems to be a problem.");
-        }
-        return res;
-      })
-      .then(res => res.json())
-      .then(data => {
-        this.setState({
-          id: data.id,
-          username: data.username,
-          age: data.age,
-          height: data.height,
-          userweight: data.userweight,
-        });
-        this.context.handleUserStatsUpdate(data);
-      })
-      .catch(err => {
-        this.setState({
-          error: err.message,
-        });
-      });
-  }
-
   handleUserUpdate = () => {
     this.setState({
       showUpdateStatsForm: !this.state.showUpdateStatsForm,

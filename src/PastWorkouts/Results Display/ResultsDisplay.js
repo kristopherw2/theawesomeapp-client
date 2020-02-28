@@ -1,8 +1,9 @@
 import React from "react";
 import "./ResultsDisplay.css";
-import {Redirect} from "react-router-dom";
+import {Redirect, withRouter} from "react-router-dom";
 import {Component} from "react";
 import UserContext from "../../UserContext";
+import TokenService from "../../services/token-service";
 
 class ResultsDisplay extends Component {
   constructor(props) {
@@ -21,10 +22,8 @@ class ResultsDisplay extends Component {
     this.context.workoutsArray.filter(item => {
       return item.workoutid === workoutid ? workoutIdArray.push(item) : null;
     });
-    this.setState({
-      redirect: "/excerciselist",
-      workoutIdArray: workoutIdArray,
-    });
+    this.props.history.push("/exerciselist");
+    this.context.handleWorkoutIdArrayUpdate(workoutIdArray);
   };
 
   handleDelete = workoutid => {
@@ -32,9 +31,13 @@ class ResultsDisplay extends Component {
     this.context.workoutsArray.filter(item => {
       return item.workoutid !== workoutid ? newWorkoutsArray.push(item) : null;
     });
-    const url = `https://sheltered-mesa-92095.herokuapp.com/api/workouts/${workoutid}`;
+    const url = `http://localhost:8000/api/workouts/${workoutid}`;
     const options = {
       method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+        authorization: `bearer ${TokenService.getAuthToken()}`,
+      },
     };
 
     fetch(url, options)
@@ -68,21 +71,29 @@ class ResultsDisplay extends Component {
 
     const newDisplay = this.context.workoutsArray;
 
-    const thisNewVariable = newDisplay.map((item, index) => {
-      return (
-        <div key={index} className={`resultsList ${item.workoutid}`}>
-          <span onClick={() => this.handleRedirect(item.workoutid)}>
-            {item.workoutname}
-          </span>
+    const thisNewVariable = newDisplay
+      .map((item, index) => {
+        return (
+          <div key={index} className={`results-list ${item.workoutid}`}>
+            <span
+              className='workout-name'
+              onClick={() => this.handleRedirect(item.workoutid)}
+            >
+              {item.workoutname}
+            </span>
 
-          <button onClick={() => this.handleDelete(item.workoutid)}>
-            Delete
-          </button>
-        </div>
-      );
-    });
+            <button
+              className='delete-btn btn'
+              onClick={() => this.handleDelete(item.workoutid)}
+            >
+              Delete
+            </button>
+          </div>
+        );
+      })
+      .reverse();
 
-    return <div className='results-container'>{thisNewVariable}</div>;
+    return <div className='results-ctn'>{thisNewVariable}</div>;
   }
 }
-export default ResultsDisplay;
+export default withRouter(ResultsDisplay);

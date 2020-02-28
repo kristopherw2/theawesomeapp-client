@@ -2,6 +2,7 @@ import React from "react";
 import "./UserStats.css";
 import {Component} from "react";
 import UserContext from "../../UserContext";
+import TokenService from "../../services/token-service";
 
 class UpdateUserStatsForm extends Component {
   constructor() {
@@ -14,8 +15,15 @@ class UpdateUserStatsForm extends Component {
   static contextType = UserContext;
 
   componentDidMount() {
-    const url = `https://sheltered-mesa-92095.herokuapp.com/api/users/${this.context.id}`;
-    fetch(url)
+    const url = `http://localhost:8000/api/users/userstats`;
+    const options = {
+      method: "get",
+      headers: {
+        "Content-Type": "application/json",
+        authorization: `bearer ${TokenService.getAuthToken()}`,
+      },
+    };
+    fetch(url, options)
       .then(res => {
         if (!res.ok) {
           throw new Error("Oh, Mamma Mia! There seems to be a problem.");
@@ -24,13 +32,6 @@ class UpdateUserStatsForm extends Component {
       })
       .then(res => res.json())
       .then(data => {
-        this.setState({
-          id: data.id,
-          username: data.username,
-          age: data.age,
-          height: data.height,
-          userweight: data.userweight,
-        });
         this.context.handleUserStatsUpdate(data);
       })
       .catch(err => {
@@ -51,11 +52,9 @@ class UpdateUserStatsForm extends Component {
   };
 
   handleUserWeightUpdate = () => {
-    const url = `https://sheltered-mesa-92095.herokuapp.com/api/users/${this.context.id}`;
+    const url = `http://localhost:8000/api/users/userstats`;
 
     const updatedUserStats = {
-      id: this.context.id,
-      username: this.context.username,
       userweight: this.state.userweight,
     };
 
@@ -64,6 +63,7 @@ class UpdateUserStatsForm extends Component {
       body: JSON.stringify(updatedUserStats),
       headers: {
         "Content-Type": "application/json",
+        authorization: `bearer ${TokenService.getAuthToken()}`,
       },
     };
 
@@ -90,21 +90,31 @@ class UpdateUserStatsForm extends Component {
 
   render() {
     return (
-      <ul>
-        <li>Username: {this.state.username}</li>
-        <li>Age: {this.state.age}</li>
-        <li>Height: {this.state.height}</li>
-        <li>
-          Weight:{" "}
-          <input
-            type='text'
-            onChange={e => this.updateUserWeight(e.target.value)}
-          />
-        </li>
-        <button onClick={() => this.handleUserWeightUpdate()}>
-          Submit Weight
-        </button>
-      </ul>
+        <>
+            <ul>
+                <li>Username: {this.context.username}</li>
+                <li>Age: {this.context.age}</li>
+                <li>Height: {this.context.height}</li>
+                <li>
+                    <label htmlFor="weight">Weight: </label>
+                    <input
+                        id="weight"
+                        type="text"
+                        required
+                        onChange={e => this.updateUserWeight(e.target.value)}
+                    />
+                </li>
+                <li>
+                    {" "}
+                    <button
+                        className="upd-weight-btn btn"
+                        onClick={() => this.handleUserWeightUpdate()}
+                    >
+                        Submit Weight
+                    </button>
+                </li>
+            </ul>
+        </>
     );
   }
 }

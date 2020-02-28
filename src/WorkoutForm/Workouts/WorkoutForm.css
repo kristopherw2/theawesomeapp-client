@@ -5,36 +5,31 @@
   border: 0;
 }
 
-.workout_info {
-  padding-top: 20px;
-  padding-bottom: 40px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  border-bottom: 1px solid red;
-  margin-bottom: 1.5px;
+@media only screen and (min-width: 320px) {
+  .workout-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 8%;
+  }
+
+  .workout-info-title {
+    font-size: 8vw;
+  }
 }
 
-.title {
-  font-size: 65px;
+@media only screen and (min-width: 768px) {
+  .workout-info {
+    margin: 2%;
+  }
 }
 
-.workout_form {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  align-items: center;
-  font-family: "Bangers", cursive;
-  font-size: 25px;
-}
+@media only screen and (min-width: 1024px) {
+  .workout-info {
+    margin: auto;
+  }
 
-button {
-  margin-top: 10px;
-  padding: 5px;
-  border: 1px solid black;
-}
-
-input {
-  border: 1px solid black;
+  .workout-info-title {
+    font-size: 5vw;
+  }
 }

@@ -1,54 +1,76 @@
 import React from "react";
 import "./Landing.css";
+import "../Components/Footer/Footer.css";
 import {Component} from "react";
 import {Link} from "react-router-dom";
+import TokenService from "../services/token-service";
 
 class Landing extends Component {
+  componentDidMount() {
+    if (TokenService.hasAuthToken()) {
+      this.props.history.push("/homepage");
+    }
+  }
   render() {
     return (
-      <div className='Landing'>
-        <section className='body'>
-          <p>
-            Since the dawn of time pizza and fitness have been at odds. Pizza,
+      <div className='landing'>
+        <section className='body-ctn body'>
+          <span className='body-sct-one body'>
+            Since the dawn of time pizza and fitness have been at odds. Pizza:
             with its heavy amount of grease, bread, cheese, and fat. While
             fitness on the other hand...well honestly if we have to explain it’s
-            benefits then it may be time to go back to grade school gym class.
+            benefits then it's time to go back to grade school gym class.
+          </span>
+
+          <span className='body-sct-two body'>
             No matter your education level Fitness Pizza aims to join these now
-            former adversaries together to help you slide your way into better
-            health. It’s simple, really! Tell Fitness pizza how hard, or soft,
-            you trained that day. It then bakes all that data into a tangible,
+            former adversaries together to help you slice your way into better
+            health.
+          </span>
+
+          <span className='body-sct-three body'>
+            It’s simple, really! Tell Fitness pizza how hard, or soft, you
+            trained that day. It then bakes all that data into a tangible,
             understandable, result:
-          </p>
+          </span>
 
-          <p id='cowabunga'>Slices of delicious pizza</p>
+          <span className='body-sct-four body' id='cowabunga'>
+            Slices of delicious pizza!
+          </span>
 
-          <p>
+          <span className='body-sct-five body'>
             Ok, not actually real pizza, but it will tell you, based off your
-            calories burned, how many slices you burned off that body of yours.
-            Giving you the power to know, for sure, if you really did earn that
-            coveted cheat meal.
-          </p>
+            calories burned, how many slices you burned off that beautiful body
+            of yours. Giving you the power to know, for sure, if you really did
+            earn that coveted cheat meal.
+          </span>
 
-          <p>
+          <span className='body-sct-six body'>
             Because, c’mon, isn’t that really all you want to know from a
             fitness tracker?
-          </p>
-          <h3>Demo Login:</h3>
-          <h4>Username: <p>demoUser</p></h4>
-          <h4>Password: <p>demo1234</p></h4>
+          </span>
         </section>
 
-        <section className='btn-ctn'>
-          <Link to={"/login"}>
-            <button className='btn' id='login'>
-              Login
-            </button>
+        <section className='demo-sct-ctn dmo'>
+          <h2 className='demo-sct-title'>Demo Login</h2>
+          <h3 id='usr-pwd' className='demo-sct-username'>
+            Username:
+          </h3>
+          <span className='demo-sct-username-usr'>demoUser</span>
+
+          <h3 id='usr-pwd1' className='demo-sct-password'>
+            Password:
+          </h3>
+          <span className='demo-sct-password-pwd'>demo1234</span>
+        </section>
+
+        <section className='landing-btn-ctn'>
+          <Link to={"/login"} className='landing-btn-ctn-login'>
+            <button className='landing-btn-ctn-login btn'>Login</button>
           </Link>
 
-          <Link to={"/createuser"}>
-            <button className='btn' id='createuser'>
-              Create User
-            </button>
+          <Link to={"/createuser"} className='landing-btn-ctn-create'>
+            <button className='landing-btn-ctn-create btn'>Register</button>
           </Link>
         </section>
       </div>

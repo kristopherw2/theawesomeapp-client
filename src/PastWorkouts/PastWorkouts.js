@@ -2,6 +2,8 @@ import React from "react";
 import {Component} from "react";
 import ResultsDisplay from "./Results Display/ResultsDisplay";
 import UserContext from "../UserContext";
+import TokenService from "../services/token-service";
+import "./PastWorkouts.css";
 
 class PastWorkouts extends Component {
   constructor(props) {
@@ -14,9 +16,16 @@ class PastWorkouts extends Component {
   static contextType = UserContext;
 
   componentDidMount() {
-    const url = `https://sheltered-mesa-92095.herokuapp.com/api/workouts/user/${this.context.id}`;
+    const url = `http://localhost:8000/api/workouts/user`;
+    const options = {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        authorization: `bearer ${TokenService.getAuthToken()}`,
+      },
+    };
 
-    fetch(url)
+    fetch(url, options)
       .then(res => {
         if (!res.ok) {
           throw new Error("Oh, Mamma Mia! There seems to be a problem.");
@@ -25,10 +34,10 @@ class PastWorkouts extends Component {
       })
       .then(res => res.json())
       .then(data => {
-        this.context.handleWorkoutsArrayUpdate(data)
+        this.context.handleWorkoutsArrayUpdate(data);
         this.setState({
-          workouts: data
-        })
+          workouts: data,
+        });
       })
       .catch(err => {
         this.setState({
@@ -39,8 +48,7 @@ class PastWorkouts extends Component {
 
   render() {
     return (
-      <div>
-        <h2>Previous Workouts</h2>
+      <div className='previous-workouts'>
         <ResultsDisplay />
       </div>
     );

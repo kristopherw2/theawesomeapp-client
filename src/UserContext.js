@@ -1,17 +1,13 @@
 import React from "react";
 
 const UserContext = React.createContext({
-  id: "",
   username: "",
-  age: "",
-  height: "",
   userweight: "",
   workoutid: "",
-  userid: "",
-  workoutname: "",
   showWorkoutForm: "",
   workoutsArray: [],
   exercisesArray: [],
+  workoutIdArray: [],
   exercisename: "",
   sets: "",
   repetitions: "",
@@ -26,6 +22,8 @@ const UserContext = React.createContext({
   handDeleteExercise: () => {},
   handleResetWorkoutForm: () => {},
   handleUserWeightUpdate: () => {},
+  handleWorkoutIdArrayUpdate: () => {},
+  handleLogOut: () => {},
 });
 
 export default UserContext;

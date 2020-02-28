@@ -1,9 +1,12 @@
 import React from "react";
 import "./Login.css";
+import "../Components/Footer/Footer.css";
 import {Component} from "react";
 import {Link} from "react-router-dom";
-import {Redirect} from "react-router-dom";
+//import {Redirect} from "react-router-dom";
+import TokenService from "../services/token-service";
 import UserContext from "../UserContext";
+import {withRouter} from "react-router-dom";
 
 class Login extends Component {
   constructor(props) {
@@ -16,11 +19,19 @@ class Login extends Component {
       passwordValidationMessage: "",
       idValid: true,
       passwordValid: true,
-      redirect: null,
+      //redirect: null,
     };
   }
 
   static contextType = UserContext;
+
+  handleSubmitBasicAuth = ev => {
+    ev.preventDefault();
+    const {username, password} = ev.target;
+    TokenService.saveAuthToken(
+      TokenService.makeBasicAuthToken(username.value, password.value)
+    );
+  };
 
   updateUsername(username) {
     this.setState({username: username});
@@ -30,66 +41,36 @@ class Login extends Component {
     this.setState({password: password});
   }
 
-  validateLogin = event => {
+  handleSubmitJwtAuth = event => {
     event.preventDefault();
-    if (this.state.username === "") {
+    const {username, password} = event.target;
+    event.preventDefault();
+    if (username.value === "") {
       this.setState({
         usernameValidationMessage: "Username can not be blank",
         idValid: false,
       });
-    } else if (this.state.password === "") {
+    } else if (password.value === "") {
       this.setState({
         passwordValidationMessage: "Password is required",
         passwordValid: false,
       });
-    } else if (
-      this.state.password.length < 8 ||
-      this.state.password.length > 36
-    ) {
-      this.setState({
-        passwordValidationMessage:
-          "Password must be between 8 and 36 characters",
-        passwordValid: false,
-      });
-    } else if (
-      this.state.password.startsWith(" ") ||
-      this.state.password.endsWith(" ")
-    ) {
-      this.setState({
-        passwordValidationMessage: "Password Must not start or end with spaces",
-        passwordValid: false,
-      });
-    } else if (
-      !this.state.password.match(/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/)
-    ) {
-      this.setState({
-        passwordValidationMessage:
-          "Password must contain letters and at least one digit",
-        passwordValid: false,
-      });
     } else {
-      this.setState(
-        {
-          usernameValidationMessage: "",
-          passwordValidationMessage: "",
-          idValid: true,
-          passwordValid: true,
-        },
-        () => {
-          this.handleSubmit();
-        }
-      );
+      this.setState({
+        usernameValidationMessage: "",
+        passwordValidationMessage: "",
+        idValid: true,
+        passwordValid: true,
+      });
     }
-  };
-
-  handleSubmit() {
-    const {username, password} = this.state;
-    const newUser = {username, password};
     //TODO: Will need to change url to live server
-    const url = "https://sheltered-mesa-92095.herokuapp.com/api/users/login";
+    const url = "http://localhost:8000/api/users/login";
     const options = {
       method: "POST",
-      body: JSON.stringify(newUser),
+      body: JSON.stringify({
+        username: username.value,
+        password: password.value,
+      }),
       headers: {
         "Content-Type": "application/json",
       },
@@ -106,20 +87,18 @@ class Login extends Component {
         if (data.error) {
           throw new Error(`${data.error.message}`);
         }
-        this.context.handleUserLogin(data);
+        TokenService.saveAuthToken(data.authToken);
         this.setState({
-          username: this.updateUsername(username),
-          password: this.updatePassword(password),
           error: null,
-          redirect: "/homepage",
         });
+        this.props.history.push("/homepage");
       })
       .catch(err => {
         this.setState({
           error: err.message,
         });
       });
-  }
+  };
 
   usernameChange = letter => {
     this.setState({username: letter});
@@ -130,9 +109,9 @@ class Login extends Component {
   };
 
   render() {
-    if (this.state.redirect) {
+   /*  if (this.state.redirect) {
       return <Redirect to={this.state.redirect} />;
-    }
+    } */
 
     const serverErrorMessage = this.state.error ? (
       <div className='create_user__error'>{this.state.error}</div>
@@ -141,58 +120,80 @@ class Login extends Component {
     );
 
     return (
-      <div className='login'>
-        <h3 className='title'>Login</h3>
+      <div className='login-form'>
+        <h3 className='login-banner'>Login</h3>
         {serverErrorMessage}
-        <form
-          className='login-form'
-          onSubmit={event => this.validateLogin(event)}
-        >
-          <div className='form-group'>
-            <label htmlFor='username'>Username:</label>
-            <input
-              type='text'
-              className='create_user_control'
-              name='username'
-              id='username'
-              onChange={e => this.updateUsername(e.target.value)}
-            />
-            {!this.state.idValid ? (
-              <div>
-                <p>{this.state.usernameValidationMessage}</p>
-              </div>
-            ) : null}
-          </div>
 
-          <div className='form-group'>
-            <label htmlFor='password'>Password:</label>
-            <input
-              type='password'
-              className='create_user_control'
-              name='password'
-              id='password'
-              onChange={e => this.updatePassword(e.target.value)}
-            />
-            {!this.state.passwordValid ? (
-              <div>
-                <p>{this.state.passwordValidationMessage}</p>
-              </div>
-            ) : null}
-          </div>
+        <form onSubmit={event => this.handleSubmitJwtAuth(event)}>
+          <section className='login-form-ctn'>
+            <div className='login-form-usr usr-pwd'>
+              <section>
+                <label className='login-label' htmlFor='username'>
+                  Username:
+                </label>
+              </section>
+            </div>
 
-          <Link to={"/"}>
-            <button type='reset' className='create_user_button'>
-              Cancel Order
+            <div className='login-form-usr-input'>
+              <section id='input-box'>
+                <input
+                  required
+                  className='login-form-usr-input'
+                  type='text'
+                  name='username'
+                  id='username'
+                />
+
+                {!this.state.idValid ? (
+                  <div>
+                    <p>{this.state.usernameValidationMessage}</p>
+                  </div>
+                ) : null}
+              </section>
+            </div>
+
+            <div className='login-form-pwd usr-pwd'>
+              <section>
+                <label className='login-label' htmlFor='password'>
+                  Password:
+                </label>
+              </section>
+            </div>
+
+            <div className='login-form-pwd-input'>
+              <section id='input-box1'>
+                <input
+                  required
+                  className='login-form-pwd-input'
+                  type='password'
+                  name='password'
+                  id='password'
+                />
+
+                {!this.state.passwordValid ? (
+                  <div>
+                    <p>{this.state.passwordValidationMessage}</p>
+                  </div>
+                ) : null}
+              </section>
+            </div>
+          </section>
+
+          <section className='login-btn-ctn'>
+            <button type='submit' className='login-btn-login btn'>
+              Login
             </button>
-          </Link>
 
-          <button type='submit' className='create_user_button'>
-            Login
-          </button>
+            <Link to={"/"} className='login-btn-cancel-link btn'>
+              <button type='reset' className='login-btn-cancel btn'>
+                Cancel Order
+              </button>
+            </Link>
+          </section>
         </form>
       </div>
     );
   }
 }
 
-export default Login;
+export default withRouter(Login);
