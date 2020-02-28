@@ -8,7 +8,27 @@ Fitness Pizza will tell you, based off your calories burned, how many slices you
 
 ## Live App
 
+[https://fitness-pizza-client.now.sh/](https://fitness-pizza-client.now.sh/)
+
 ## Screenshots
+
+### Landing Page
+![Landing Page](assets/LandPage.PNG)
+
+### Login
+![Login Page](assets/LoginPage.PNG)
+
+### Registration
+![Registration Page](assets/Registration.PNG)
+
+### User Information
+![User Information](assets/UserInformation.PNG)
+
+### Create Workout
+![Create Workout](assets/CreateWorkout.PNG)
+
+### Exercise Creation
+![Exercise Creation](assets/ExerciseCreation.PNG)
 
 ## Built With
 
