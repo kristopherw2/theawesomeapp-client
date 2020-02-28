@@ -2,6 +2,7 @@ import React from "react";
 import { Component } from "react";
 import UserContext from "../../UserContext";
 import TokenService from "../../services/token-service";
+import uuid from 'react-uuid'
 
 class CreatedExercises extends Component {
     constructor(props) {
@@ -59,34 +60,34 @@ class CreatedExercises extends Component {
             return (
                 <>
                     <ul className="exercise-list">
-                        <li key={item.exercisename}>
+                        <li key={uuid()}>
                             {" "}
                             <span className="exercise-list-label">
                                 Name:
                             </span>{" "}
                             {item.exercisename}
                         </li>
-                        <li key={item.sets}>
+                        <li key={uuid()}>
                             <span className="exercise-list-label">Sets:</span>{" "}
                             {item.sets}
                         </li>
-                        <li key={item.exerciseweight}>
+                        <li key={uuid()}>
                             <span className="exercise-list-label">
                                 Weight lbs:
                             </span>{" "}
                             {item.exerciseweight} total
                         </li>
-                        <li key={item.time}>
+                        <li key={uuid()}>
                             <span className="exercise-list-label">Time:</span>{" "}
                             {item.time} seconds
                         </li>
-                        <li key={item.caloriesburned}>
+                        <li key={uuid()}>
                             <span className="exercise-list-label">
                                 Calories:
                             </span>{" "}
                             {item.caloriesburned}
                         </li>
-                        <li key={index}>
+                        <li key={uuid()}>
                             <button
                                 className="delete-btn btn"
                                 onClick={() =>
