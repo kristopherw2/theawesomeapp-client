@@ -3,7 +3,7 @@ import "./Login.css";
 import "../Components/Footer/Footer.css";
 import {Component} from "react";
 import {Link} from "react-router-dom";
-import {Redirect} from "react-router-dom";
+//import {Redirect} from "react-router-dom";
 import TokenService from "../services/token-service";
 import UserContext from "../UserContext";
 import {withRouter} from "react-router-dom";
@@ -19,7 +19,7 @@ class Login extends Component {
       passwordValidationMessage: "",
       idValid: true,
       passwordValid: true,
-      redirect: null,
+      //redirect: null,
     };
   }
 
@@ -88,7 +88,6 @@ class Login extends Component {
           throw new Error(`${data.error.message}`);
         }
         TokenService.saveAuthToken(data.authToken);
-        this.context.handleUserLogin(data);
         this.setState({
           error: null,
         });
@@ -110,9 +109,9 @@ class Login extends Component {
   };
 
   render() {
-    if (this.state.redirect) {
+   /*  if (this.state.redirect) {
       return <Redirect to={this.state.redirect} />;
-    }
+    } */
 
     const serverErrorMessage = this.state.error ? (
       <div className='create_user__error'>{this.state.error}</div>

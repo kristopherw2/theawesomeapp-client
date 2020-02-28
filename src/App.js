@@ -26,7 +26,7 @@ class App extends Component {
       height: "",
       userweight: "",
       workoutid: "",
-      workoutname: "",
+      //workoutname: "",
       showWorkoutForm: true,
       workoutsArray: [],
       exercisesArray: [],
@@ -37,7 +37,6 @@ class App extends Component {
       exerciseweight: "",
       time: "",
       caloriesburned: "",
-      token: null,
     };
   }
   /* MOVE METHODS INTO STATE TO CLEAN CONTEXT */
@@ -59,12 +58,6 @@ class App extends Component {
   handleUserWeightUpdate = weight => {
     this.setState({
       userweight: weight.userweight,
-    });
-  };
-
-  handleUserLogin = token => {
-    this.setState({
-      token: true,
     });
   };
 
@@ -111,53 +104,59 @@ class App extends Component {
 
   render() {
     return (
-      <UserContext.Provider
-        value={{
-          id: this.state.id,
-          username: this.state.username,
-          age: this.state.age,
-          height: this.state.height,
-          userweight: this.state.userweight,
-          workoutid: this.state.workoutid,
-          handleUserLogin: this.handleUserLogin,
-          handleUserStatsUpdate: this.handUserStatsUpdate,
-          handleCreateWorkout: this.handleCreateWorkout,
-          showWorkoutForm: this.state.showWorkoutForm,
-          workoutsArray: this.state.workoutsArray,
-          exercisesArray: this.state.exercisesArray,
-          handleWorkoutsArrayUpdate: this.handleWorkoutsArrayUpdate,
-          exercisename: this.state.exercisename,
-          sets: this.state.sets,
-          repetitions: this.state.repetitions,
-          exerciseweight: this.state.exerciseweight,
-          time: this.state.time,
-          caloriesburned: this.state.caloriesburned,
-          handleExercisesArrayUpdate: this.handleExercisesArrayUpdate,
-          handleDeleteExercise: this.handleDeleteExercise,
-          handleResetWorkoutForm: this.handleResetWorkoutForm,
-          handleUserWeightUpdate: this.handleUserWeightUpdate,
-          workoutIdArray: this.state.workoutIdArray,
-          handleWorkoutIdArrayUpdate: this.handleWorkoutIdArrayUpdate,
-          handleLogOut: this.handleLogOut,
-          token: this.state.token,
-        }}
-      >
-        <div className='app'>
-          <main>
-            <Nav />
-            <Switch>
-              <Route exact path={"/"} component={Landing} />
-              <PublicOnlyRoute path={"/login"} component={Login} />
-              <PublicOnlyRoute path={"/createuser"} component={CreateUser} />
-              <PrivateRoute path={"/homepage"} component={UserInfo} />
-              <PrivateRoute path={"/workoutform"} component={WorkoutForm} />
-              <PrivateRoute path={"/exerciselist"} component={ExercisesList} />
-              <Route component={PageNotFound} />
-            </Switch>
-            <Footer />
-          </main>
-        </div>
-      </UserContext.Provider>
+        <UserContext.Provider
+            value={{
+                username: this.state.username,
+                age: this.state.age,
+                height: this.state.height,
+                userweight: this.state.userweight,
+                workoutid: this.state.workoutid,
+                showWorkoutForm: this.state.showWorkoutForm,
+                workoutsArray: this.state.workoutsArray,
+                workoutIdArray: this.state.workoutIdArray,
+                exercisesArray: this.state.exercisesArray,
+                exercisename: this.state.exercisename,
+                sets: this.state.sets,
+                repetitions: this.state.repetitions,
+                exerciseweight: this.state.exerciseweight,
+                time: this.state.time,
+                caloriesburned: this.state.caloriesburned,
+                handleExercisesArrayUpdate: this.handleExercisesArrayUpdate,
+                handleDeleteExercise: this.handleDeleteExercise,
+                handleResetWorkoutForm: this.handleResetWorkoutForm,
+                handleUserWeightUpdate: this.handleUserWeightUpdate,
+                handleWorkoutIdArrayUpdate: this.handleWorkoutIdArrayUpdate,
+                handleLogOut: this.handleLogOut,
+                handleUserStatsUpdate: this.handUserStatsUpdate,
+                handleCreateWorkout: this.handleCreateWorkout,
+                handleWorkoutsArrayUpdate: this.handleWorkoutsArrayUpdate
+            }}
+        >
+            <div className="app">
+                <main>
+                    <Nav />
+                    <Switch>
+                        <Route exact path={"/"} component={Landing} />
+                        <PublicOnlyRoute path={"/login"} component={Login} />
+                        <PublicOnlyRoute
+                            path={"/createuser"}
+                            component={CreateUser}
+                        />
+                        <PrivateRoute path={"/homepage"} component={UserInfo} />
+                        <PrivateRoute
+                            path={"/workoutform"}
+                            component={WorkoutForm}
+                        />
+                        <PrivateRoute
+                            path={"/exerciselist"}
+                            component={ExercisesList}
+                        />
+                        <Route component={PageNotFound} />
+                    </Switch>
+                    <Footer />
+                </main>
+            </div>
+        </UserContext.Provider>
     );
   }
 }
