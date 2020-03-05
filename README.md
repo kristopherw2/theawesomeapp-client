@@ -10,6 +10,10 @@ Fitness Pizza will tell you, based off your calories burned, how many slices you
 
 [https://fitnesspizza.now.sh/](https://fitnesspizza.now.sh/)
 
+## Backend Repo
+
+[https://github.com/kristopherw2/fitness-pizza-server(https://github.com/kristopherw2/fitness-pizza-server)
+
 ## Screenshots
 
 ### Landing Page
