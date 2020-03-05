@@ -12,7 +12,7 @@ Fitness Pizza will tell you, based off your calories burned, how many slices you
 
 ## Backend Repo
 
-[https://github.com/kristopherw2/fitness-pizza-server(https://github.com/kristopherw2/fitness-pizza-server)
+[https://github.com/kristopherw2/fitness-pizza-server](https://github.com/kristopherw2/fitness-pizza-server)
 
 ## Screenshots
 
